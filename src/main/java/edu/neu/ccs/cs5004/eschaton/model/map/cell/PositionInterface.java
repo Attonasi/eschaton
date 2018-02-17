@@ -1,11 +1,6 @@
-package edu.neu.ccs.cs5004.map;
+package edu.neu.ccs.cs5004.eschaton.model.map.cell;
 
-import javax.swing.text.Position;
-
-import edu.neu.ccs.cs5004.map.cell.Cell;
-import edu.neu.ccs.cs5004.map.cell.CellPosition;
-
-public interface MapInterface {
+public interface PositionInterface {
 
   /** A map in the game of Eschaton is hexagonal. The grid is based off of 3 values which are all
    *  represented by Integers. The map starts from 0 0 0 or origin which is the Hexagon at the
@@ -30,13 +25,4 @@ public interface MapInterface {
    *            Clockwise 1 Cell for a value of 1 2 1. Clockwise will always have a value of 0 to
    *            Circle - 1 inclusive.
    */
-
-  /**
-   * Returns a cell at the position in the 3d array of the map.
-   * @param position Position representing which block to find the cell including block, circle
-   *                 and clockwise
-   * @return Cell at the requested location incl
-   */
-  public Cell getCellAtPosition(CellPosition position);
-
 }

@@ -1,7 +1,7 @@
-package edu.neu.ccs.cs5004.map.cell;
+package edu.neu.ccs.cs5004.eschaton.model.map.cell;
 
 
-import edu.neu.ccs.cs5004.map.cell.contents.Contents;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Contents;
 
 public abstract class Cell implements CellInterface{
 

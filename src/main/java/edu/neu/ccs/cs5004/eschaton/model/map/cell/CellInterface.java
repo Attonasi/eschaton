@@ -1,8 +1,8 @@
-package edu.neu.ccs.cs5004.map.cell;
+package edu.neu.ccs.cs5004.eschaton.model.map.cell;
 
 import javax.swing.text.Position;
 
-import edu.neu.ccs.cs5004.map.cell.contents.Contents;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Contents;
 
 public interface CellInterface {
 

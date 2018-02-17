@@ -1,4 +1,4 @@
-package edu.neu.ccs.cs5004.map.cell.contents;
+package edu.neu.ccs.cs5004.eschaton.model.map.cell.contents;
 
 public abstract class Contents implements ContentsInteface{
 

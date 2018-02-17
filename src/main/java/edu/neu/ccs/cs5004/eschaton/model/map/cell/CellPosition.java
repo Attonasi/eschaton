@@ -1,4 +1,4 @@
-package edu.neu.ccs.cs5004.map.cell;
+package edu.neu.ccs.cs5004.eschaton.model.map.cell;
 
 import java.util.Objects;
 

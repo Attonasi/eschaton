@@ -1,11 +1,9 @@
-package edu.neu.ccs.cs5004.map;
+package edu.neu.ccs.cs5004.eschaton.model.map;
 
 import java.util.Arrays;
 
-import javax.swing.text.Position;
-
-import edu.neu.ccs.cs5004.map.cell.Cell;
-import edu.neu.ccs.cs5004.map.cell.CellPosition;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.CellPosition;
 
 public class Map implements MapInterface {
 
