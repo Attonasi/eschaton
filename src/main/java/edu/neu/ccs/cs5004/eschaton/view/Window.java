@@ -7,7 +7,10 @@ package edu.neu.ccs.cs5004.eschaton.view;
  * This will be expanded to display all sorts of stuff.
  */
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Polygon;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;

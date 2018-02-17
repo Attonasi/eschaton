@@ -1,5 +1,7 @@
 package edu.neu.ccs.cs5004.eschaton.config;
 
+import java.awt.*;
+
 /**
  * When the person creating the game sets the parameters of the game they are stored here
  */
@@ -10,6 +12,9 @@ public class Config {
   public static final Boolean FOG_VALUE = false;
   public static final Integer SCREEN_HEIGHT = 1000;
   public static final Integer SCREEN_WIDTH = 1200;
+  public static final Integer HEXAGON_SIZE = SCREEN_HEIGHT / 100;
+  public static final Point ORIGIN = new Point((SCREEN_HEIGHT/2 + SCREEN_WIDTH - SCREEN_HEIGHT),
+      SCREEN_HEIGHT/2);
 
   private Boolean fogOfWar;
   private Integer numberOfPlayers;
