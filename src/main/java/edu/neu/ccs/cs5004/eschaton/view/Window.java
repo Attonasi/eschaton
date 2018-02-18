@@ -18,8 +18,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import javax.swing.*;
 
-public class Window extends JPanel
-    implements MouseListener, MouseMotionListener, KeyListener{
+public class Window extends JPanel implements MouseListener, MouseMotionListener, KeyListener{
   public static JFrame FRAME;
   public static Window PANEL; // JPanel that is also a lisener
   public static String TITLE = "No Name";

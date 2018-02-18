@@ -1,16 +1,75 @@
 package edu.neu.ccs.cs5004.eschaton.model.map;
 
+import java.awt.*;
 import java.util.Arrays;
 
+import edu.neu.ccs.cs5004.eschaton.config.Config;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.CellPosition;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Plains;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Wheat;
+
+import static edu.neu.ccs.cs5004.eschaton.config.Config.NUMBER_OF_BLOCKS;
+import static edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPrinter.X_STEP;
+import static edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPrinter.Y_STEP_ONE;
+import static edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPrinter.Y_STEP_TWO;
 
 public class Map implements MapInterface {
 
-  private Cell[][][] mapGrid;
+  private Cell[][][] mapGrid = new Cell[20][20][20];
 
-  public Map(Cell[][][] mapGrid) {
-    this.mapGrid = mapGrid;
+  /**
+   * Constructor for the map.
+   */
+  public Map(Config config) {
+    this.mapGrid = generateMap(config);
+  }
+
+  /**
+   * This method generates a hexagonal map. It creates a cell at each node and supplies that cell
+   * with the array indices organizing the map and the Points used to place them on the map window.
+   *
+   * The Cell types and contents are also generated at this time,
+   * @return Cell[][][] hexagonal grid of Cells.
+   */
+  private Cell[][][] generateMap(Config config){
+    int[] blockStepX = {X_STEP, 0, -X_STEP, -X_STEP, 0, X_STEP};
+    int[] blockStepY = {Y_STEP_ONE, Y_STEP_TWO, Y_STEP_ONE, -Y_STEP_ONE, -Y_STEP_TWO, -Y_STEP_ONE};
+    Cell[][][] newMapGrid = new Cell[20][20][20];
+
+    for (int distanceFromOrigin =1; distanceFromOrigin < config.getSizeOfMap();
+         distanceFromOrigin++){
+
+      int[] blockXVals = {config.getOrigin().x,
+                          config.getOrigin().x + X_STEP * distanceFromOrigin,
+                          config.getOrigin().x + X_STEP * distanceFromOrigin,
+                          config.getOrigin().x,
+                          config.getOrigin().x - X_STEP * distanceFromOrigin,
+                          config.getOrigin().x - X_STEP * distanceFromOrigin};
+
+      int[] blockYVals = {config.getOrigin().y - Y_STEP_TWO * distanceFromOrigin,
+                          config.getOrigin().y - Y_STEP_ONE * distanceFromOrigin,
+                          config.getOrigin().y + Y_STEP_ONE * distanceFromOrigin,
+                          config.getOrigin().y + Y_STEP_TWO * distanceFromOrigin,
+                          config.getOrigin().y + Y_STEP_ONE * distanceFromOrigin,
+                          config.getOrigin().y - Y_STEP_ONE * distanceFromOrigin};
+
+      for (int block = 1; block < NUMBER_OF_BLOCKS; block ++){
+
+        int blockXOrdinal = blockXVals[block];
+        int blockYOrdinal = blockYVals[block];
+
+        for (int blockSize = 0; blockSize < distanceFromOrigin; blockSize++){
+
+          mapGrid [distanceFromOrigin][block][blockSize] =
+              new Plains(new CellPosition(distanceFromOrigin, block, blockSize),
+                         new Point(blockXOrdinal + blockStepX[block] * (blockSize + 1),
+                                  blockYOrdinal + blockStepY[block] * (blockSize + 1)),
+                         new Wheat("wheat"));
+        }
+      }
+    }
+    return newMapGrid;
   }
 
   /**

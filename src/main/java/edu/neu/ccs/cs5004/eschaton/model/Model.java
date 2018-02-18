@@ -2,17 +2,22 @@ package edu.neu.ccs.cs5004.eschaton.model;
 
 import java.util.ArrayList;
 
+import edu.neu.ccs.cs5004.eschaton.config.Config;
 import edu.neu.ccs.cs5004.eschaton.model.map.Map;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Plains;
 import edu.neu.ccs.cs5004.eschaton.model.players.Player;
 
 public class Model implements ModelInterface {
 
   private Map map;
-  private ArrayList<Player> players;
+  private ArrayList<Player> players = new ArrayList<Player>();
 
-  public Model(Map map, ArrayList<Player> players) {
-    this.map = map;
+  public Model(Config config) {
+    this.map = new Map(config);
     this.players = players;
+    players.add(new Player("bank", "army"));
+    players.add(new Player("bank2", "amry2"));
   }
 
   public Map getMap() {

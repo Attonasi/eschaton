@@ -4,18 +4,20 @@ public class Player implements PlayerInterface {
 
 //  private Bank bank;
 //  private Army army;
-//
-//
-//  public Player(Bank bank, Army army) {
-//    this.bank = bank;
-//    this.army = army;
-//  }
-//
-//  public Bank getBank() {
-//    return bank;
-//  }
-//
-//  public Army getArmy() {
-//    return army;
-//  }
+  private String bank = "Bank";
+  private String army = "Army";
+
+
+  public Player(String bank, String army) {
+    this.bank = bank;
+    this.army = army;
+  }
+
+  public String getBank() {
+    return bank;
+  }
+
+  public String getArmy() {
+    return army;
+  }
 }

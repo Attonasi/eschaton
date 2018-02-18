@@ -4,7 +4,8 @@ import javax.swing.text.Position;
 
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Contents;
 
-public interface CellInterface {
+public interface
+CellInterface {
 
   /**
    * The Cells are the containers of game information. They are the way we organize and maintain

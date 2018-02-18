@@ -1,5 +1,6 @@
 package edu.neu.ccs.cs5004.eschaton.model.map.cell;
 
+import java.awt.*;
 import java.util.Objects;
 
 public class CellPosition implements PositionInterface {
@@ -13,7 +14,6 @@ public class CellPosition implements PositionInterface {
     this.circle = circle;
     this.clockwise = clockwise;
   }
-
 
   public Integer getBlock() {
     return block;

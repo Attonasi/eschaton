@@ -3,11 +3,11 @@ package edu.neu.ccs.cs5004.eschaton.view.objectmakers;
 import java.awt.*;
 
 
-import edu.neu.ccs.cs5004.eschaton.view.MapFrame;
+import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
 
 import static edu.neu.ccs.cs5004.eschaton.config.Config.HEXAGON_SIZE;
 
-public class Hexagon extends MapFrame{
+public class Hexagon extends GameFrame {
 
   public static final Integer HEXAGON_SIDES = 6;
   public static final Integer X_ADJUST_ONE = HEXAGON_SIZE;
@@ -19,8 +19,12 @@ public class Hexagon extends MapFrame{
     super(name, width, height);
   }
 
-  public static Polygon newHexagon(int xVal, int yVal){
-    return new Polygon(Hexagon.buildX( xVal), Hexagon.buildY(yVal), HEXAGON_SIDES);
+//  public static Polygon newHexagon(int xVal, int yVal){
+//    return new Polygon(Hexagon.buildX( xVal), Hexagon.buildY(yVal), HEXAGON_SIDES);
+//  }
+
+  public static Polygon newHexagon(Point point){
+    return new Polygon(Hexagon.buildX( point.x), Hexagon.buildY(point.y), HEXAGON_SIDES);
   }
 
   private static int[] buildX(int x){
