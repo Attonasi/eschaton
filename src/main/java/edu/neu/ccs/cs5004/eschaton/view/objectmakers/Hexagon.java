@@ -3,6 +3,7 @@ package edu.neu.ccs.cs5004.eschaton.view.objectmakers;
 import java.awt.*;
 
 
+import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
 
 import static edu.neu.ccs.cs5004.eschaton.config.Config.HEXAGON_SIZE;
@@ -15,8 +16,8 @@ public class Hexagon extends GameFrame {
   public static final int Y_ADJUST = HEXAGON_SIZE * 2;
 
 
-  public Hexagon(String name, int width, int height) {
-    super(name, width, height);
+  public Hexagon(Model model, String name, int width, int height) {
+    super(model, name, width, height);
   }
 
 //  public static Polygon newHexagon(int xVal, int yVal){

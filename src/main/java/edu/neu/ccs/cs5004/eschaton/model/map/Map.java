@@ -10,19 +10,23 @@ import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Plains;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Wheat;
 
 import static edu.neu.ccs.cs5004.eschaton.config.Config.NUMBER_OF_BLOCKS;
-import static edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPrinter.X_STEP;
-import static edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPrinter.Y_STEP_ONE;
-import static edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPrinter.Y_STEP_TWO;
+import static edu.neu.ccs.cs5004.eschaton.config.Config.X_STEP;
+import static edu.neu.ccs.cs5004.eschaton.config.Config.Y_STEP_ONE;
+import static edu.neu.ccs.cs5004.eschaton.config.Config.Y_STEP_TWO;
 
 public class Map implements MapInterface {
 
   private Cell[][][] mapGrid = new Cell[20][20][20];
+  private Integer mapSize;
+  private Point origin;
 
   /**
    * Constructor for the map.
    */
   public Map(Config config) {
     this.mapGrid = generateMap(config);
+    this.mapSize = config.getSizeOfMap();
+    this.origin = config.getOrigin();
   }
 
   /**
@@ -86,6 +90,10 @@ public class Map implements MapInterface {
 
   public Cell[][][] getMapGrid() {
     return mapGrid;
+  }
+
+  public Integer getMapSize() {
+    return mapSize;
   }
 
   @Override

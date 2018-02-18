@@ -1,6 +1,8 @@
 package edu.neu.ccs.cs5004.eschaton.view;
 
 import java.awt.*;
+
+import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.view.objectmakers.Hexagon;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPrinter;
 
@@ -8,8 +10,11 @@ import static edu.neu.ccs.cs5004.eschaton.config.Config.ORIGIN;
 
 public class GameFrame extends Window {
 
-  public GameFrame(String name, int width, int height) {
+  protected Model model;
+
+  public GameFrame(Model model, String name, int width, int height) {
     super(name, width, height);
+    this.model = model;
   }
 
   @Override
@@ -26,7 +31,7 @@ public class GameFrame extends Window {
     graphics.fillRect(getWidth() / 3 + 10, 10,
         getWidth() - getWidth() /3 - 20, getHeight() - 20);
 
-    MapPrinter.printMap(graphics, ORIGIN);
+    MapPrinter.printMap(graphics, model.getMap());
 
     graphics.setColor(Color.YELLOW);
     graphics.fillPolygon(Hexagon.newHexagon(new Point(ORIGIN.x, ORIGIN.y)));

@@ -30,6 +30,10 @@ public abstract class Cell implements CellInterface{
     return point;
   }
 
+  public Color getCellColor(){
+    return Color.GREEN;
+  }
+
   @Override
   public Contents getContents() {
     return contents;

@@ -4,6 +4,11 @@ import edu.neu.ccs.cs5004.eschaton.config.Config;
 import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
 
+import static edu.neu.ccs.cs5004.eschaton.config.Config.DEFAULT_NUMBER_OF_PLAYERS;
+import static edu.neu.ccs.cs5004.eschaton.config.Config.DEFAULT_SIZE_OF_MAP;
+import static edu.neu.ccs.cs5004.eschaton.config.Config.FOG_VALUE;
+import static edu.neu.ccs.cs5004.eschaton.config.Config.HEXAGON_SIZE;
+import static edu.neu.ccs.cs5004.eschaton.config.Config.ORIGIN;
 import static edu.neu.ccs.cs5004.eschaton.config.Config.SCREEN_HEIGHT;
 import static edu.neu.ccs.cs5004.eschaton.config.Config.SCREEN_WIDTH;
 import static edu.neu.ccs.cs5004.eschaton.view.Window.PANEL;
@@ -31,10 +36,13 @@ public class Eschaton {
   public static void main( String[] args )
     {
 
-      Config config = new Config();
+      Config config = new Config(FOG_VALUE, DEFAULT_NUMBER_OF_PLAYERS, DEFAULT_SIZE_OF_MAP,
+          ORIGIN, SCREEN_HEIGHT/HEXAGON_SIZE);
 
-      Eschaton eschaton = new Eschaton(config, new Model(config),
-                          new GameFrame(config.GAME_NAME, SCREEN_WIDTH, SCREEN_HEIGHT));
+      Model model = new Model(config);
+
+      Eschaton eschaton = new Eschaton(config, model,
+                          new GameFrame(model, config.GAME_NAME, SCREEN_WIDTH, SCREEN_HEIGHT));
 
       PANEL = eschaton.gameFrame;
       launch();
