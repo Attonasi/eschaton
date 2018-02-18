@@ -1,9 +1,8 @@
-package edu.neu.ccs.cs5004.eschaton.view.objectviews;
+package edu.neu.ccs.cs5004.eschaton.view.objectmakers;
 
 import java.awt.*;
 
 
-import edu.neu.ccs.cs5004.eschaton.model.map.cell.CellPosition;
 import edu.neu.ccs.cs5004.eschaton.view.MapFrame;
 
 import static edu.neu.ccs.cs5004.eschaton.config.Config.HEXAGON_SIZE;
