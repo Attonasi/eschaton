@@ -7,20 +7,22 @@ package edu.neu.ccs.cs5004.eschaton.view;
  * This will be expanded to display all sorts of stuff.
  */
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Polygon;
+
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+
 import javax.swing.*;
 
-public class Window extends JPanel implements MouseListener, MouseMotionListener, KeyListener{
+public class Window extends JPanel implements MouseListener, MouseMotionListener, KeyListener {
   public static JFrame FRAME;
   public static Window PANEL; // JPanel that is also a lisener
+  public static JPanel MAP_PANEL;
+  public static JPanel TILE_PANEL;
+  public static JPanel ARMY_PANEL;
   public static String TITLE = "No Name";
   public static Dimension PREF_SIZE = new Dimension(500,400);
 
@@ -37,6 +39,28 @@ public class Window extends JPanel implements MouseListener, MouseMotionListener
     FRAME.getContentPane().add(PANEL);
     FRAME.pack();
     FRAME.setVisible(true);
+    FRAME.setResizable(false);
+    PANEL.setBackground(Color.BLACK);
+
+    TILE_PANEL = new JPanel();
+    FRAME.getContentPane().add(TILE_PANEL);
+    TILE_PANEL.setBackground(Color.BLUE);
+    TILE_PANEL.setBounds(5, 5, 300, 400);
+    TILE_PANEL.setVisible(true);
+
+    ARMY_PANEL = new JPanel();
+    FRAME.getContentPane().add(ARMY_PANEL);
+    ARMY_PANEL.setBackground(Color.GREEN);
+    ARMY_PANEL.setBounds(5, 410, 300, 400);
+    ARMY_PANEL.setVisible(true);
+
+    MAP_PANEL = new JPanel();
+    FRAME.getContentPane().add(MAP_PANEL);
+    MAP_PANEL.setBackground(Color.BLACK);
+    MAP_PANEL.setBounds(310, 5, 800, 800);
+    MAP_PANEL.setVisible(true);
+
+
   }
   public static void launch(){
     // add in the listeners first

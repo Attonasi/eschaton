@@ -19,21 +19,22 @@ public class GameFrame extends Window {
 
   @Override
   protected void paintComponent(Graphics graphics) {
-    super.paintComponent(graphics);
-
-    graphics.setColor(Color.black);
-    graphics.fillRect(0, 0, getWidth(), getHeight());
-    graphics.setColor(Color.gray);
-    graphics.fillRect(10, 10, getWidth() / 3 - 10,
-        getHeight()/2 - 10);
-    graphics.fillRect(10, getHeight()/2 + 10,
-        getWidth() / 3 - 10, getHeight()/2 -20);
-    graphics.fillRect(getWidth() / 3 + 10, 10,
-        getWidth() - getWidth() /3 - 20, getHeight() - 20);
-
+//    super.paintComponent(graphics);
+//////
+////    graphics.setColor(Color.black);
+////    graphics.fillRect(0, 0, getWidth(), getHeight());
+////    graphics.setColor(Color.gray);
+////    graphics.fillRect(10, 10, getWidth() / 3 - 10,
+////        getHeight()/2 - 10);
+////
+////    graphics.fillRect(10, getHeight()/2 + 10,
+////        getWidth() / 3 - 10, getHeight()/2 -20);
+////    graphics.fillRect(getWidth() / 3 + 10, 10,
+////        getWidth() - getWidth() /3 - 20, getHeight() - 20);
+////
     MapPrinter.printMap(graphics, model.getMap());
-
-    graphics.setColor(Color.YELLOW);
-    graphics.fillPolygon(Hexagon.newHexagon(new Point(ORIGIN.x, ORIGIN.y)));
+//
+//    graphics.setColor(Color.YELLOW);
+//    graphics.fillPolygon(Hexagon.newHexagon(new Point(ORIGIN.x, ORIGIN.y)));
   }
 }

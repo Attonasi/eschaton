@@ -11,6 +11,7 @@ import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Plains;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Contents;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.EschatonContents;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Wheat;
+import edu.neu.ccs.cs5004.eschaton.view.objectmakers.Hexagon;
 
 import static edu.neu.ccs.cs5004.eschaton.config.Config.NUMBER_OF_BLOCKS;
 import static edu.neu.ccs.cs5004.eschaton.config.Config.X_STEP;
@@ -55,7 +56,8 @@ public class Map implements MapInterface {
 
     newMapGrid[0][0][0] = new EschatonCell(new CellPosition(0, 0, 0),
         new Point(config.getOrigin().x, config.getOrigin().y),
-        new EschatonContents("Eschaton"));
+        new EschatonContents("Eschaton"),
+        Hexagon.newHexagon(config.getOrigin()));
 
     for (int distanceFromOrigin =1; distanceFromOrigin < config.getSizeOfMap();
          distanceFromOrigin++){
@@ -81,11 +83,16 @@ public class Map implements MapInterface {
 
         for (int blockSize = 0; blockSize < distanceFromOrigin; blockSize++){
 
+          Point newPoint = new Point(blockXOrdinal + blockStepX[block] * (blockSize + 1),
+              blockYOrdinal + blockStepY[block] * (blockSize + 1));
+
+          System.out.printf("X is %d Y is %d", newPoint.x, newPoint.y);
+
           mapGrid [distanceFromOrigin][block][blockSize] =
               new Plains(new CellPosition(distanceFromOrigin, block, blockSize),
-                         new Point(blockXOrdinal + blockStepX[block] * (blockSize + 1),
-                                  blockYOrdinal + blockStepY[block] * (blockSize + 1)),
-                         new Wheat("wheat"));
+                         newPoint,
+                         new Wheat("wheat"),
+                         Hexagon.newHexagon(newPoint));
         }
       }
     }

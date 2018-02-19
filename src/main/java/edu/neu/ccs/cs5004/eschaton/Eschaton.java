@@ -30,8 +30,7 @@ public class Eschaton {
   public static void main( String[] args )
     {
 
-      Config config = new Config(DEFAULT_FOG_VALUE, DEFAULT_NUMBER_OF_PLAYERS, DEFAULT_SIZE_OF_MAP,
-          ORIGIN, SCREEN_HEIGHT/HEXAGON_SIZE);
+      Config config = new Config();
 
       Model model = new Model(config);
 

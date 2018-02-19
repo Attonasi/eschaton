@@ -7,10 +7,11 @@ import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.EschatonContents;
 
 import javax.swing.text.Position;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 
 public class EschatonCell extends Cell {
-  public EschatonCell(CellPosition cellPosition, Point point, Contents contents) {
-    super(cellPosition, point, contents);
+  public EschatonCell(CellPosition cellPosition, Point point, Contents contents, Polygon polygon) {
+    super(cellPosition, point, contents, polygon);
   }
 
   /**
@@ -39,4 +40,9 @@ public class EschatonCell extends Cell {
     return Color.GREEN;
   }
 
+  public void mouseClicked(MouseEvent evt){
+    if(this.hexagon.contains(evt.getPoint())){
+      System.out.println("You clicked on Eschaton");
+    }
+  }
 }

@@ -9,10 +9,10 @@ public class Config {
 
   public static final String GAME_NAME = "Eschaton";
   public static final Integer DEFAULT_NUMBER_OF_PLAYERS = 2;
-  public static final Integer DEFAULT_SIZE_OF_MAP = 8;
+  public static final Integer DEFAULT_SIZE_OF_MAP = 10;
   public static final Boolean DEFAULT_FOG_VALUE = false;
-  public static final Integer SCREEN_HEIGHT = 700;
-  public static final Integer SCREEN_WIDTH = 1000;
+  public static final Integer SCREEN_HEIGHT = 805;
+  public static final Integer SCREEN_WIDTH = 1105;
   public static final Integer HEXAGON_SIZE = 10;
   public static final Point ORIGIN = new Point((SCREEN_HEIGHT/2 + (SCREEN_WIDTH-SCREEN_HEIGHT)),
       SCREEN_HEIGHT/2);

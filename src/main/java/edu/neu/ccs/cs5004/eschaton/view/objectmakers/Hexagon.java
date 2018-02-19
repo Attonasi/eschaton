@@ -8,21 +8,23 @@ import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
 
 import static edu.neu.ccs.cs5004.eschaton.config.Config.HEXAGON_SIZE;
 
-public class Hexagon extends GameFrame {
+public class Hexagon {
 
   public static final Integer HEXAGON_SIDES = 6;
   public static final Integer X_ADJUST_ONE = HEXAGON_SIZE;
   public static final int X_ADJUST_TWO = HEXAGON_SIZE * 2;
   public static final int Y_ADJUST = HEXAGON_SIZE * 2;
 
+  private int[] newX;
+  private int[] newY;
+  private Integer sides;
+  private Point point;
 
-  public Hexagon(Model model, String name, int width, int height) {
-    super(model, name, width, height);
+  public Hexagon(Point point) {
+    this.newX = buildX(point.x);
+    this.newY = buildY(point.y);
+    this.sides = HEXAGON_SIDES;
   }
-
-//  public static Polygon newHexagon(int xVal, int yVal){
-//    return new Polygon(Hexagon.buildX( xVal), Hexagon.buildY(yVal), HEXAGON_SIDES);
-//  }
 
   public static Polygon newHexagon(Point point){
     return new Polygon(Hexagon.buildX( point.x), Hexagon.buildY(point.y), HEXAGON_SIDES);
