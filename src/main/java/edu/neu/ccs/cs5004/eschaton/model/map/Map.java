@@ -86,7 +86,6 @@ public class Map implements MapInterface {
           Point newPoint = new Point(blockXOrdinal + blockStepX[block] * (blockSize + 1),
               blockYOrdinal + blockStepY[block] * (blockSize + 1));
 
-          System.out.printf("X is %d Y is %d", newPoint.x, newPoint.y);
 
           mapGrid [distanceFromOrigin][block][blockSize] =
               new Plains(new CellPosition(distanceFromOrigin, block, blockSize),
