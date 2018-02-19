@@ -20,9 +20,5 @@ CellInterface {
    * - Contents
    */
 
-  public Position getNewCellPostion();
-
-  public Position getPosition();
-
   public Contents getContents();
 }

@@ -10,11 +10,11 @@ public class Config {
   public static final String GAME_NAME = "Eschaton";
   public static final Integer DEFAULT_NUMBER_OF_PLAYERS = 2;
   public static final Integer DEFAULT_SIZE_OF_MAP = 8;
-  public static final Boolean FOG_VALUE = false;
-  public static final Integer SCREEN_HEIGHT = 1000;
-  public static final Integer SCREEN_WIDTH = 1200;
-  public static final Integer HEXAGON_SIZE = 60;
-  public static final Point ORIGIN = new Point((SCREEN_HEIGHT/2 + (SCREEN_WIDTH-SCREEN_HEIGHT)+100),
+  public static final Boolean DEFAULT_FOG_VALUE = false;
+  public static final Integer SCREEN_HEIGHT = 700;
+  public static final Integer SCREEN_WIDTH = 1000;
+  public static final Integer HEXAGON_SIZE = 10;
+  public static final Point ORIGIN = new Point((SCREEN_HEIGHT/2 + (SCREEN_WIDTH-SCREEN_HEIGHT)),
       SCREEN_HEIGHT/2);
   public static final Integer NUMBER_OF_BLOCKS = 6;
   public static final int X_STEP = HEXAGON_SIZE * 3;
@@ -36,6 +36,14 @@ public class Config {
     this.sizeOfMap = sizeOfMap;
     this.origin = origin;
     this.cellSize = cellSize;
+  }
+
+  public Config () {
+    this.fogOfWar = DEFAULT_FOG_VALUE;
+    this.numberOfPlayers = DEFAULT_NUMBER_OF_PLAYERS;
+    this.sizeOfMap = DEFAULT_SIZE_OF_MAP;
+    this.origin = ORIGIN;
+    this.cellSize = HEXAGON_SIZE;
   }
 
   public Boolean getFogOfWar() {

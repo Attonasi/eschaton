@@ -6,7 +6,10 @@ import java.util.Arrays;
 import edu.neu.ccs.cs5004.eschaton.config.Config;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.CellPosition;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.EschatonCell;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Plains;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Contents;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.EschatonContents;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Wheat;
 
 import static edu.neu.ccs.cs5004.eschaton.config.Config.NUMBER_OF_BLOCKS;
@@ -16,12 +19,21 @@ import static edu.neu.ccs.cs5004.eschaton.config.Config.Y_STEP_TWO;
 
 public class Map implements MapInterface {
 
+  /**
+   *
+   */
   private Cell[][][] mapGrid = new Cell[20][20][20];
   private Integer mapSize;
   private Point origin;
 
+
   /**
-   * Constructor for the map.
+   * The map constructor takes the configuration as a parameter and builds out the game
+   * map. The size of the map and the origin are pulled from the config class.
+   *
+   * There will be a variety of map options that are set in the configuration eventually.
+   *
+   * @param config Config holds all of hte default and preset values to start a game.
    */
   public Map(Config config) {
     this.mapGrid = generateMap(config);
@@ -40,6 +52,10 @@ public class Map implements MapInterface {
     int[] blockStepX = {X_STEP, 0, -X_STEP, -X_STEP, 0, X_STEP};
     int[] blockStepY = {Y_STEP_ONE, Y_STEP_TWO, Y_STEP_ONE, -Y_STEP_ONE, -Y_STEP_TWO, -Y_STEP_ONE};
     Cell[][][] newMapGrid = new Cell[20][20][20];
+
+    newMapGrid[0][0][0] = new EschatonCell(new CellPosition(0, 0, 0),
+        new Point(config.getOrigin().x, config.getOrigin().y),
+        new EschatonContents("Eschaton"));
 
     for (int distanceFromOrigin =1; distanceFromOrigin < config.getSizeOfMap();
          distanceFromOrigin++){
@@ -96,23 +112,36 @@ public class Map implements MapInterface {
     return mapSize;
   }
 
+  public Point getOrigin() {
+    return origin;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+
     Map map = (Map) o;
-    return Arrays.equals(mapGrid, map.mapGrid);
+
+    if (!Arrays.deepEquals(mapGrid, map.mapGrid)) return false;
+    if (!mapSize.equals(map.mapSize)) return false;
+    return origin.equals(map.origin);
   }
 
   @Override
   public int hashCode() {
-    return Arrays.hashCode(mapGrid);
+    int result = Arrays.deepHashCode(mapGrid);
+    result = 31 * result + mapSize.hashCode();
+    result = 31 * result + origin.hashCode();
+    return result;
   }
 
   @Override
   public String toString() {
     return "Map{" +
         "mapGrid=" + Arrays.toString(mapGrid) +
+        ", mapSize=" + mapSize +
+        ", origin=" + origin +
         '}';
   }
 }

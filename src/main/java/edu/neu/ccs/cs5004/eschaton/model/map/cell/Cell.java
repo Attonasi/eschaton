@@ -11,9 +11,9 @@ public abstract class Cell implements CellInterface{
    * There are 6 types of concrete Cells, BlockOne, BlockTwo, BlockThree, BlockFour, BlockFive, and
    * BlockSix.
    */
-  private CellPosition cellPosition;
-  private Point point;
-  private Contents contents;
+  protected CellPosition cellPosition;
+  protected Point point;
+  protected Contents contents;
 
 
   public Cell(CellPosition cellPosition, Point point, Contents contents) {

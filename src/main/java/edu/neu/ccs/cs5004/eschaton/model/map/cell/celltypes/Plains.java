@@ -36,16 +36,6 @@ public class Plains extends Cell {
   }
 
   @Override
-  public Position getNewCellPostion() {
-    return null;
-  }
-
-  @Override
-  public Position getPosition() {
-    return null;
-  }
-
-  @Override
   public Contents getContents() {
     return null;
   }
