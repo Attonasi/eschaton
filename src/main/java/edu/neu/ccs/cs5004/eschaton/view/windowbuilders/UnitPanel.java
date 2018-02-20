@@ -15,7 +15,7 @@ public class UnitPanel extends GameFrame{
 
   public static void makeUnitPanel(JPanel unitPanel){
     unitPanel.setBackground(Color.GREEN);
-    unitPanel.setBounds(5, 410, 300, 400);
+    unitPanel.setBounds(5, 310, 250, 300);
     unitPanel.setVisible(true);
     JButton jButton = new JButton("Button");
 

@@ -26,7 +26,7 @@ public class Window extends JPanel implements MouseListener, MouseMotionListener
   public static JPanel TILE_PANEL;
   public static JPanel UNIT_PANEL;
   public static String TITLE = "Eschaton";
-  public static Dimension PREF_SIZE = new Dimension(1105,805);
+  public static Dimension PREF_SIZE = new Dimension(1005,705);
 
   public Window(String t, int w, int h){
     TITLE = t;
@@ -34,42 +34,6 @@ public class Window extends JPanel implements MouseListener, MouseMotionListener
   }
 
   public Dimension getPreferredSize() {return PREF_SIZE;}
-
-//  private static void createAndShowGUI(){
-//    FRAME = new JFrame(TITLE);
-//    FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//    FRAME.addKeyListener(PANEL); // keyListener added to frame
-//    FRAME.getContentPane().add(PANEL);
-//    FRAME.pack();
-//    FRAME.setVisible(true);
-//    FRAME.setResizable(false);
-//    PANEL.setBackground(Color.BLACK);
-//
-//    TILE_PANEL = new JPanel();
-//    FRAME.getContentPane().add(TILE_PANEL);
-//    TILE_PANEL.setBackground(Color.BLUE);
-//    TILE_PANEL.setBounds(5, 5, 300, 400);
-//    TILE_PANEL.setVisible(true);
-//
-//    UNIT_PANEL = new JPanel();
-//    FRAME.getContentPane().add(UNIT_PANEL);
-//    UNIT_PANEL.setBackground(Color.GREEN);
-//    UNIT_PANEL.setBounds(5, 410, 300, 400);
-//    UNIT_PANEL.setVisible(true);
-//
-//    MAP_PANEL = new JPanel();
-//    MapPanel.makeMapPanel(MAP_PANEL);
-//    FRAME.getContentPane().add(MAP_PANEL);
-//  }
-//  public static void launch(){
-//    // add in the listeners first
-//    PANEL.addMouseListener(PANEL); // mouseListeners added to panel
-//    PANEL.addMouseMotionListener(PANEL);
-//
-//    javax.swing.SwingUtilities.invokeLater(
-//        new Runnable(){ public void run(){createAndShowGUI();} }
-//    );
-//  }
 
   @Override
   public void mouseClicked(MouseEvent me){}

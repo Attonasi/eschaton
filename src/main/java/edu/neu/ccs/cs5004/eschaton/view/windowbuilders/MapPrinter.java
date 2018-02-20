@@ -40,7 +40,7 @@ public class MapPrinter extends GameFrame {
     int originY = map.getOrigin().y;
     int[] blockStepX = {X_STEP, 0, -X_STEP, -X_STEP, 0, X_STEP};
     int[] blockStepY = {Y_STEP_ONE, Y_STEP_TWO, Y_STEP_ONE, -Y_STEP_ONE, -Y_STEP_TWO, -Y_STEP_ONE};
-    Color[] colors = {Color.BLACK, Color.BLUE, Color.RED,
+    Color[] colors = {Color.BLACK, Color.BLUE, Color.BLACK,
         Color.GREEN, Color.CYAN, Color.ORANGE, Color.DARK_GRAY, Color.BLUE, Color.GREEN, Color.BLUE,
     Color.RED, Color.DARK_GRAY};
 
@@ -60,7 +60,7 @@ public class MapPrinter extends GameFrame {
                           originY - Y_STEP_ONE * distanceFromOrigin};
 
       for(int block = 0; block < NUMBER_OF_BLOCKS; block ++){
-        graphics.setColor(Color.BLACK);
+        graphics.setColor(Color.RED);
         graphics.fillPolygon(Hexagon.newHexagon(new Point(blockXVals[block], blockYVals[block])));
 
         for(int blockSize = 0;  blockSize < distanceFromOrigin-1; blockSize++){

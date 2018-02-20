@@ -15,7 +15,7 @@ public class TilePanel extends GameFrame{
 
   public static void makeTilePanel(JPanel tilePanel){
     tilePanel.setBackground(Color.BLUE);
-    tilePanel.setBounds(5, 5, 300, 400);
+    tilePanel.setBounds(5, 5, 250, 300);
     tilePanel.setVisible(true);
 
 

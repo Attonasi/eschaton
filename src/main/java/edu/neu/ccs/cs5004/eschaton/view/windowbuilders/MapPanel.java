@@ -17,8 +17,8 @@ public class MapPanel extends GameFrame{
   }
 
   public static void makeMapPanel(JPanel mapPanel){
-    mapPanel.setBackground(Color.black);
-    mapPanel.setBounds(310, 5, 800, 800);
+    mapPanel.setBackground(Color.DARK_GRAY);
+    mapPanel.setBounds(255, 5, 700, 700);
     mapPanel.setVisible(true);
 
 
