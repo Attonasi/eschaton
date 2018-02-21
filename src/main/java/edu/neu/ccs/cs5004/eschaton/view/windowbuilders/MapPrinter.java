@@ -41,7 +41,7 @@ public class MapPrinter extends GameFrame {
     int[] blockStepX = {X_STEP, 0, -X_STEP, -X_STEP, 0, X_STEP};
     int[] blockStepY = {Y_STEP_ONE, Y_STEP_TWO, Y_STEP_ONE, -Y_STEP_ONE, -Y_STEP_TWO, -Y_STEP_ONE};
     Color[] colors = {Color.BLACK, Color.BLUE, Color.BLACK,
-        Color.GREEN, Color.CYAN, Color.ORANGE, Color.DARK_GRAY, Color.BLUE, Color.GREEN, Color.BLUE,
+        Color.GREEN, Color.BLACK, Color.ORANGE, Color.DARK_GRAY, Color.BLUE, Color.GREEN, Color.BLUE,
     Color.RED, Color.DARK_GRAY};
 
     for (int distanceFromOrigin= 1; distanceFromOrigin< DEFAULT_SIZE_OF_MAP; distanceFromOrigin++) {

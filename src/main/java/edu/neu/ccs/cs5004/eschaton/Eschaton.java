@@ -1,5 +1,7 @@
 package edu.neu.ccs.cs5004.eschaton;
 
+import java.io.IOException;
+
 import edu.neu.ccs.cs5004.eschaton.config.Config;
 import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
@@ -29,8 +31,7 @@ public class Eschaton {
     this.gameFrame = gameFrame;
   }
 
-  public static void main( String[] args )
-    {
+  public static void main( String[] args ) throws IOException {
 
       Config config = new Config();
 
