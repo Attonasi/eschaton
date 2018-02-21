@@ -5,7 +5,6 @@ import java.awt.*;
 import javax.swing.*;
 
 import edu.neu.ccs.cs5004.eschaton.model.Model;
-import edu.neu.ccs.cs5004.eschaton.view.objectmakers.Hexagon;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPanel;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPrinter;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.TilePanel;

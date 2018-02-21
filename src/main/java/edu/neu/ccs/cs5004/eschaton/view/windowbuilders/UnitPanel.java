@@ -17,8 +17,14 @@ public class UnitPanel extends GameFrame{
     unitPanel.setBackground(Color.GREEN);
     unitPanel.setBounds(5, 310, 250, 300);
     unitPanel.setVisible(true);
-    JButton jButton = new JButton("Button");
+//    unitPanel.setLayout(null);
 
+    JButton jButton = new JButton("B");
+    jButton.setBounds(50, 320, 90, 460);
+    jButton.setActionCommand("Stuff");
+//    jButton.setBorderPainted(false);
+//    jButton.setContentAreaFilled(false);
+    jButton.setCursor(Cursor.getPredefinedCursor(13));
     unitPanel.add(jButton);
 
   }
