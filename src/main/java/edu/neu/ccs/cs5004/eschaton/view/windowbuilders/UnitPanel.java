@@ -19,14 +19,26 @@ public class UnitPanel extends GameFrame{
     super(model, name, width, height);
   }
 
-  public static void makeUnitPanel(JPanel unitPanel, BufferedImage buttonIcon){
+  public void makeUnitPanel(JPanel unitPanel) throws IOException {
     unitPanel.setBackground(Color.GREEN);
     unitPanel.setBounds(5, 310, 250, 300);
     unitPanel.setVisible(true);
+
+
+    BufferedImage buttonIcon = ImageIO.read(getClass().getResource("/" +
+        "image/ship2.png"));
+
     JButton jButton = new JButton(new ImageIcon(buttonIcon));
     jButton.setBorder(BorderFactory.createEmptyBorder());
     jButton.setContentAreaFilled(false);
 
+//    unitPanel.setLayout(null);
+
+    jButton.setBounds(50, 320, 90, 460);
+    jButton.setActionCommand("Stuff");
+//    jButton.setBorderPainted(false);
+//    jButton.setContentAreaFilled(false);
+    jButton.setCursor(Cursor.getPredefinedCursor(13));
     unitPanel.add(jButton);
 
   }

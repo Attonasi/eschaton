@@ -39,11 +39,8 @@ public class GameFrame extends Window {
     TilePanel.makeTilePanel(TILE_PANEL);
     FRAME.getContentPane().add(TILE_PANEL);
 
-    BufferedImage buttonIcon = ImageIO.read(new File("/" +
-        "image/ship2.png"));
-
     UNIT_PANEL = new JPanel();
-    UnitPanel.makeUnitPanel(UNIT_PANEL, buttonIcon);
+    UnitPanel.makeUnitPanel(UNIT_PANEL);
     FRAME.getContentPane().add(UNIT_PANEL);
 
     MAP_PANEL = new JPanel();
