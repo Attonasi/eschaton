@@ -11,11 +11,11 @@ public class Config {
   public static final Integer DEFAULT_NUMBER_OF_PLAYERS = 2;
   public static final Integer DEFAULT_SIZE_OF_MAP = 9;
   public static final Boolean DEFAULT_FOG_VALUE = false;
-  public static final Integer SCREEN_HEIGHT = 705;
+  public static final Integer SCREEN_HEIGHT = 605;
   public static final Integer SCREEN_WIDTH = 1005;
   public static final Integer HEXAGON_SIZE = 8;
   public static final Point ORIGIN = new Point((SCREEN_HEIGHT/2 + (SCREEN_WIDTH-SCREEN_HEIGHT)),
-      SCREEN_HEIGHT/2 - SCREEN_HEIGHT/15);
+      SCREEN_HEIGHT/2);
   public static final Integer NUMBER_OF_BLOCKS = 6;
   public static final int X_STEP = HEXAGON_SIZE * 3;
   public static final int Y_STEP_ONE = HEXAGON_SIZE * 2;

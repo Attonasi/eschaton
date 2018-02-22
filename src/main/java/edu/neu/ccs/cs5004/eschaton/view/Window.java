@@ -22,39 +22,61 @@ import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPanel;
 public class Window extends JPanel implements MouseListener, MouseMotionListener, KeyListener {
   public static JFrame FRAME;
   public static Window PANEL; // JPanel that is also a lisener
-  public static JPanel MAP_PANEL;
-  public static JPanel TILE_PANEL;
-  public static JPanel UNIT_PANEL;
   public static String TITLE = "Eschaton";
-  public static Dimension PREF_SIZE = new Dimension(1005,705);
+  public static Dimension WINDOW_SIZE = new Dimension(1005,605);
 
   public Window(String t, int w, int h){
     TITLE = t;
-    PREF_SIZE = new Dimension(w,h);
+    WINDOW_SIZE = new Dimension(w,h);
   }
 
-  public Dimension getPreferredSize() {return PREF_SIZE;}
+  public Dimension getPreferredSize() {return WINDOW_SIZE;}
 
   @Override
-  public void mouseClicked(MouseEvent me){}
-  @Override
-  public void mousePressed(MouseEvent me) {}
-  @Override
-  public void mouseReleased(MouseEvent me) {}
+  public void keyTyped(KeyEvent keyEvent) {
+
+  }
 
   @Override
-  public void mouseEntered(MouseEvent me) {}
-  @Override
-  public void mouseExited(MouseEvent me) {}
-  @Override
-  public void mouseDragged(MouseEvent me) {}
-  @Override
-  public void mouseMoved(MouseEvent me) {}
+  public void keyPressed(KeyEvent keyEvent) {
+
+  }
 
   @Override
-  public void keyTyped(KeyEvent ke) {}
+  public void keyReleased(KeyEvent keyEvent) {
+
+  }
+
   @Override
-  public void keyPressed(KeyEvent ke) {}
+  public void mouseClicked(MouseEvent mouseEvent) {
+
+  }
+
   @Override
-  public void keyReleased(KeyEvent ke) {}
+  public void mousePressed(MouseEvent mouseEvent) {
+
+  }
+
+  @Override
+  public void mouseReleased(MouseEvent mouseEvent) {
+
+  }
+
+  @Override
+  public void mouseEntered(MouseEvent mouseEvent) {
+
+  }
+
+  @Override
+  public void mouseExited(MouseEvent mouseEvent) {
+
+  }
+
+  @Override
+  public void mouseDragged(MouseEvent mouseEvent) {
+
+  }
+
+  @Override
+  public void mouseMoved(MouseEvent mouseEvent) { }
 }

@@ -7,18 +7,31 @@ import javax.swing.*;
 import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
 
-public class TilePanel extends GameFrame{
+public class TilePanel extends JPanel implements Panel{
 
-  public TilePanel(Model model, String name, int width, int height) {
-    super(model, name, width, height);
+  private JPanel tilePanel;
+
+  public TilePanel() {
+    tilePanel = new JPanel();
+    buildPanel();
   }
 
-  public static void makeTilePanel(JPanel tilePanel){
+  /**
+   * This is a getter for all of the panels used to build the map window. Each one will have a
+   * parent JPanel and this will get it.
+   *
+   * @return JPanel
+   */
+
+  public JPanel getPanel() {
+    return tilePanel;
+  }
+
+  public void buildPanel(){
     tilePanel.setBackground(Color.BLUE);
     tilePanel.setBounds(5, 5, 250, 300);
     tilePanel.setVisible(true);
-
-
+    tilePanel.setLayout(null);
   }
 
   protected void paintComponent(Graphics graphics){

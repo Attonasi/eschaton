@@ -14,11 +14,15 @@ import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPrinter;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.TilePanel;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.UnitPanel;
 
-import static edu.neu.ccs.cs5004.eschaton.config.Config.ORIGIN;
+
 
 public class GameFrame extends Window {
 
   protected Model model;
+  protected static TilePanel TILE_PANEL;
+  protected static UnitPanel UNIT_PANEL;
+  protected static JPanel MAP_PANEL;
+
 
   public GameFrame(Model model, String name, int width, int height) {
     super(name, width, height);
@@ -35,13 +39,11 @@ public class GameFrame extends Window {
     FRAME.setResizable(false);
     PANEL.setBackground(Color.BLACK);
 
-    TILE_PANEL = new JPanel();
-    TilePanel.makeTilePanel(TILE_PANEL);
-    FRAME.getContentPane().add(TILE_PANEL);
+    TILE_PANEL = new TilePanel();
+    FRAME.getContentPane().add(TILE_PANEL.getPanel());
 
-    UNIT_PANEL = new JPanel();
-    UnitPanel.makeUnitPanel(UNIT_PANEL);
-    FRAME.getContentPane().add(UNIT_PANEL);
+    UNIT_PANEL = new UnitPanel();
+    FRAME.getContentPane().add(UNIT_PANEL.getPanel());
 
     MAP_PANEL = new JPanel();
     MapPanel.makeMapPanel(MAP_PANEL);
@@ -49,8 +51,7 @@ public class GameFrame extends Window {
   }
 
   public static void launch() throws IOException {
-    // add in the listeners first
-    PANEL.addMouseListener(PANEL); // mouseListeners added to panel
+    PANEL.addMouseListener(PANEL);
     PANEL.addMouseMotionListener(PANEL);
 
     javax.swing.SwingUtilities.invokeLater(
