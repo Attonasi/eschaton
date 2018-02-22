@@ -14,16 +14,22 @@ public class UnitPanel extends GameFrame{
   }
 
   public static void makeUnitPanel(JPanel unitPanel){
+    unitPanel.setLayout(null);
+
     unitPanel.setBackground(Color.GREEN);
+
     unitPanel.setBounds(5, 310, 250, 300);
     unitPanel.setVisible(true);
-//    unitPanel.setLayout(null);
 
-    JButton jButton = new JButton("B");
-    jButton.setBounds(50, 320, 90, 460);
-    jButton.setActionCommand("Stuff");
+
+    JButton jButton = new JButton("Button");
+//    jButton.setLayout(null);
+    jButton.setPreferredSize(new Dimension(100, 20));
+
+    jButton.setBounds(10, 0, 20, 20);
+
 //    jButton.setBorderPainted(false);
-//    jButton.setContentAreaFilled(false);
+    jButton.setContentAreaFilled(false);
     jButton.setCursor(Cursor.getPredefinedCursor(13));
     unitPanel.add(jButton);
 
