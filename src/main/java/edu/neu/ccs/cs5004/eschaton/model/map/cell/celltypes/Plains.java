@@ -26,8 +26,8 @@ public class Plains extends Cell {
    * and,
    * - Contents
    */
-  public Plains(CellPosition cellPosition, Point point, Contents contents, Polygon polygon) {
-    super(cellPosition, point, contents, polygon);
+  public Plains(CellPosition cellPosition, Point point, Contents contents) {
+    super(cellPosition, point, contents);
   }
 
   @Override
@@ -37,6 +37,6 @@ public class Plains extends Cell {
 
   @Override
   public Contents getContents() {
-    return null;
+    return contents;
   }
 }

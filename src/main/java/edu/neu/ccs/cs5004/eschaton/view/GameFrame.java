@@ -17,29 +17,34 @@ import static edu.neu.ccs.cs5004.eschaton.config.Config.SCREEN_HEIGHT;
 import static edu.neu.ccs.cs5004.eschaton.config.Config.SCREEN_WIDTH;
 
 
-public class GameFrame extends Window {
+public class GameFrame extends JPanel {
 
   protected Model model;
+  protected static JFrame FRAME;
+  protected static Window PANEL; // JPanel that is also a lisener
+  protected static String TITLE = "Eschaton";
+  protected static Dimension WINDOW_SIZE = new Dimension(1005,605);
+
   protected static TilePanel TILE_PANEL;
   protected static UnitPanel UNIT_PANEL;
   protected static MapPanel MAP_PANEL;
   protected static MainPanel MAIN_PANEL;
 
 
-  public GameFrame(Model model, String name, int width, int height) {
-    super(name, width, height);
+  public GameFrame(Model model, String name, int width, int height) throws IOException {
+    this.FRAME = new JFrame(name);
+    this.PANEL = new Window(name, width, height);
     this.model = model;
+    createAndShowGUI(model);
   }
 
-  private static void createAndShowGUI(Model model) throws IOException {
-    FRAME = new JFrame(TITLE);
+  private void createAndShowGUI(Model model) throws IOException {
     FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    FRAME.addKeyListener(PANEL); // keyListener added to frame
     PANEL.setLayout(null);
     FRAME.getContentPane().add(PANEL);
     FRAME.pack();
     FRAME.setVisible(true);
-    FRAME.setResizable(false);
+    FRAME.setResizable(true);
 
     TILE_PANEL = new TilePanel();
     FRAME.getContentPane().add(TILE_PANEL.getPanel());
@@ -54,9 +59,7 @@ public class GameFrame extends Window {
     FRAME.getContentPane().add(MAIN_PANEL.getPanel());
   }
 
-  public static void launch(Model model) throws IOException {
-//    PANEL.addMouseListener(PANEL);
-//    PANEL.addMouseMotionListener(PANEL);
+  public void launch(Model model) throws IOException {
 
     javax.swing.SwingUtilities.invokeLater(
         new Runnable(){ public void run(){
@@ -70,7 +73,7 @@ public class GameFrame extends Window {
   }
   @Override
   protected void paintComponent(Graphics graphics) {
-    MapPrinter.printMap(graphics, model.getMap());
+//    MapPrinter.printMap(graphics, model.getMap());
   }
 
   public Model getModel() {

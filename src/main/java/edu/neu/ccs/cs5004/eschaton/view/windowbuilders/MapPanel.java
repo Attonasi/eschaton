@@ -3,41 +3,40 @@ package edu.neu.ccs.cs5004.eschaton.view.windowbuilders;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 
 import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.model.map.Map;
-import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
-import edu.neu.ccs.cs5004.eschaton.view.objectmakers.Hexagon;
 
-import static edu.neu.ccs.cs5004.eschaton.config.Config.*;
+import static edu.neu.ccs.cs5004.eschaton.config.Config.DEFAULT_SIZE_OF_MAP;
+import static edu.neu.ccs.cs5004.eschaton.config.Config.NUMBER_OF_BLOCKS;
+import static edu.neu.ccs.cs5004.eschaton.config.Config.X_STEP;
+import static edu.neu.ccs.cs5004.eschaton.config.Config.Y_STEP_ONE;
+import static edu.neu.ccs.cs5004.eschaton.config.Config.Y_STEP_TWO;
 
 public class MapPanel extends JPanel implements Panel{
 
-  private static final int X_OFFSET = 269;
-  private static final int Y_OFFSET = 20;
+  public static final int X_OFFSET = 269;
+  public static final int Y_OFFSET = 20;
 
   private JPanel mapPanel;
   private Model model;
+  private Map map;
   private Point origin;
   private JButton originButton;
 
   public MapPanel(Model model) {
     this.mapPanel = new JPanel();
     this.model = model;
+    this.map = model.getMap();
     this.origin = model.getConfig().getOrigin();
-    this.originButton = buildButton("O", origin.x, origin.y);
-    mapPanel.add(originButton);
+
     buildPanel();
     makeMapButtons();
-
   }
 
-
-  protected void paintComponent(Graphics graphics){
-//    MapPrinter.printMap(graphics, model.getMap());
-  }
 
   /**
    * This is a getter for all of the panels used to build the map window. Each one will have a
@@ -64,19 +63,6 @@ public class MapPanel extends JPanel implements Panel{
     mapPanel.setBorder(blackline);
   }
 
-
-  /**This is building a testButton.
-   *
-   */
-  private JButton buildButton(String string, int x, int y) {
-    JButton newButton = new JButton(string);
-    newButton.setBounds(x-X_OFFSET, y-Y_OFFSET, 18, 30);
-    newButton.setBackground(Color.WHITE);
-    newButton.setContentAreaFilled(false);
-    newButton.setFont(new Font("Arial", Font.PLAIN, 5));
-    return newButton;
-  }
-
   public void makeMapButtons(){
     int originX = origin.x;
     int originY = origin.y;
@@ -99,18 +85,23 @@ public class MapPanel extends JPanel implements Panel{
           originY - Y_STEP_ONE * dFromOrigin};
 
       for(int block = 0; block < NUMBER_OF_BLOCKS; block ++){
-//        graphics.setColor(Color.RED);
-//        graphics.fillPolygon(Hexagon.newHexagon(new Point(blockXVals[block], blockYVals[block])));
-        mapPanel.add(buildButton("", blockXVals[block], blockYVals[block]));
+        MapPanelCell newCell = new MapPanelCell(new Point(blockXVals[block], blockYVals[block]),
+            dFromOrigin, block, 0);
+
+        map.getMapGrid()[dFromOrigin][block][0] = newCell;
+        mapPanel.add(newCell.getButton());
 
         for(int blockSize = 0;  blockSize < dFromOrigin-1; blockSize++){
           int blockXOrdinal = blockXVals[block];
           int blockYOrdinal = blockYVals[block];
-//          graphics.setColor(colors[distanceFromOrigin]);
-//          graphics.fillPolygon(Hexagon.newHexagon(new Point(
-//              blockXOrdinal + blockStepX[block] * (blockSize + 1),
-//              blockYOrdinal + blockStepY[block] * (blockSize + 1))));
 
+          MapPanelCell newCellCW = new MapPanelCell(new Point(
+              blockXOrdinal + blockStepX[block] * (blockSize + 1),
+              blockYOrdinal + blockStepY[block] * (blockSize + 1)),
+              dFromOrigin, block, blockSize + 1);
+
+          map.getMapGrid()[dFromOrigin][block][blockSize+1] = newCellCW;
+          mapPanel.add(newCellCW.getButton());
         }
       }
     }

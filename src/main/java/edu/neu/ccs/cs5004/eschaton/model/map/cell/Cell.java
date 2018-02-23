@@ -14,14 +14,12 @@ public abstract class Cell implements CellInterface{
   protected CellPosition cellPosition;
   protected Point point;
   protected Contents contents;
-  protected Polygon hexagon;
 
 
-  public Cell(CellPosition cellPosition, Point point, Contents contents, Polygon hexagon) {
+  public Cell(CellPosition cellPosition, Point point, Contents contents) {
     this.cellPosition = cellPosition;
     this.point = point;
     this.contents = contents;
-    this.hexagon = hexagon;
   }
 
   public CellPosition getCellPosition() {
@@ -39,9 +37,5 @@ public abstract class Cell implements CellInterface{
   @Override
   public Contents getContents() {
     return contents;
-  }
-
-  public Polygon getHexagon() {
-    return hexagon;
   }
 }

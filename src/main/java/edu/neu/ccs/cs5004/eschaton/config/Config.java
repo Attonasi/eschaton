@@ -3,7 +3,8 @@ package edu.neu.ccs.cs5004.eschaton.config;
 import java.awt.*;
 
 /**
- * When the person creating the game sets the parameters of the game they are stored here
+ * When the person creating the game sets the parameters of the game they are stored here. There are
+ * of course default values. Everything here is self documenting.
  */
 public class Config {
 
@@ -11,8 +12,8 @@ public class Config {
   public static final Integer DEFAULT_NUMBER_OF_PLAYERS = 2;
   public static final Integer DEFAULT_SIZE_OF_MAP = 9;
   public static final Boolean DEFAULT_FOG_VALUE = false;
-  public static final Integer SCREEN_HEIGHT = 605;
-  public static final Integer SCREEN_WIDTH = 955;
+  public static final Integer SCREEN_HEIGHT = 610;
+  public static final Integer SCREEN_WIDTH = 960;
   public static final Integer HEXAGON_SIZE = 8;
   public static final Point ORIGIN = new Point((SCREEN_HEIGHT/2 + (SCREEN_WIDTH-SCREEN_HEIGHT)),
       SCREEN_HEIGHT/2);

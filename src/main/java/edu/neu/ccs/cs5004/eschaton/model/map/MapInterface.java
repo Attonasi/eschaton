@@ -1,7 +1,7 @@
 package edu.neu.ccs.cs5004.eschaton.model.map;
 
-import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.CellPosition;
+import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPanelCell;
 
 public interface MapInterface {
 
@@ -35,6 +35,6 @@ public interface MapInterface {
    *                 and clockwise
    * @return Cell at the requested location incl
    */
-  public Cell getCellAtPosition(CellPosition position);
+  public MapPanelCell getCellAtPosition(CellPosition position);
 
 }

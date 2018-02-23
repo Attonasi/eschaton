@@ -10,9 +10,6 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 
 public class EschatonCell extends Cell {
-  public EschatonCell(CellPosition cellPosition, Point point, Contents contents, Polygon polygon) {
-    super(cellPosition, point, contents, polygon);
-  }
 
   /**
    * The Cells are the containers of game information. They are the way we organize and maintain
@@ -26,7 +23,9 @@ public class EschatonCell extends Cell {
    * and,
    * - Contents
    */
-
+  public EschatonCell(CellPosition cellPosition, Point point, Contents contents) {
+    super(cellPosition, point, contents);
+  }
 
 
   @Override
@@ -37,12 +36,7 @@ public class EschatonCell extends Cell {
 
   @Override
   public Color getCellColor(){
-    return Color.GREEN;
+    return Color.BLACK;
   }
 
-  public void mouseClicked(MouseEvent evt){
-    if(this.hexagon.contains(evt.getPoint())){
-      System.out.println("You clicked on Eschaton");
-    }
-  }
 }

@@ -1,6 +1,7 @@
 package edu.neu.ccs.cs5004.eschaton.view.windowbuilders;
 
 import java.awt.*;
+import java.io.IOException;
 
 import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.model.map.Map;
@@ -11,13 +12,14 @@ import edu.neu.ccs.cs5004.eschaton.view.objectmakers.Hexagon;
 
 import static edu.neu.ccs.cs5004.eschaton.config.Config.DEFAULT_SIZE_OF_MAP;
 import static edu.neu.ccs.cs5004.eschaton.config.Config.NUMBER_OF_BLOCKS;
+import static edu.neu.ccs.cs5004.eschaton.config.Config.ORIGIN;
 import static edu.neu.ccs.cs5004.eschaton.config.Config.X_STEP;
 import static edu.neu.ccs.cs5004.eschaton.config.Config.Y_STEP_ONE;
 import static edu.neu.ccs.cs5004.eschaton.config.Config.Y_STEP_TWO;
 
 public class MapPrinter extends GameFrame {
 
-  public MapPrinter(Model model, String name, int width, int height) {
+  public MapPrinter(Model model, String name, int width, int height) throws IOException {
     super(model, name, width, height);
   }
 
@@ -36,8 +38,8 @@ public class MapPrinter extends GameFrame {
 //  }
 
   public static void printMap(Graphics graphics, Map map){
-    int originX = map.getOrigin().x;
-    int originY = map.getOrigin().y;
+    int originX = ORIGIN.x;
+    int originY = ORIGIN.y;
     int[] blockStepX = {X_STEP, 0, -X_STEP, -X_STEP, 0, X_STEP};
     int[] blockStepY = {Y_STEP_ONE, Y_STEP_TWO, Y_STEP_ONE, -Y_STEP_ONE, -Y_STEP_TWO, -Y_STEP_ONE};
     Color[] colors = {Color.BLACK, Color.BLUE, Color.BLACK,

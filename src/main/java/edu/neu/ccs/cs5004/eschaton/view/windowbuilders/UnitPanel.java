@@ -62,10 +62,9 @@ public class UnitPanel extends JPanel implements Panel {
     jButton.setToolTipText("Showing");
 
     jButton.addMouseListener(new MouseListener() {
-      @Override
-      public void mouseClicked(MouseEvent mouseEvent) {
 
-      }
+      @Override
+      public void mouseClicked(MouseEvent mouseEvent) {   }
 
       @Override
       public void mousePressed(MouseEvent mouseEvent) {
@@ -73,18 +72,16 @@ public class UnitPanel extends JPanel implements Panel {
       }
 
       @Override
-      public void mouseReleased(MouseEvent mouseEvent) {
-
-      }
+      public void mouseReleased(MouseEvent mouseEvent) {   }
 
       @Override
       public void mouseEntered(MouseEvent mouseEvent) {
-
+        System.out.println("Im entered");
       }
 
       @Override
       public void mouseExited(MouseEvent mouseEvent) {
-
+        System.out.println("Im exited");
       }
     });
 

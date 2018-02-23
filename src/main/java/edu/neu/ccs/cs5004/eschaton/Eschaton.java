@@ -8,8 +8,6 @@ import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
 import edu.neu.ccs.cs5004.eschaton.view.Window;
 
 import static edu.neu.ccs.cs5004.eschaton.config.Config.*;
-import static edu.neu.ccs.cs5004.eschaton.view.GameFrame.launch;
-import static edu.neu.ccs.cs5004.eschaton.view.Window.PANEL;
 
 
 /**
@@ -22,10 +20,10 @@ public class Eschaton {
 
   private Config config;
   private Model model;
-  private Window gameFrame;
+  private GameFrame gameFrame;
   private String[] playerList = {"Player 1", "Player 2"};
 
-  public Eschaton(Config config, Model model, Window gameFrame) {
+  public Eschaton(Config config, Model model, GameFrame gameFrame) {
     this.config = config;
     this.model = model;
     this.gameFrame = gameFrame;
@@ -37,11 +35,13 @@ public class Eschaton {
 
       Model model = new Model(config);
 
-      Eschaton eschaton = new Eschaton(config, model,
-                          new GameFrame(model, config.GAME_NAME, SCREEN_WIDTH, SCREEN_HEIGHT));
+      GameFrame gameFrame = new GameFrame(model, config.GAME_NAME, SCREEN_WIDTH, SCREEN_HEIGHT);
 
-      PANEL = eschaton.gameFrame;
+
+    Eschaton eschaton = new Eschaton(config, model, gameFrame);
+
+//      PANEL = eschaton.gameFrame;
       // launch() lives in GameFrame currently as does createAndSHowGUI()
-      launch(model);
+      gameFrame.launch(model);
     }
 }

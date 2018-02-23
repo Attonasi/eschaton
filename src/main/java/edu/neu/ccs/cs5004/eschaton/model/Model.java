@@ -16,7 +16,7 @@ public class Model implements ModelInterface {
 
   public Model(Config config) {
     this.config = config;
-    this.map = new Map(config);
+    this.map = new Map();
     this.players = new ArrayList<Player>();
     players.add(new Player("bank", "army"));
     players.add(new Player("bank2", "amry2"));

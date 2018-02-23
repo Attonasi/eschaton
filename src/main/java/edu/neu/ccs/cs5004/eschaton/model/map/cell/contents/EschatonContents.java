@@ -8,8 +8,4 @@ public class EschatonContents extends Contents{
     super(contents);
   }
 
-
-  public String getContents() {
-    return contents;
-  }
 }
