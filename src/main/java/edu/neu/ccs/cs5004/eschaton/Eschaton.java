@@ -41,6 +41,7 @@ public class Eschaton {
                           new GameFrame(model, config.GAME_NAME, SCREEN_WIDTH, SCREEN_HEIGHT));
 
       PANEL = eschaton.gameFrame;
-      launch();
+      // launch() lives in GameFrame currently as does createAndSHowGUI()
+      launch(model);
     }
 }

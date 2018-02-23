@@ -23,6 +23,6 @@ public class GameObject {
 
 
   public void startGame() throws IOException {
-    GameFrame.launch();
+    GameFrame.launch(model);
   }
 }

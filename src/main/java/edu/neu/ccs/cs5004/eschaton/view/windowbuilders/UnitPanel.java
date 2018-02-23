@@ -1,23 +1,22 @@
 package edu.neu.ccs.cs5004.eschaton.view.windowbuilders;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.Border;
 
 import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
 
-public class UnitPanel extends JPanel implements Panel{
+public class UnitPanel extends JPanel implements Panel {
 
   protected JPanel unitPanel;
+  protected JButton jButton;
 //  BufferedImage buttonIcon = ImageIO.read(new File("/image/ship2.png"));
 
   public UnitPanel() throws IOException {
@@ -50,10 +49,12 @@ public class UnitPanel extends JPanel implements Panel{
     unitPanel.setBackground(Color.GREEN);
     unitPanel.setBounds(5, 310, 250, 300);
     unitPanel.setVisible(true);
+    Border blackline = BorderFactory.createLineBorder(Color.RED);
+    unitPanel.setBorder(blackline);
 
-    JButton jButton = new JButton("Button");
+    jButton = new JButton("Button");
     jButton.setPreferredSize(new Dimension(100, 20));
-    jButton.setBounds(100, 100, 40, 40);
+    jButton.setBounds(100, 100, 100, 40);
 //    jButton.setBorderPainted(false);
     jButton.setContentAreaFilled(false);
     jButton.setCursor(Cursor.getPredefinedCursor(13));
@@ -71,14 +72,11 @@ public class UnitPanel extends JPanel implements Panel{
       }
 
       @Override
-      public void mouseReleased(MouseEvent mouseEvent) {
-
-      }
+      public void mouseReleased(MouseEvent mouseEvent) {    }
 
       @Override
       public void mouseEntered(MouseEvent mouseEvent) {
         System.out.println("entered");
-        jButton.getToolTipText();
       }
 
       @Override
@@ -91,4 +89,44 @@ public class UnitPanel extends JPanel implements Panel{
 
     unitPanel.add(jButton);
     }
+
+  @Override
+  public void actionPerformed(ActionEvent actionEvent) {
+
+  }
+
+  @Override
+  public void mouseClicked(MouseEvent mouseEvent) {
+
+  }
+
+  @Override
+  public void mousePressed(MouseEvent mouseEvent) {
+
+  }
+
+  @Override
+  public void mouseReleased(MouseEvent mouseEvent) {
+
+  }
+
+  @Override
+  public void mouseEntered(MouseEvent mouseEvent) {
+
+  }
+
+  @Override
+  public void mouseExited(MouseEvent mouseEvent) {
+
+  }
+
+  @Override
+  public void mouseDragged(MouseEvent mouseEvent) {
+
+  }
+
+  @Override
+  public void mouseMoved(MouseEvent mouseEvent) {
+
+  }
 }

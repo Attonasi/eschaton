@@ -26,6 +26,10 @@ public class Model implements ModelInterface {
     return map;
   }
 
+  public Config getConfig() {
+    return config;
+  }
+
   public ArrayList<Player> getPlayers() {
     return players;
   }

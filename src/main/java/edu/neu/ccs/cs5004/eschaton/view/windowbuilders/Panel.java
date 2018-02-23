@@ -1,8 +1,11 @@
 package edu.neu.ccs.cs5004.eschaton.view.windowbuilders;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
-public interface Panel {
+public interface Panel extends ActionListener, MouseListener, MouseMotionListener {
 
   /** I am building this interface amd am abstract to try to make this more OO.
    *

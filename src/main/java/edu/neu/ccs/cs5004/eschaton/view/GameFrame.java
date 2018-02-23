@@ -9,11 +9,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import edu.neu.ccs.cs5004.eschaton.model.Model;
-import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPanel;
-import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPrinter;
-import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.TilePanel;
-import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.UnitPanel;
-
+import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.*;
 
 
 public class GameFrame extends Window {
@@ -21,7 +17,8 @@ public class GameFrame extends Window {
   protected Model model;
   protected static TilePanel TILE_PANEL;
   protected static UnitPanel UNIT_PANEL;
-  protected static JPanel MAP_PANEL;
+  protected static MapPanel MAP_PANEL;
+  protected static MainPanel MAIN_PANEL;
 
 
   public GameFrame(Model model, String name, int width, int height) {
@@ -29,15 +26,15 @@ public class GameFrame extends Window {
     this.model = model;
   }
 
-  private static void createAndShowGUI() throws IOException {
+  private static void createAndShowGUI(Model model) throws IOException {
     FRAME = new JFrame(TITLE);
     FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     FRAME.addKeyListener(PANEL); // keyListener added to frame
+    PANEL.setLayout(null);
     FRAME.getContentPane().add(PANEL);
     FRAME.pack();
     FRAME.setVisible(true);
     FRAME.setResizable(false);
-    PANEL.setBackground(Color.BLACK);
 
     TILE_PANEL = new TilePanel();
     FRAME.getContentPane().add(TILE_PANEL.getPanel());
@@ -45,19 +42,21 @@ public class GameFrame extends Window {
     UNIT_PANEL = new UnitPanel();
     FRAME.getContentPane().add(UNIT_PANEL.getPanel());
 
-    MAP_PANEL = new JPanel();
-    MapPanel.makeMapPanel(MAP_PANEL);
-    FRAME.getContentPane().add(MAP_PANEL);
+    MAP_PANEL = new MapPanel(model);
+    FRAME.getContentPane().add(MAP_PANEL.getPanel());
+
+    MAIN_PANEL = new MainPanel();
+    FRAME.getContentPane().add(MAIN_PANEL.getPanel());
   }
 
-  public static void launch() throws IOException {
+  public static void launch(Model model) throws IOException {
     PANEL.addMouseListener(PANEL);
     PANEL.addMouseMotionListener(PANEL);
 
     javax.swing.SwingUtilities.invokeLater(
         new Runnable(){ public void run(){
           try {
-            createAndShowGUI();
+            createAndShowGUI(model);
           } catch (IOException e) {
             e.printStackTrace();
           }
@@ -69,5 +68,9 @@ public class GameFrame extends Window {
 
     MapPrinter.printMap(graphics, model.getMap());
 
+  }
+
+  public Model getModel() {
+    return model;
   }
 }

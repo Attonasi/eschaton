@@ -1,8 +1,8 @@
 package edu.neu.ccs.cs5004.eschaton.view;
 
 /**
- * This is a window builder class with the basic mouse and keyboard listeners and a constructor to
- * build an empty window.
+ * This is a window builder class with the basic mouse and keyboard listeners because it allows all of the Panels below
+ * it to inherit that stand a constructor to build an empty window.
  *
  * This will be expanded to display all sorts of stuff.
  */
@@ -33,49 +33,31 @@ public class Window extends JPanel implements MouseListener, MouseMotionListener
   public Dimension getPreferredSize() {return WINDOW_SIZE;}
 
   @Override
-  public void keyTyped(KeyEvent keyEvent) {
-
-  }
+  public void keyTyped(KeyEvent keyEvent) { }
 
   @Override
-  public void keyPressed(KeyEvent keyEvent) {
-
-  }
+  public void keyPressed(KeyEvent keyEvent) { }
 
   @Override
-  public void keyReleased(KeyEvent keyEvent) {
-
-  }
+  public void keyReleased(KeyEvent keyEvent) { }
 
   @Override
-  public void mouseClicked(MouseEvent mouseEvent) {
-
-  }
+  public void mouseClicked(MouseEvent mouseEvent) { }
 
   @Override
-  public void mousePressed(MouseEvent mouseEvent) {
-
-  }
+  public void mousePressed(MouseEvent mouseEvent) { }
 
   @Override
-  public void mouseReleased(MouseEvent mouseEvent) {
-
-  }
+  public void mouseReleased(MouseEvent mouseEvent) { }
 
   @Override
-  public void mouseEntered(MouseEvent mouseEvent) {
-
-  }
+  public void mouseEntered(MouseEvent mouseEvent) { }
 
   @Override
-  public void mouseExited(MouseEvent mouseEvent) {
-
-  }
+  public void mouseExited(MouseEvent mouseEvent) { }
 
   @Override
-  public void mouseDragged(MouseEvent mouseEvent) {
-
-  }
+  public void mouseDragged(MouseEvent mouseEvent) { }
 
   @Override
   public void mouseMoved(MouseEvent mouseEvent) { }
