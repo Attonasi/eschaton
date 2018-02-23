@@ -24,10 +24,6 @@ public class UnitPanel extends JPanel implements Panel {
     buildPanel();
   }
 
-  protected void paintComponent(Graphics graphics){
-
-  }
-
   /**
    * This is a getter for all of the panels used to build the map window. Each one will have a
    * parent JPanel and this will get it.
@@ -52,6 +48,11 @@ public class UnitPanel extends JPanel implements Panel {
     Border blackline = BorderFactory.createLineBorder(Color.RED);
     unitPanel.setBorder(blackline);
 
+    JTextField textField = new JTextField();
+    textField.setBounds(5, 5, 100, 30);
+    textField.setVisible(true);
+    unitPanel.add(textField);
+
     jButton = new JButton("Button");
     jButton.setPreferredSize(new Dimension(100, 20));
     jButton.setBounds(100, 100, 100, 40);
@@ -68,24 +69,24 @@ public class UnitPanel extends JPanel implements Panel {
 
       @Override
       public void mousePressed(MouseEvent mouseEvent) {
-        System.out.println("pressed");
+        System.out.println("Im pressed");
       }
 
       @Override
-      public void mouseReleased(MouseEvent mouseEvent) {    }
+      public void mouseReleased(MouseEvent mouseEvent) {
+
+      }
 
       @Override
       public void mouseEntered(MouseEvent mouseEvent) {
-        System.out.println("entered");
+
       }
 
       @Override
       public void mouseExited(MouseEvent mouseEvent) {
-        System.out.println("exited");
+
       }
-    }) ;
-
-
+    });
 
     unitPanel.add(jButton);
     }

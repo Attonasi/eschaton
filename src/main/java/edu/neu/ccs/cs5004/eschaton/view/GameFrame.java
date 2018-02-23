@@ -8,8 +8,13 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import edu.neu.ccs.cs5004.eschaton.Eschaton;
+import edu.neu.ccs.cs5004.eschaton.config.Config;
 import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.*;
+
+import static edu.neu.ccs.cs5004.eschaton.config.Config.SCREEN_HEIGHT;
+import static edu.neu.ccs.cs5004.eschaton.config.Config.SCREEN_WIDTH;
 
 
 public class GameFrame extends Window {
@@ -50,8 +55,8 @@ public class GameFrame extends Window {
   }
 
   public static void launch(Model model) throws IOException {
-    PANEL.addMouseListener(PANEL);
-    PANEL.addMouseMotionListener(PANEL);
+//    PANEL.addMouseListener(PANEL);
+//    PANEL.addMouseMotionListener(PANEL);
 
     javax.swing.SwingUtilities.invokeLater(
         new Runnable(){ public void run(){
@@ -65,12 +70,19 @@ public class GameFrame extends Window {
   }
   @Override
   protected void paintComponent(Graphics graphics) {
-
     MapPrinter.printMap(graphics, model.getMap());
-
   }
 
   public Model getModel() {
     return model;
   }
+//
+//  public static void main(String[] args) throws IOException {
+//    Config config = new Config();
+//
+//    Model model = new Model(config);
+//
+//       GameFrame gf = new GameFrame(model, config.GAME_NAME, SCREEN_WIDTH, SCREEN_HEIGHT);
+//       launch(model);
+//  }
 }
