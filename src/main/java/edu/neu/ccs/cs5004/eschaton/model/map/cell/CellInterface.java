@@ -1,7 +1,6 @@
 package edu.neu.ccs.cs5004.eschaton.model.map.cell;
 
-import javax.swing.text.Position;
-
+import edu.neu.ccs.cs5004.eschaton.model.Units.Unit;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Contents;
 
 public interface
@@ -20,5 +19,14 @@ CellInterface {
    * - Contents
    */
 
+  /**
+   * @return Contents the resource return values for the cell.
+   */
   public Contents getContents();
+
+  /** A function to facilitate adding a Unit to the units in the cell.
+   *
+   * @param unit Unit being added to the list
+   */
+  void addUnit(Unit unit);
 }

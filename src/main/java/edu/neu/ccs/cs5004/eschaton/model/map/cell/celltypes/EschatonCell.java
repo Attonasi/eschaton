@@ -1,13 +1,10 @@
 package edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes;
 
+import java.awt.*;
+
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.CellPosition;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Contents;
-import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.EschatonContents;
-
-import javax.swing.text.Position;
-import java.awt.*;
-import java.awt.event.MouseEvent;
 
 public class EschatonCell extends Cell {
 
@@ -23,8 +20,13 @@ public class EschatonCell extends Cell {
    * and,
    * - Contents
    */
-  public EschatonCell(CellPosition cellPosition, Point point, Contents contents) {
-    super(cellPosition, point, contents);
+  public EschatonCell(CellPosition cellPosition, Point point, Integer special) {
+    super(cellPosition, point, special);
+  }
+
+  @Override
+  protected Contents createCellContents() {
+    return new Contents(0,0,0,0,0);
   }
 
 

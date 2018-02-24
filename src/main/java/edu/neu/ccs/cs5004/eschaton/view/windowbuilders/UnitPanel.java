@@ -16,7 +16,7 @@ import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
 public class UnitPanel extends JPanel implements Panel {
 
   protected JPanel unitPanel;
-  protected JButton jButton;
+  protected JTextField unitNameField;
 
 
 //  BufferedImage buttonIcon = ImageIO.read(new File("/image/ship2.png"));
@@ -52,49 +52,32 @@ public class UnitPanel extends JPanel implements Panel {
     Border blackline = BorderFactory.createLineBorder(Color.RED);
     unitPanel.setBorder(blackline);
 
+    unitNameField = new JTextField();
+    unitNameField.setBounds(20,  20, 200, 30);
+    unitNameField.setVisible(true);
+    unitNameField.setFont(new Font("Arial", Font.PLAIN, 20));
+    unitNameField.setHorizontalAlignment(JTextField.CENTER);
+    unitPanel.add(unitNameField);
   }
 
-
-
-
-
-  @Override
-  public void actionPerformed(ActionEvent actionEvent) {
-
-  }
-
-  @Override
-  public void mouseClicked(MouseEvent mouseEvent) {
-
+  public JTextField getUnitNameField() {
+    return unitNameField;
   }
 
   @Override
-  public void mousePressed(MouseEvent mouseEvent) {
-
-  }
-
+  public void actionPerformed(ActionEvent actionEvent) {  }
   @Override
-  public void mouseReleased(MouseEvent mouseEvent) {
-
-  }
-
+  public void mouseClicked(MouseEvent mouseEvent) {  }
   @Override
-  public void mouseEntered(MouseEvent mouseEvent) {
-
-  }
-
+  public void mousePressed(MouseEvent mouseEvent) {  }
   @Override
-  public void mouseExited(MouseEvent mouseEvent) {
-
-  }
-
+  public void mouseReleased(MouseEvent mouseEvent) {  }
   @Override
-  public void mouseDragged(MouseEvent mouseEvent) {
-
-  }
-
+  public void mouseEntered(MouseEvent mouseEvent) {  }
   @Override
-  public void mouseMoved(MouseEvent mouseEvent) {
-
-  }
+  public void mouseExited(MouseEvent mouseEvent) {  }
+  @Override
+  public void mouseDragged(MouseEvent mouseEvent) {  }
+  @Override
+  public void mouseMoved(MouseEvent mouseEvent) {  }
 }

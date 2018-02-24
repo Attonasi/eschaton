@@ -1,16 +1,12 @@
 package edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes;
 
 import java.awt.*;
-import java.util.ArrayList;
 
-import javax.swing.text.Position;
-
-import edu.neu.ccs.cs5004.eschaton.model.Units.Unit;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.CellPosition;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Contents;
 
-public class Plains extends Cell {
+public class Forest extends Cell{
 
   /**
    * The Cells are the containers of game information. They are the way we organize and maintain
@@ -29,13 +25,13 @@ public class Plains extends Cell {
    * - Contents
    */
 
-  public Plains(CellPosition cellPosition, Point point, Integer special) {
+  public Forest(CellPosition cellPosition, Point point, Integer special) {
     super(cellPosition, point, special);
   }
 
   @Override
   public Color getCellColor(){
-    return Color.YELLOW;
+    return Color.GREEN;
   }
 
   @Override
@@ -44,8 +40,8 @@ public class Plains extends Cell {
   }
 
   public Contents createCellContents() {
-    return special == 0 ? new Contents(0, 2, 0, 0, 0) :
-           special == 1 ? new Contents(0, 4, 0, 0, 0) :
-                          new Contents(0, 3, 0, 0, 1);
+    return special == 0 ? new Contents(2, 0, 0, 0, 0) :
+           special == 1 ? new Contents(2, 2, 0, 0, 0) :
+                          new Contents(3, 0, 0, 0, 1);
   }
 }

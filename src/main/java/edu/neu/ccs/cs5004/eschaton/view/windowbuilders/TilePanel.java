@@ -7,9 +7,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-import edu.neu.ccs.cs5004.eschaton.model.Model;
-import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
-
 public class TilePanel extends JPanel implements Panel{
 
   private JPanel tilePanel;
@@ -83,7 +80,7 @@ public class TilePanel extends JPanel implements Panel{
   }
 
   private void buildResourceField(JTextField field, int number){
-    field.setBounds(150, number * 30 +60, 50, 30);
+    field.setBounds(140, number * 30 + 80, 40, 30);
     field.setVisible(true);
     field.setFont(new Font("Arial", Font.PLAIN, 20));
     field.setHorizontalAlignment(JTextField.CENTER);
@@ -91,85 +88,43 @@ public class TilePanel extends JPanel implements Panel{
   }
 
   private void buildCoordinateField(JTextField field, int number){
-    field.setBounds(20 + number*60, 20, 50, 30);
+    field.setBounds(20 + number*60, 20, 40, 30);
     field.setVisible(true);
     field.setFont(new Font("Arial", Font.PLAIN, 20));
     field.setHorizontalAlignment(JTextField.CENTER);
     tilePanel.add(field);
   }
 
-  public JTextField getCircleField() {
-    return circleField;
-  }
+  public JTextField getCircleField() {  return circleField;  }
 
-  public JTextField getBlockField() {
-    return blockField;
-  }
+  public JTextField getBlockField() {  return blockField;  }
 
-  public JTextField getToClockwiseField() {
-    return toClockwiseField;
-  }
+  public JTextField getToClockwiseField() { return toClockwiseField;  }
 
-  public JTextField getWoodField() {
-    return woodField;
-  }
+  public JTextField getWoodField() { return woodField;  }
 
-  public JTextField getFoodField() {
-    return foodField;
-  }
+  public JTextField getFoodField() { return foodField;  }
 
-  public JTextField getIronField() {
-    return ironField;
-  }
+  public JTextField getIronField() { return ironField;  }
 
-  public JTextField getStoneField() {
-    return stoneField;
-  }
+  public JTextField getStoneField() {  return stoneField;  }
 
-  public JTextField getGoldField() {
-    return goldField;
-  }
-  protected void paintComponent(Graphics graphics){
-
-  }
+  public JTextField getGoldField() { return goldField;  }
 
   @Override
-  public void actionPerformed(ActionEvent actionEvent) {
-
-  }
-
+  public void actionPerformed(ActionEvent actionEvent) {  }
   @Override
-  public void mouseClicked(MouseEvent mouseEvent) {
-
-  }
-
+  public void mouseClicked(MouseEvent mouseEvent) {  }
   @Override
-  public void mousePressed(MouseEvent mouseEvent) {
-
-  }
-
+  public void mousePressed(MouseEvent mouseEvent) {  }
   @Override
-  public void mouseReleased(MouseEvent mouseEvent) {
-
-  }
-
+  public void mouseReleased(MouseEvent mouseEvent) {  }
   @Override
-  public void mouseEntered(MouseEvent mouseEvent) {
-
-  }
-
+  public void mouseEntered(MouseEvent mouseEvent) {  }
   @Override
-  public void mouseExited(MouseEvent mouseEvent) {
-
-  }
-
+  public void mouseExited(MouseEvent mouseEvent) {  }
   @Override
-  public void mouseDragged(MouseEvent mouseEvent) {
-
-  }
-
+  public void mouseDragged(MouseEvent mouseEvent) {  }
   @Override
-  public void mouseMoved(MouseEvent mouseEvent) {
-
-  }
+  public void mouseMoved(MouseEvent mouseEvent) {  }
 }

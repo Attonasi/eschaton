@@ -26,7 +26,6 @@ public class MapPanel extends JPanel implements Panel{
   private Model model;
   private Map map;
   private Point origin;
-  private JButton originButton;
   private UnitPanel unitPanel;
   private TilePanel tilePanel;
 
@@ -41,7 +40,6 @@ public class MapPanel extends JPanel implements Panel{
     buildPanel();
     makeMapButtons();
   }
-
 
   /**
    * This is a getter for all of the panels used to build the map window. Each one will have a
@@ -114,25 +112,18 @@ public class MapPanel extends JPanel implements Panel{
 
   @Override
   public void actionPerformed(ActionEvent actionEvent) {  }
-
   @Override
   public void mouseClicked(MouseEvent mouseEvent) {  }
-
   @Override
   public void mousePressed(MouseEvent mouseEvent) {  }
-
   @Override
   public void mouseReleased(MouseEvent mouseEvent) {  }
-
   @Override
   public void mouseEntered(MouseEvent mouseEvent) {  }
-
   @Override
   public void mouseExited(MouseEvent mouseEvent) {  }
-
   @Override
   public void mouseDragged(MouseEvent mouseEvent) {  }
-
   @Override
   public void mouseMoved(MouseEvent mouseEvent) {  }
 }
