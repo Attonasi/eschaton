@@ -17,6 +17,8 @@ public class UnitPanel extends JPanel implements Panel {
 
   protected JPanel unitPanel;
   protected JButton jButton;
+
+
 //  BufferedImage buttonIcon = ImageIO.read(new File("/image/ship2.png"));
 
   public UnitPanel() throws IOException {
@@ -41,6 +43,8 @@ public class UnitPanel extends JPanel implements Panel {
    */
   @Override
   public void buildPanel() {
+    int number = 0;
+
     unitPanel.setLayout(null);
     unitPanel.setBackground(Color.GREEN);
     unitPanel.setBounds(5, 310, 250, 300);
@@ -48,45 +52,11 @@ public class UnitPanel extends JPanel implements Panel {
     Border blackline = BorderFactory.createLineBorder(Color.RED);
     unitPanel.setBorder(blackline);
 
-    JTextField textField = new JTextField();
-    textField.setBounds(5, 5, 100, 30);
-    textField.setVisible(true);
-    unitPanel.add(textField);
+  }
 
-    jButton = new JButton("Button");
-    jButton.setPreferredSize(new Dimension(100, 20));
-    jButton.setBounds(100, 100, 100, 40);
-//    jButton.setBorderPainted(false);
-    jButton.setContentAreaFilled(false);
-    jButton.setCursor(Cursor.getPredefinedCursor(13));
-    jButton.setToolTipText("Showing");
 
-    jButton.addMouseListener(new MouseListener() {
 
-      @Override
-      public void mouseClicked(MouseEvent mouseEvent) {   }
 
-      @Override
-      public void mousePressed(MouseEvent mouseEvent) {
-        System.out.println("Im pressed");
-      }
-
-      @Override
-      public void mouseReleased(MouseEvent mouseEvent) {   }
-
-      @Override
-      public void mouseEntered(MouseEvent mouseEvent) {
-        System.out.println("Im entered");
-      }
-
-      @Override
-      public void mouseExited(MouseEvent mouseEvent) {
-        System.out.println("Im exited");
-      }
-    });
-
-    unitPanel.add(jButton);
-    }
 
   @Override
   public void actionPerformed(ActionEvent actionEvent) {

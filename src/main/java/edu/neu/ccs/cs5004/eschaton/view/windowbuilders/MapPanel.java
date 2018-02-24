@@ -9,6 +9,7 @@ import javax.swing.border.Border;
 
 import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.model.map.Map;
+import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
 
 import static edu.neu.ccs.cs5004.eschaton.config.Config.DEFAULT_SIZE_OF_MAP;
 import static edu.neu.ccs.cs5004.eschaton.config.Config.NUMBER_OF_BLOCKS;
@@ -26,8 +27,12 @@ public class MapPanel extends JPanel implements Panel{
   private Map map;
   private Point origin;
   private JButton originButton;
+  private UnitPanel unitPanel;
+  private TilePanel tilePanel;
 
-  public MapPanel(Model model) {
+  public MapPanel(Model model, UnitPanel unitPanel, TilePanel tilePanel) {
+    this.unitPanel = unitPanel;
+    this.tilePanel = tilePanel;
     this.mapPanel = new JPanel();
     this.model = model;
     this.map = model.getMap();
@@ -86,7 +91,7 @@ public class MapPanel extends JPanel implements Panel{
 
       for(int block = 0; block < NUMBER_OF_BLOCKS; block ++){
         MapPanelCell newCell = new MapPanelCell(new Point(blockXVals[block], blockYVals[block]),
-            dFromOrigin, block, 0);
+            dFromOrigin, block, 0, unitPanel, tilePanel);
 
         map.getMapGrid()[dFromOrigin][block][0] = newCell;
         mapPanel.add(newCell.getButton());
@@ -98,7 +103,7 @@ public class MapPanel extends JPanel implements Panel{
           MapPanelCell newCellCW = new MapPanelCell(new Point(
               blockXOrdinal + blockStepX[block] * (blockSize + 1),
               blockYOrdinal + blockStepY[block] * (blockSize + 1)),
-              dFromOrigin, block, blockSize + 1);
+              dFromOrigin, block, blockSize + 1, unitPanel, tilePanel);
 
           map.getMapGrid()[dFromOrigin][block][blockSize+1] = newCellCW;
           mapPanel.add(newCellCW.getButton());

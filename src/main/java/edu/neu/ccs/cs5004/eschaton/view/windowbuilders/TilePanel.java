@@ -13,6 +13,14 @@ import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
 public class TilePanel extends JPanel implements Panel{
 
   private JPanel tilePanel;
+  public  JTextField circleField;
+  public  JTextField blockField;
+  public  JTextField toClockwiseField;
+  public  JTextField woodField;
+  public  JTextField foodField;
+  public  JTextField ironField;
+  public  JTextField stoneField;
+  public  JTextField goldField;
 
   public TilePanel() {
     tilePanel = new JPanel();
@@ -31,14 +39,96 @@ public class TilePanel extends JPanel implements Panel{
   }
 
   public void buildPanel(){
+
+    int number = 0;
+
     tilePanel.setBackground(Color.BLUE);
     tilePanel.setBounds(5, 5, 250, 300);
     tilePanel.setVisible(true);
     tilePanel.setLayout(null);
     Border blackline = BorderFactory.createLineBorder(Color.RED);
     tilePanel.setBorder(blackline);
+
+    circleField = new JTextField();
+    buildCoordinateField(circleField, number);
+    number++;
+
+    blockField = new JTextField();
+    buildCoordinateField(blockField, number);
+    number++;
+
+    toClockwiseField = new JTextField();
+    buildCoordinateField(toClockwiseField, number);
+    number = 0;
+
+    woodField = new JTextField();
+    buildResourceField(woodField, number);
+    number++;
+
+    foodField = new JTextField();
+    buildResourceField(foodField, number);
+    number++;
+
+    ironField = new JTextField();
+    buildResourceField(ironField, number);
+    number++;
+
+    stoneField = new JTextField();
+    buildResourceField(stoneField, number);
+    number++;
+
+    goldField = new JTextField();
+    buildResourceField(goldField, number);
+    number++;
   }
 
+  private void buildResourceField(JTextField field, int number){
+    field.setBounds(150, number * 30 +60, 50, 30);
+    field.setVisible(true);
+    field.setFont(new Font("Arial", Font.PLAIN, 20));
+    field.setHorizontalAlignment(JTextField.CENTER);
+    tilePanel.add(field);
+  }
+
+  private void buildCoordinateField(JTextField field, int number){
+    field.setBounds(20 + number*60, 20, 50, 30);
+    field.setVisible(true);
+    field.setFont(new Font("Arial", Font.PLAIN, 20));
+    field.setHorizontalAlignment(JTextField.CENTER);
+    tilePanel.add(field);
+  }
+
+  public JTextField getCircleField() {
+    return circleField;
+  }
+
+  public JTextField getBlockField() {
+    return blockField;
+  }
+
+  public JTextField getToClockwiseField() {
+    return toClockwiseField;
+  }
+
+  public JTextField getWoodField() {
+    return woodField;
+  }
+
+  public JTextField getFoodField() {
+    return foodField;
+  }
+
+  public JTextField getIronField() {
+    return ironField;
+  }
+
+  public JTextField getStoneField() {
+    return stoneField;
+  }
+
+  public JTextField getGoldField() {
+    return goldField;
+  }
   protected void paintComponent(Graphics graphics){
 
   }

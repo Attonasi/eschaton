@@ -18,7 +18,7 @@ public class Config {
   public static final Point ORIGIN = new Point((SCREEN_HEIGHT/2 + (SCREEN_WIDTH-SCREEN_HEIGHT)),
       SCREEN_HEIGHT/2);
   public static final Integer NUMBER_OF_BLOCKS = 6;
-  public static final int X_STEP = HEXAGON_SIZE * 3;
+  public static final int X_STEP = HEXAGON_SIZE * 4;
   public static final int Y_STEP_ONE = HEXAGON_SIZE * 2;
   public static final int Y_STEP_TWO = HEXAGON_SIZE * 4;
 

@@ -19,7 +19,7 @@ public class Model implements ModelInterface {
     this.map = new Map();
     this.players = new ArrayList<Player>();
     players.add(new Player("bank", "army"));
-    players.add(new Player("bank2", "amry2"));
+    players.add(new Player("bank2", "army2"));
   }
 
   public Map getMap() {

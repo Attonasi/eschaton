@@ -20,8 +20,6 @@ import javax.swing.*;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPanel;
 
 public class Window extends JPanel  {
-  public static JFrame FRAME;
-  public static Window PANEL; // JPanel that is also a lisener
   public static String TITLE = "Eschaton";
   public static Dimension WINDOW_SIZE = new Dimension(1005,605);
 
@@ -32,33 +30,4 @@ public class Window extends JPanel  {
 
   public Dimension getPreferredSize() {return WINDOW_SIZE;}
 
-//  @Override
-//  public void keyTyped(KeyEvent keyEvent) { }
-//
-//  @Override
-//  public void keyPressed(KeyEvent keyEvent) { }
-//
-//  @Override
-//  public void keyReleased(KeyEvent keyEvent) { }
-//
-//  @Override
-//  public void mouseClicked(MouseEvent mouseEvent) { }
-//
-//  @Override
-//  public void mousePressed(MouseEvent mouseEvent) { }
-//
-//  @Override
-//  public void mouseReleased(MouseEvent mouseEvent) { }
-//
-//  @Override
-//  public void mouseEntered(MouseEvent mouseEvent) { }
-//
-//  @Override
-//  public void mouseExited(MouseEvent mouseEvent) { }
-//
-//  @Override
-//  public void mouseDragged(MouseEvent mouseEvent) { }
-//
-//  @Override
-//  public void mouseMoved(MouseEvent mouseEvent) { }
 }

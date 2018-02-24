@@ -13,8 +13,6 @@ import edu.neu.ccs.cs5004.eschaton.model.map.cell.CellPosition;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.EschatonCell;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Plains;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Contents;
-import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.EschatonContents;
-import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Wheat;
 
 import static edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPanel.X_OFFSET;
 import static edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPanel.Y_OFFSET;
@@ -27,21 +25,26 @@ public class MapPanelCell implements MapPanelCellIInterface{
   private Integer circle;
   private Integer block;
   private Integer toClockwise;
+  private UnitPanel unitPanel;
+  private TilePanel tilePanel;
 
 
   public MapPanelCell(Point point,
-                      Integer circle, Integer block, Integer toClockwise) {
+                      Integer circle, Integer block, Integer toClockwise, UnitPanel unitPanel,
+                      TilePanel tilePanel) {
 
     this.button = new JButton("");
     this.point = point;
     this.circle = circle;
     this.block = block;
     this.toClockwise = toClockwise;
+    this.unitPanel = unitPanel;
+    this.tilePanel = tilePanel;
 
     this.cell = makeNewCell(new CellPosition(block, circle, toClockwise),
-        point, new Wheat("wheat"));
+        point);
 
-    button.setBounds(point.x-X_OFFSET, point.y-Y_OFFSET, 18, 30);
+    button.setBounds(point.x-X_OFFSET, point.y-Y_OFFSET, 30, 30);
     button.setBackground(cell.getCellColor());
     button.setContentAreaFilled(true);
     button.setFont(new Font("Arial", Font.PLAIN, 5));
@@ -53,7 +56,17 @@ public class MapPanelCell implements MapPanelCellIInterface{
       @Override
       public void mousePressed(MouseEvent mouseEvent) {
         System.out.println("pressed " +circle +", "+block+", "+toClockwise);
-        System.out.println(cell.getContents().getContents());
+        System.out.println(cell.getContents());
+        tilePanel.getWoodField().setText(cell.getContents().getWood().toString());
+        tilePanel.getFoodField().setText(cell.getContents().getFood().toString());
+        tilePanel.getIronField().setText(cell.getContents().getIron().toString());
+        tilePanel.getStoneField().setText(cell.getContents().getStone().toString());
+        tilePanel.getGoldField().setText(cell.getContents().getGold().toString());
+        tilePanel.getCircleField().setText(circle.toString());
+        tilePanel.getBlockField().setText(block.toString());
+        tilePanel.getToClockwiseField().setText(toClockwise.toString());
+
+
       }
 
       @Override
@@ -72,13 +85,13 @@ public class MapPanelCell implements MapPanelCellIInterface{
 
   }
 
-  private Cell makeNewCell(CellPosition cellPosition, Point point, Contents contents) {
+  private Cell makeNewCell(CellPosition cellPosition, Point point) {
 
     if (cellPosition.getCircle() < 1){
       return new EschatonCell(cellPosition, point,
-          new EschatonContents("Eschaton"));
+          new Contents(0, 0, 0, 0, 0));
     }else{
-      return new Plains(cellPosition, point, new Wheat("Wheat"));
+      return new Plains(cellPosition, point, new Contents(0, 4, 0, 0, 0));
     }
   }
 

@@ -21,7 +21,7 @@ public class GameFrame extends JPanel {
 
   protected Model model;
   protected static JFrame FRAME;
-  protected static Window PANEL; // JPanel that is also a lisener
+  protected static Window PANEL;
   protected static String TITLE = "Eschaton";
   protected static Dimension WINDOW_SIZE = new Dimension(1005,605);
 
@@ -52,7 +52,7 @@ public class GameFrame extends JPanel {
     UNIT_PANEL = new UnitPanel();
     FRAME.getContentPane().add(UNIT_PANEL.getPanel());
 
-    MAP_PANEL = new MapPanel(model);
+    MAP_PANEL = new MapPanel(model, getUnitPanel(), getTilePanel());
     FRAME.getContentPane().add(MAP_PANEL.getPanel());
 
     MAIN_PANEL = new MainPanel();
@@ -79,13 +79,16 @@ public class GameFrame extends JPanel {
   public Model getModel() {
     return model;
   }
-//
-//  public static void main(String[] args) throws IOException {
-//    Config config = new Config();
-//
-//    Model model = new Model(config);
-//
-//       GameFrame gf = new GameFrame(model, config.GAME_NAME, SCREEN_WIDTH, SCREEN_HEIGHT);
-//       launch(model);
-//  }
+
+  public TilePanel getTilePanel() {
+    return TILE_PANEL;
+  }
+
+  public MapPanel getMapPanel() {
+    return MAP_PANEL;
+  }
+
+  public UnitPanel getUnitPanel() {
+    return UNIT_PANEL;
+  }
 }
