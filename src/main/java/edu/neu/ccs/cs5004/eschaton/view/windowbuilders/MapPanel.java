@@ -87,15 +87,16 @@ public class MapPanel extends JPanel implements Panel{
           originY + Y_STEP_ONE * dFromOrigin,
           originY - Y_STEP_ONE * dFromOrigin};
 
-      int blockSpecialValue = 1 + (int)(Math.random()*((dFromOrigin-1)+1));
-      System.out.println(blockSpecialValue + " is special ");
+      int blockSpecialValue = (int)(Math.random()*((dFromOrigin-1)+1));
+      System.out.println("Block special value is " + blockSpecialValue);
 
       for(int block = 0; block < NUMBER_OF_BLOCKS; block ++){
         int cellSpecial = 0;
         if(blockSpecialValue == 0){
-          cellSpecial = (int)(Math.random() * 2);
+          cellSpecial = 1 + (int)(Math.random() * 2);
         }
 
+        System.out.println("Block special value is " + blockSpecialValue + " cellSpecial value is " + cellSpecial);
         MapPanelCell newCell = new MapPanelCell(new Point(blockXVals[block], blockYVals[block]),
             dFromOrigin, block, 0, cellSpecial, unitPanel, tilePanel);
 
@@ -105,9 +106,11 @@ public class MapPanel extends JPanel implements Panel{
         for(int blockSize = 0;  blockSize < dFromOrigin-1; blockSize++){
           int blockXOrdinal = blockXVals[block];
           int blockYOrdinal = blockYVals[block];
-          if(blockSpecialValue == blockSize+1){
-            cellSpecial = (int)(Math.random() * 2);
+          if(blockSpecialValue == blockSize){
+            cellSpecial = 1 + (int)(Math.random() * 2);
           }
+
+          System.out.println("Block special value is " + blockSpecialValue + " blockSize is " + blockSize+ " cellSpecial value is " + cellSpecial);
 
           MapPanelCell newCellCW = new MapPanelCell(new Point(
               blockXOrdinal + blockStepX[block] * (blockSize + 1),
