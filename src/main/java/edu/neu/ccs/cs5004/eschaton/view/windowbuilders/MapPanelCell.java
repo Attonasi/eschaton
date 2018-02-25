@@ -25,13 +25,14 @@ public class MapPanelCell implements MapPanelCellIInterface{
   private Integer circle;
   private Integer block;
   private Integer toClockwise;
+  private Integer special;
   private UnitPanel unitPanel;
   private TilePanel tilePanel;
 
 
   public MapPanelCell(Point point,
-                      Integer circle, Integer block, Integer toClockwise, UnitPanel unitPanel,
-                      TilePanel tilePanel) {
+                      Integer circle, Integer block, Integer toClockwise, Integer special,
+                      UnitPanel unitPanel, TilePanel tilePanel) {
 
     this.button = new JButton("");
     this.point = point;
@@ -42,7 +43,7 @@ public class MapPanelCell implements MapPanelCellIInterface{
     this.tilePanel = tilePanel;
 
     this.cell = makeNewCell(new CellPosition(block, circle, toClockwise),
-        point);
+        point, special);
 
     button.setBounds(point.x-X_OFFSET, point.y-Y_OFFSET, 30, 30);
     button.setBackground(cell.getCellColor());
@@ -75,19 +76,18 @@ public class MapPanelCell implements MapPanelCellIInterface{
 
   }
 
-  private Cell makeNewCell(CellPosition cellPosition, Point point) {
-    int randomCell = 1 + (int)(Math.random()*((7-1)+1));
-    System.out.println(randomCell);
+  private Cell makeNewCell(CellPosition cellPosition, Point point, Integer special) {
+    int randomCell = 1 + (int)(Math.random()*((8-1)+1));
     if (cellPosition.getCircle() < 1){
-      return new EschatonCell(cellPosition, point, 0);
+      return new EschatonCell(cellPosition, point, special);
     }else if (randomCell == 1){
-      return new Mountain(cellPosition, point, 0);
+      return new Mountain(cellPosition, point, special);
     }else if (randomCell < 3 ){
-      return new Hills(cellPosition, point, 0);
+      return new Hills(cellPosition, point, special);
     }else if (randomCell < 5){
-      return new Forest(cellPosition, point, 0);
+      return new Forest(cellPosition, point, special);
     }else{
-      return new Plains(cellPosition, point,0);
+      return new Plains(cellPosition, point,special);
     }
   }
 

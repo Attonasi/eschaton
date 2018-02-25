@@ -87,9 +87,17 @@ public class MapPanel extends JPanel implements Panel{
           originY + Y_STEP_ONE * dFromOrigin,
           originY - Y_STEP_ONE * dFromOrigin};
 
+      int blockSpecialValue = 1 + (int)(Math.random()*((dFromOrigin-1)+1));
+      System.out.println(blockSpecialValue + " is special ");
+
       for(int block = 0; block < NUMBER_OF_BLOCKS; block ++){
+        int cellSpecial = 0;
+        if(blockSpecialValue == 0){
+          cellSpecial = (int)(Math.random() * 2);
+        }
+
         MapPanelCell newCell = new MapPanelCell(new Point(blockXVals[block], blockYVals[block]),
-            dFromOrigin, block, 0, unitPanel, tilePanel);
+            dFromOrigin, block, 0, cellSpecial, unitPanel, tilePanel);
 
         map.getMapGrid()[dFromOrigin][block][0] = newCell;
         mapPanel.add(newCell.getButton());
@@ -97,14 +105,18 @@ public class MapPanel extends JPanel implements Panel{
         for(int blockSize = 0;  blockSize < dFromOrigin-1; blockSize++){
           int blockXOrdinal = blockXVals[block];
           int blockYOrdinal = blockYVals[block];
+          if(blockSpecialValue == blockSize+1){
+            cellSpecial = (int)(Math.random() * 2);
+          }
 
           MapPanelCell newCellCW = new MapPanelCell(new Point(
               blockXOrdinal + blockStepX[block] * (blockSize + 1),
               blockYOrdinal + blockStepY[block] * (blockSize + 1)),
-              dFromOrigin, block, blockSize + 1, unitPanel, tilePanel);
+              dFromOrigin, block, blockSize + 1, cellSpecial, unitPanel, tilePanel);
 
           map.getMapGrid()[dFromOrigin][block][blockSize+1] = newCellCW;
           mapPanel.add(newCellCW.getButton());
+          cellSpecial = 0;
         }
       }
     }

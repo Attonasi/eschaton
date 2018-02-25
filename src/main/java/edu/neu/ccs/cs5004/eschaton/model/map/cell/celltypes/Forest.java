@@ -31,7 +31,7 @@ public class Forest extends Cell{
 
   @Override
   public Color getCellColor(){
-    return Color.GREEN;
+    return special != 0 ?  new Color(0,0,0) : new Color(0, 50, 0);
   }
 
   @Override
