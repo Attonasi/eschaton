@@ -30,7 +30,7 @@ public class Hills extends Cell{
 
   @Override
   public Color getCellColor(){
-    return special != 0 ?  new Color(0,0,0) : new Color(250, 100, 250);
+    return special != 0 ?  new Color(255,255,255) : new Color(250, 100, 250);
   }
 
   @Override

@@ -35,7 +35,7 @@ public class Plains extends Cell {
 
   @Override
   public Color getCellColor(){
-    return special != 0 ?  new Color(0,0,0) : new Color(100, 255, 100);
+    return special != 0 ?  new Color(255,255,255) : new Color(100, 255, 100);
   }
 
   @Override

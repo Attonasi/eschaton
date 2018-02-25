@@ -88,7 +88,7 @@ public class MapPanel extends JPanel implements Panel{
           originY - Y_STEP_ONE * dFromOrigin};
 
       int blockSpecialValue = (int)(Math.random()*((dFromOrigin-1)+1));
-      System.out.println("Block special value is " + blockSpecialValue);
+      System.out.println("Circle is " + dFromOrigin + "  Block special value is " + blockSpecialValue);
 
       for(int block = 0; block < NUMBER_OF_BLOCKS; block ++){
         int cellSpecial = 0;
@@ -102,6 +102,7 @@ public class MapPanel extends JPanel implements Panel{
 
         map.getMapGrid()[dFromOrigin][block][0] = newCell;
         mapPanel.add(newCell.getButton());
+        cellSpecial = 0;
 
         for(int blockSize = 0;  blockSize < dFromOrigin-1; blockSize++){
           int blockXOrdinal = blockXVals[block];
