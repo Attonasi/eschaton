@@ -4,9 +4,7 @@ import java.util.ArrayList;
 
 import edu.neu.ccs.cs5004.eschaton.config.Config;
 import edu.neu.ccs.cs5004.eschaton.model.map.Map;
-import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
-import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Plains;
-import edu.neu.ccs.cs5004.eschaton.model.players.Player;
+import edu.neu.ccs.cs5004.eschaton.model.player.Player;
 
 public class Model implements ModelInterface {
 

@@ -1,20 +1,14 @@
 package edu.neu.ccs.cs5004.eschaton.view;
 
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
-
-import edu.neu.ccs.cs5004.eschaton.Eschaton;
-import edu.neu.ccs.cs5004.eschaton.config.Config;
 import edu.neu.ccs.cs5004.eschaton.model.Model;
-import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.*;
+import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MainPanel;
+import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPanel;
+import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.TilePanel;
+import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.UnitPanel;
 
-import static edu.neu.ccs.cs5004.eschaton.config.Config.SCREEN_HEIGHT;
-import static edu.neu.ccs.cs5004.eschaton.config.Config.SCREEN_WIDTH;
+import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
 
 
 public class GameFrame extends JPanel {
@@ -22,8 +16,8 @@ public class GameFrame extends JPanel {
   protected Model model;
   protected static JFrame FRAME;
   protected static Window PANEL;
-  protected static String TITLE = "Eschaton";
-  protected static Dimension WINDOW_SIZE = new Dimension(1005,605);
+//  protected static String TITLE = "Eschaton";
+//  protected static Dimension WINDOW_SIZE = new Dimension(1005,605);
 
   protected static TilePanel TILE_PANEL;
   protected static UnitPanel UNIT_PANEL;
@@ -72,23 +66,13 @@ public class GameFrame extends JPanel {
     );
   }
   @Override
-  protected void paintComponent(Graphics graphics) {
-//    MapPrinter.printMap(graphics, model.getMap());
-  }
+  protected void paintComponent(Graphics graphics) { }
 
-  public Model getModel() {
-    return model;
-  }
+  public Model getModel() { return model;  }
 
-  public TilePanel getTilePanel() {
-    return TILE_PANEL;
-  }
+  public TilePanel getTilePanel() { return TILE_PANEL; }
 
-  public MapPanel getMapPanel() {
-    return MAP_PANEL;
-  }
+  public MapPanel getMapPanel() { return MAP_PANEL; }
 
-  public UnitPanel getUnitPanel() {
-    return UNIT_PANEL;
-  }
+  public UnitPanel getUnitPanel() { return UNIT_PANEL; }
 }

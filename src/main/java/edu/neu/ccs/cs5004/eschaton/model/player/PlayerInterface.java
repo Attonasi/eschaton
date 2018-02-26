@@ -1,4 +1,4 @@
-package edu.neu.ccs.cs5004.eschaton.model.players;
+package edu.neu.ccs.cs5004.eschaton.model.player;
 
 public interface PlayerInterface {
 
