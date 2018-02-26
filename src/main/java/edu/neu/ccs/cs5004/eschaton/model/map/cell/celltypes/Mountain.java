@@ -30,8 +30,9 @@ public class Mountain extends Cell {
 
   @Override
   public Color getCellColor(){
-
-    return special != 0 ?  new Color(255,255,255) : new Color(180, 180, 180);
+    return special == 1 ? new Color(55,55,55) :
+           special == 2 ? new Color(255,255,0) :
+                          new Color(95,95,95);
   }
 
   @Override

@@ -31,8 +31,9 @@ public class Forest extends Cell{
 
   @Override
   public Color getCellColor(){
-    return special != 0 ?  new Color(255,255,255) : new Color(0, 50, 0);
-  }
+    return special == 1 ? new Color(15,155,55) :
+           special == 2 ? new Color(50,105,0) :
+                          new Color(50,205,50);  }
 
   @Override
   public Contents getContents() {
