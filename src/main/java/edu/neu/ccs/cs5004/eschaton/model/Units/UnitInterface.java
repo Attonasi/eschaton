@@ -1,7 +1,5 @@
 package edu.neu.ccs.cs5004.eschaton.model.Units;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import edu.neu.ccs.cs5004.eschaton.model.map.Map;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.CellPosition;
 
@@ -31,6 +29,9 @@ public interface UnitInterface {
    *  - Movement
    *  - Range
    *
+   *  The will be a separate attack method for melee attacks and for ranged attacks. In general that
+   *  will probably be the only methods that are handled outside the abstract unit class.
+   *
    *  The following methods will be common between all units
    */
 
@@ -53,8 +54,33 @@ public interface UnitInterface {
   Boolean checkValidMove(Unit unit, CellPosition position, Map map);
 
   /**
+   * When a unit attacks a unit from another player this method will handle the combat. The player
+   * attacking will be asked if they wish to move into the occupied square upon victory.
    *
-   * @param moveIntoSquare
+   * @param moveIntoSquare An option the attacking player has to move the unit attacking into the
+   *                       target cell on a successful attack.
    */
-  void attackMelee(Boolean moveIntoSquare);
+  void attackCell(Boolean moveIntoSquare);
+
+  /**
+   * When a defending player unit is attacked the player can choose to voluntarily retreat or hold
+   * ground. If the player chooses to hold ground and the attacker tries to push them out then this
+   * method determines the result.
+   *
+   * @param isVillage Boolean whether the defending unit is defending a village. It gets bonuses for
+   *                  holding ground in a village controlled by the player.
+   * @param attackDamage Integer how much damage the attacker dealt.
+   * @param defenseDamage Integer how much damage the defender prevented.
+   * @return Boolean true if the attacker overwhelmed the defender and false otherwise.
+   */
+  Boolean isUnitDisplaced(Boolean isVillage, Integer attackDamage, Integer defenseDamage,
+                          Boolean wantToRetreat);
+
+  /**
+   * When there is combat the units involved will take damage. This method determines how much.
+   * @param attackerPower
+   * @param defenderDefense
+   * @return
+   */
+  Integer damageUnit(Integer attackerPower, Integer defenderDefense);
 }
