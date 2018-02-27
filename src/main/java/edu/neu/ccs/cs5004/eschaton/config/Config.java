@@ -22,7 +22,6 @@ public class Config {
   public static final int Y_STEP_ONE = HEXAGON_SIZE * 2;
   public static final int Y_STEP_TWO = HEXAGON_SIZE * 4;
 
-
   private Boolean fogOfWar;
   private Integer numberOfPlayers;
   private Integer sizeOfMap;
@@ -46,6 +45,8 @@ public class Config {
     this.origin = ORIGIN;
     this.cellSize = HEXAGON_SIZE;
   }
+
+  public static Integer getRandomNumber
 
   public Boolean getFogOfWar() {
     return fogOfWar;

@@ -29,6 +29,11 @@ public class Plains extends Cell {
     super(cellPosition, point, special);
   }
 
+  /**
+   * Each cell type displays differently and displays special cells differently. For now that is
+   * represented by different colored tiles on the map.
+   * @return Color that sets the background color of a tile.
+   */
   @Override
   public Color getCellColor(){
     return special == 2 ? new Color(255,195,53) :
@@ -40,6 +45,12 @@ public class Plains extends Cell {
     return contents;
   }
 
+  /**
+   * Each Cell type returns different resources to the player each turn. This function instantiates
+   * these values in the content class of the Cell for the appropriate resource combinations amd
+   * cell types.
+   * @return Contents matching the cell type and special class.
+   */
   public Contents createCellContents() {
     return special == 0 ? new Contents(0, 2, 0, 0, 0) :
            special == 1 ? new Contents(0, 4, 0, 0, 0) :
