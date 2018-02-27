@@ -13,7 +13,7 @@ public class Militia extends Unit {
     this.attackPower = 3;
     this.defensePower = 3;
     this.movement = 1;
-    this.range = 1;
+    this.range = 0;
   }
 
   public String getName(){

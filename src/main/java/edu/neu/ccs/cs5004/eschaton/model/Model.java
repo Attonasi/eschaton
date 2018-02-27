@@ -3,7 +3,7 @@ package edu.neu.ccs.cs5004.eschaton.model;
 import java.util.ArrayList;
 
 import edu.neu.ccs.cs5004.eschaton.config.Config;
-import edu.neu.ccs.cs5004.eschaton.model.StackItems.StackItemInterface;
+import edu.neu.ccs.cs5004.eschaton.model.deckitems.DeckItemInterface;
 import edu.neu.ccs.cs5004.eschaton.model.map.Map;
 import edu.neu.ccs.cs5004.eschaton.model.player.Player;
 import edu.neu.ccs.cs5004.eschaton.model.player.bank.Bank;
@@ -19,9 +19,9 @@ public class Model implements ModelInterface {
     this.map = new Map();
     this.players = new ArrayList<Player>();
     players.add(new Player(new Bank(0,0,0,0,0,0),
-        new ArrayList<StackItemInterface>()));
+        new ArrayList<DeckItemInterface>()));
     players.add(new Player(new Bank(0, 0, 0, 0, 0, 0),
-        new ArrayList<StackItemInterface>()));
+        new ArrayList<DeckItemInterface>()));
   }
 
   public Map getMap() {

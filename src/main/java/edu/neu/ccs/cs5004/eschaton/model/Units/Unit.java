@@ -1,6 +1,6 @@
 package edu.neu.ccs.cs5004.eschaton.model.Units;
 
-public abstract class Unit implements UnitInterface{
+public abstract class Unit {
 
   protected String name;
   protected Integer hitPoints;
