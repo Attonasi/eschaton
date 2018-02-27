@@ -4,9 +4,7 @@ package edu.neu.ccs.cs5004.eschaton.model.map.cell;
 import java.awt.*;
 import java.util.ArrayList;
 
-import edu.neu.ccs.cs5004.eschaton.model.Units.Militia;
-import edu.neu.ccs.cs5004.eschaton.model.Units.Unit;
-import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Plains;
+import edu.neu.ccs.cs5004.eschaton.model.deckitems.Units.Unit;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Contents;
 
 public abstract class Cell implements CellInterface{

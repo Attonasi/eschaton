@@ -1,11 +1,8 @@
 package edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes;
 
 import java.awt.*;
-import java.util.ArrayList;
 
-import javax.swing.text.Position;
-
-import edu.neu.ccs.cs5004.eschaton.model.Units.Unit;
+import edu.neu.ccs.cs5004.eschaton.model.deckitems.Units.Unit;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.CellPosition;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Contents;
@@ -35,9 +32,9 @@ public class Plains extends Cell {
 
   @Override
   public Color getCellColor(){
-    return special == 2 ? new Color(255,155,15) :
+    return special == 2 ? new Color(255,195,53) :
            special == 1 ? new Color(250,255,100) :
-                          new Color(150,150,100);  }
+                          new Color(119,150,77);  }
 
   @Override
   public Contents getContents() {

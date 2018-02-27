@@ -72,6 +72,10 @@ public void makeMapButtons(){
   int blockSpecialValue = 0;
   int cellSpecial = 0;
 
+  map.getMapGrid()[0][0][0] = new MapPanelCell(new Point(origin.x, origin.y),
+      0, 0, 0, 0, unitPanel, tilePanel);
+  mapPanel.add(map.getMapGrid()[0][0][0].getButton());
+
   for (int dFromOrigin= 0; dFromOrigin< DEFAULT_SIZE_OF_MAP; dFromOrigin++) {
     int[] blockXVals = {origin.x,
         origin.x + X_STEP * dFromOrigin,
