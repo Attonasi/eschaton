@@ -1,23 +1,27 @@
 package edu.neu.ccs.cs5004.eschaton.model.player;
 
+import edu.neu.ccs.cs5004.eschaton.model.StackItems.StackItemInterface;
+import edu.neu.ccs.cs5004.eschaton.model.player.bank.Bank;
+
+import java.util.ArrayList;
+
 public class Player implements PlayerInterface {
 
-//  private Bank bank;
-//  private Army army;
-  private String bank = "Bank";
-  private String army = "Army";
+  private ArrayList<StackItemInterface> stackList;
+  private Bank bank;
+//  private ArrayList<Village> villageList;
 
 
-  public Player(String bank, String army) {
+  public Player(Bank bank, ArrayList<StackItemInterface> stackList) {
     this.bank = bank;
-    this.army = army;
+    this.stackList = stackList;
   }
 
-  public String getBank() {
+  public Bank getBank() {
     return bank;
   }
 
-  public String getArmy() {
-    return army;
+  public ArrayList<StackItemInterface> getStackList() {
+    return stackList;
   }
 }

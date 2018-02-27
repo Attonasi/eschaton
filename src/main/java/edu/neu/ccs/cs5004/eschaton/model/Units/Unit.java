@@ -4,19 +4,24 @@ public abstract class Unit implements UnitInterface{
 
   protected String name;
   protected Integer hitPoints;
+  protected Integer attackPower;
+  protected Integer defensePower;
+  protected Integer range;
+  protected Integer movement;
 
+  public Unit(String name, Integer hitPoints, Integer attackPower,
+              Integer defensePower, Integer range, Integer movement) {
 
-  public Unit(String name, Integer hitPoints) {
     this.name = name;
     this.hitPoints = hitPoints;
+    this.attackPower = attackPower;
+    this.defensePower = defensePower;
+    this.range = range;
+    this.movement = movement;
   }
 
-  protected Unit() {
-  }
+  public Unit(){}
 
-  public Integer getHitPoints() {
-    return hitPoints;
-  }
   public String getName() {
     return name;
   }
