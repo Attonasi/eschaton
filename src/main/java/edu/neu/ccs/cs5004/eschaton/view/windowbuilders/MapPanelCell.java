@@ -14,6 +14,7 @@ import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Hills;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Mountain;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Plains;
 
+import static edu.neu.ccs.cs5004.eschaton.config.Config.getRandomNumber;
 import static edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPanel.X_OFFSET;
 import static edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPanel.Y_OFFSET;
 
@@ -77,7 +78,7 @@ public class MapPanelCell implements MapPanelCellIInterface{
   }
 
   private Cell makeNewCell(CellPosition cellPosition, Point point, Integer special) {
-    int randomCell = 1 + (int)(Math.random()*((8-1)+1));
+    int randomCell = getRandomNumber(8, 1, 1);
     if (cellPosition.getCircle() < 1){
       return new EschatonCell(cellPosition, point, special);
     }else if (randomCell == 1){

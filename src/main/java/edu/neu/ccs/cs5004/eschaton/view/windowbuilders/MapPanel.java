@@ -11,11 +11,7 @@ import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.model.map.Map;
 import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
 
-import static edu.neu.ccs.cs5004.eschaton.config.Config.DEFAULT_SIZE_OF_MAP;
-import static edu.neu.ccs.cs5004.eschaton.config.Config.NUMBER_OF_BLOCKS;
-import static edu.neu.ccs.cs5004.eschaton.config.Config.X_STEP;
-import static edu.neu.ccs.cs5004.eschaton.config.Config.Y_STEP_ONE;
-import static edu.neu.ccs.cs5004.eschaton.config.Config.Y_STEP_TWO;
+import static edu.neu.ccs.cs5004.eschaton.config.Config.*;
 
 public class MapPanel extends JPanel implements Panel{
 
@@ -91,7 +87,7 @@ public void makeMapButtons(){
         origin.y + Y_STEP_ONE * dFromOrigin,
         origin.y - Y_STEP_ONE * dFromOrigin};
 
-    blockSpecialValue = (int)(Math.random()*((dFromOrigin-1)+1));
+    blockSpecialValue = getRandomNumber(dFromOrigin, 1, 1) - 1;
 
     for(int block = 0; block < NUMBER_OF_BLOCKS; block ++){
       int blockXOrdinal = blockXVals[block];
@@ -100,7 +96,8 @@ public void makeMapButtons(){
       for(int blockSize = 0;  blockSize < dFromOrigin; blockSize++){
 
         if(blockSpecialValue == blockSize){
-          cellSpecial = 1 + (int)(Math.random() * 2);
+//          cellSpecial = 1 + (int)(Math.random() * 2);
+          cellSpecial = getRandomNumber(2, 1, 1);
         }else {
           cellSpecial = 0;
         }

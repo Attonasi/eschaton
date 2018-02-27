@@ -9,8 +9,6 @@ public class Player implements PlayerInterface {
 
   private ArrayList<DeckItemInterface> stackList;
   private Bank bank;
-//  private ArrayList<Village> villageList;
-
 
   public Player(Bank bank, ArrayList<DeckItemInterface> stackList) {
     this.bank = bank;

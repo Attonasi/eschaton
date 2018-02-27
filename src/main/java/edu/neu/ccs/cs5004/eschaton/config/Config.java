@@ -46,7 +46,9 @@ public class Config {
     this.cellSize = HEXAGON_SIZE;
   }
 
-  public static Integer getRandomNumber
+  public static Integer getRandomNumber(Integer max, Integer min, Integer base){
+    return base + (int)(Math.random()*((max-min)+base));
+  }
 
   public Boolean getFogOfWar() {
     return fogOfWar;

@@ -1,6 +1,7 @@
 package edu.neu.ccs.cs5004.eschaton.model.Units;
 
 import edu.neu.ccs.cs5004.eschaton.model.map.Map;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.CellPosition;
 
 public interface UnitInterface {
@@ -83,4 +84,17 @@ public interface UnitInterface {
    * @return
    */
   Integer damageUnit(Integer attackerPower, Integer defenderDefense);
+
+  /** A unit that stays in place for a turn can heal. This is greatly increased if they hold in place in Cells with
+   * villages or lots of food.
+   * @param cell Cell the unit occupies.
+   */
+  void restUnit(Cell cell);
+
+
+  /**
+   * A unit can fortify itself in a Cell. It gains bonuses to defense doing this and a fortified unit will automatically
+   * gain the bonuses as if resting.
+   */
+  void fortify();
 }
