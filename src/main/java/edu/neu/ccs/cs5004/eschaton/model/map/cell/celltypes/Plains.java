@@ -2,7 +2,6 @@ package edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes;
 
 import java.awt.*;
 
-import edu.neu.ccs.cs5004.eschaton.model.deckitems.Units.Unit;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.CellPosition;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Contents;

@@ -16,9 +16,6 @@ public class GameFrame extends JPanel {
   protected Model model;
   protected static JFrame FRAME;
   protected static Window PANEL;
-//  protected static String TITLE = "Eschaton";
-//  protected static Dimension WINDOW_SIZE = new Dimension(1005,605);
-
   protected static TilePanel TILE_PANEL;
   protected static UnitPanel UNIT_PANEL;
   protected static MapPanel MAP_PANEL;

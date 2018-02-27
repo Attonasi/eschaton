@@ -1,6 +1,6 @@
 package edu.neu.ccs.cs5004.eschaton.model.map.cell;
 
-import edu.neu.ccs.cs5004.eschaton.model.deckitems.Units.Unit;
+import edu.neu.ccs.cs5004.eschaton.model.Units.Unit;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Contents;
 
 /**
