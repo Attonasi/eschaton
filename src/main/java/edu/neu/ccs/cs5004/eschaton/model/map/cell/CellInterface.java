@@ -1,6 +1,6 @@
 package edu.neu.ccs.cs5004.eschaton.model.map.cell;
 
-import edu.neu.ccs.cs5004.eschaton.model.Units.Unit;
+import edu.neu.ccs.cs5004.eschaton.model.player.empire.deckitems.units.Unit;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Contents;
 import edu.neu.ccs.cs5004.eschaton.model.player.Player;
 
@@ -42,14 +42,14 @@ public interface CellInterface {
 
   /**
    * @param list a list of units attacking a cell.
-   * @return Integer total attack value based on using the total attack value of Units on the list and counting the
+   * @return Integer total attack value based on using the total attack value of units on the list and counting the
    * number of successes that group has in the attack.
    */
   Integer getAttackValue(List<Unit> list);
 
   /**
    * @param list a list of units attacking a cell.
-   * @return Integer total defense value based on using the total defense value of Units on the list and counting the
+   * @return Integer total defense value based on using the total defense value of units on the list and counting the
    * number of successes that group has in the defense.
    */
   Integer getDefenseValue(List<Unit> list);

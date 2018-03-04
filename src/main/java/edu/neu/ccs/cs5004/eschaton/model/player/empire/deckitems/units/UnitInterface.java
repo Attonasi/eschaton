@@ -1,10 +1,11 @@
-package edu.neu.ccs.cs5004.eschaton.model.Units;
+package edu.neu.ccs.cs5004.eschaton.model.player.empire.deckitems.units;
 
 import edu.neu.ccs.cs5004.eschaton.model.map.Map;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.CellPosition;
+import edu.neu.ccs.cs5004.eschaton.model.player.empire.deckitems.DeckItemInterface;
 
-public interface UnitInterface {
+public interface UnitInterface extends DeckItemInterface{
 
   /**
    * A Unit has 3 main types:
@@ -81,7 +82,7 @@ public interface UnitInterface {
    * When there is combat the units involved will take damage. This method determines how much.
    * @param attackerPower
    * @param defenderDefense
-   * @return
+   * @return Integer the number of hit points the unit loses in combat this round.
    */
   Integer damageUnit(Integer attackerPower, Integer defenderDefense);
 

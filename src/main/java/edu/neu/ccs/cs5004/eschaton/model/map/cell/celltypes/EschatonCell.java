@@ -36,6 +36,10 @@ public class EschatonCell extends Cell {
   }
 
 
+  /**
+   *
+   * @return CellPosition of 0, 0, 0.
+   */
   @Override
   public CellPosition getCellPosition() {
     return cellPosition;

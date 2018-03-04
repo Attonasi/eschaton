@@ -1,4 +1,4 @@
-package edu.neu.ccs.cs5004.eschaton.model.deckitems;
+package edu.neu.ccs.cs5004.eschaton.model.player.empire.deckitems;
 
 public interface DeckItemInterface {
 
