@@ -8,6 +8,7 @@ import java.util.List;
 
 import edu.neu.ccs.cs5004.eschaton.model.Units.Militia;
 import edu.neu.ccs.cs5004.eschaton.model.Units.Unit;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.cellposition.CellPosition;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.contents.Contents;
 import edu.neu.ccs.cs5004.eschaton.model.player.Player;
 

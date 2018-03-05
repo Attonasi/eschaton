@@ -1,4 +1,4 @@
-package edu.neu.ccs.cs5004.eschaton.model.map.cell;
+package edu.neu.ccs.cs5004.eschaton.model.map.cell.cellposition;
 
 public interface PositionInterface {
 

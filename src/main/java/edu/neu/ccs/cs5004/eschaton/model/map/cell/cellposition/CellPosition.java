@@ -1,6 +1,5 @@
-package edu.neu.ccs.cs5004.eschaton.model.map.cell;
+package edu.neu.ccs.cs5004.eschaton.model.map.cell.cellposition;
 
-import java.awt.*;
 import java.util.Objects;
 
 public class CellPosition implements PositionInterface {

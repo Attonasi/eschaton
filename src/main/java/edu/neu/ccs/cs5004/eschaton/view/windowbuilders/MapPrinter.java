@@ -5,8 +5,6 @@ import java.io.IOException;
 
 import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.model.map.Map;
-import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
-import edu.neu.ccs.cs5004.eschaton.model.map.cell.CellPosition;
 import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
 import edu.neu.ccs.cs5004.eschaton.view.objectmakers.Hexagon;
 

@@ -7,7 +7,7 @@ import java.awt.event.MouseListener;
 import javax.swing.*;
 
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
-import edu.neu.ccs.cs5004.eschaton.model.map.cell.CellPosition;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.cellposition.CellPosition;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.EschatonCell;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Forest;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Hills;

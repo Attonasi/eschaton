@@ -22,4 +22,20 @@ public class Player implements PlayerInterface {
   public ArrayList<DeckItemInterface> getStackList() {
     return stackList;
   }
+
+  /**
+   * @return The next card from the Player's DeckList used for purposes of advancing the current turn.
+   */
+  @Override
+  public DeckItemInterface getNextCard() {
+    return null;
+  }
+
+  /**
+   * When the player no longer has cards left in their Deck the discardDeck is shuffled and
+   */
+  @Override
+  public void shuffleDeck() {
+
+  }
 }

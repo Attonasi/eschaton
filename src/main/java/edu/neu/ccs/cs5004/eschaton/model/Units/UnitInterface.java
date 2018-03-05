@@ -2,7 +2,7 @@ package edu.neu.ccs.cs5004.eschaton.model.Units;
 
 import edu.neu.ccs.cs5004.eschaton.model.map.Map;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
-import edu.neu.ccs.cs5004.eschaton.model.map.cell.CellPosition;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.cellposition.CellPosition;
 
 public interface UnitInterface {
 
