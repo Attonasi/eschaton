@@ -58,12 +58,12 @@ public class TilePanel extends JPanel implements Panel{
     buildCoordinateField(toClockwiseField, number);
     number = 0;
 
-    woodField = new JTextField();
-    buildResourceField(woodField, number);
-    number++;
-
     foodField = new JTextField();
     buildResourceField(foodField, number);
+    number++;
+
+    woodField = new JTextField();
+    buildResourceField(woodField, number);
     number++;
 
     ironField = new JTextField();

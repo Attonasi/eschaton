@@ -1,4 +1,4 @@
-package edu.neu.ccs.cs5004.eschaton.model.Units;
+package edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.units;
 
 public class Militia extends Unit {
 
@@ -16,7 +16,4 @@ public class Militia extends Unit {
     this.range = 0;
   }
 
-  public String getName(){
-    return name;
-  }
 }
