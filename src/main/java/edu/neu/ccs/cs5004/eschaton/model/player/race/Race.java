@@ -21,27 +21,22 @@ public interface Race {
  * Avians
  * Non-mounted units +1 movement
  *
+ *
  * Angelics
  * Cannot be attacked unless they attack first.
  * Telepathy(5 settlements harvest at once)
  *
  * Skeevix
  * Settlers no food cost
- * Harvest for 2 villages at a time
+ * Harvest 3 villages at a time
  *
- * Zombies
- * enemies get no loot from sacked cities
- * units rise every turn
- *
- * Skeletons
- * fallen enemies join your cause
- * razed villages become villages for you
- *
- * Tiflings
- * +1 attack dice
+ * Undead
+ * Units rise every turn
+ * Fallen enemies come back as Militia or Village
  *
  * Zedorats (zealots)
  * +1 attack dice
+ * Attack Actions cost half
  *
  * Dwarves
  * units +1 defense
@@ -49,8 +44,8 @@ public interface Race {
  * +1 Stone from Mountains
  *
  * Elves
- * archery bonus
- * magic cheaper
+ * archery +1 attack
+ * double amalicum production
  *
  * Geodians
  * units and cities don't require food. Require +1 stone to build
@@ -58,6 +53,6 @@ public interface Race {
  *
  * Arborians
  * Can make a village in a forest for free.
- * +1 food from forest tiles
+ * Can use wood for any resource
  */
 }

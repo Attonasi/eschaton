@@ -5,7 +5,6 @@ import java.io.IOException;
 import edu.neu.ccs.cs5004.eschaton.config.Config;
 import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
-import edu.neu.ccs.cs5004.eschaton.view.Window;
 
 import static edu.neu.ccs.cs5004.eschaton.config.Config.*;
 
@@ -31,17 +30,15 @@ public class Eschaton {
 
   public static void main( String[] args ) throws IOException {
 
-      Config config = new Config();
+    Config config = new Config(5);
 
-      Model model = new Model(config);
+    Model model = new Model(config);
 
-      GameFrame gameFrame = new GameFrame(model, config.GAME_NAME, SCREEN_WIDTH, SCREEN_HEIGHT);
+    GameFrame gameFrame = new GameFrame(model, config.GAME_NAME, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 
     Eschaton eschaton = new Eschaton(config, model, gameFrame);
 
-//      PANEL = eschaton.gameFrame;
-      // launch() lives in GameFrame currently as does createAndSHowGUI()
-      gameFrame.launch(model);
-    }
+    gameFrame.launch(model);
+  }
 }

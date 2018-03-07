@@ -31,7 +31,7 @@ public class MainPanel implements Panel {
    */
   @Override
   public void buildPanel() {
-    mainPanel.setBounds(0, 0, 905, 705);
+    mainPanel.setBounds(0, 0, 1305, 705);
     mainPanel.setBackground(Color.BLACK);
     mainPanel.setVisible(false);
   }

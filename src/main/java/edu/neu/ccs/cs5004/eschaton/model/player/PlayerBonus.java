@@ -1,6 +1,7 @@
 package edu.neu.ccs.cs5004.eschaton.model.player;
 
-import java.util.ArrayList;
+
+import java.util.List;
 
 import edu.neu.ccs.cs5004.eschaton.model.player.leaders.LeaderInterface;
 import edu.neu.ccs.cs5004.eschaton.model.player.race.Race;
@@ -30,7 +31,7 @@ public class PlayerBonus {
   private Boolean cantAttackUsBonus;
   private Boolean noSackLootBonus;
 
-  public PlayerBonus(ArrayList<Race> races, ArrayList<LeaderInterface> leaders) {
+  public PlayerBonus(Race race, List<LeaderInterface> leaders) {
     this.foodHarvestBonus = foodHarvestBonus;
     this.buildingsCostHalfBonus = buildingsCostHalfBonus;
     this.stoneHarvestBonus = stoneHarvestBonus;

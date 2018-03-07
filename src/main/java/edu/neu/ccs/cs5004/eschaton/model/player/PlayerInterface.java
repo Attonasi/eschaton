@@ -60,13 +60,13 @@ public interface PlayerInterface {
    * @return Deck of the player represented by the list of items including units, villages,
    * actions, and buildings.
    */
-  Deck getEmpire();
+  Deck getDeck();
 
 
   /**
    * @return List of Races that inhabit the player's deck.
    */
-  List getRaces();
+  List getRace();
 
   /**
    * @return List of commanders in a Players Deck

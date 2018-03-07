@@ -1,5 +1,6 @@
 package edu.neu.ccs.cs5004.eschaton.model.player;
 
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.cellposition.CellPosition;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.DeckItemInterface;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.units.Militia;
 import edu.neu.ccs.cs5004.eschaton.model.player.leaders.LeaderInterface;
@@ -15,27 +16,22 @@ import java.util.List;
 public class Player implements PlayerInterface {
 
   private Integer score;
-  private ArrayList<DeckItemInterface> deck = new ArrayList<DeckItemInterface>();
+  private Deck deck;
   private Bank bank;
-  private ArrayList<Race> races = new ArrayList<Race>();
-  private ArrayList<LeaderInterface> leaders = new ArrayList<LeaderInterface>();
+  private Race race;
+  private List<LeaderInterface> leaders = new ArrayList<LeaderInterface>();
   private PlayerBonus playerBonus;
+  public CellPosition startPosition;
 
-  public Player() {
+  public Player(CellPosition startPosition) {
     this.score = 0;
-    this.deck = new ArrayList<DeckItemInterface>();
+    this.deck = new Deck(startPosition);
     this.bank = new Bank();
-    this.races = new ArrayList<Race>();
-    this.leaders = new ArrayList<LeaderInterface>();
-    this.playerBonus = new PlayerBonus(races, leaders);
+    this.race = new Simulacra();
+    this.leaders.add(new Mongo());
+    this.playerBonus = new PlayerBonus(race, leaders);
   }
 
-  private void buildNewPlayer(){
-    deck.add(new Militia());
-
-    races.add(new Simulacra());
-    leaders.add(new Mongo());
-  }
   /**
    * @return Integer score of the player that represents the total number of victory points
    * the player has.
@@ -61,15 +57,15 @@ public class Player implements PlayerInterface {
    * actions, and buildings.
    */
   @Override
-  public Deck getEmpire() {
-    return null;
+  public Deck getDeck() {
+    return deck;
   }
 
   /**
    * @return List of Races that inhabit the player's deck.
    */
   @Override
-  public List getRaces() {
+  public List getRace() {
     return null;
   }
 
@@ -88,10 +84,6 @@ public class Player implements PlayerInterface {
   @Override
   public PlayerBonus getPlayerBonus() {
     return null;
-  }
-
-  public ArrayList<DeckItemInterface> getStackList() {
-    return deck;
   }
 
   /**

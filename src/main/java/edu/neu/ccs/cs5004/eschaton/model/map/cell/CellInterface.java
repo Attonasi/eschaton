@@ -22,7 +22,7 @@ public interface CellInterface {
   /**
    * @return Contents the resource return values for the cell.
    */
-  public Contents getContents();
+  Contents getContents();
 
   /** A function to facilitate adding a Unit to the units in the cell.
    *

@@ -30,7 +30,7 @@ public abstract class Cell implements CellInterface{
     this.special = special;
     this.contents = createCellContents();
     this.unitList = unitList;
-    unitList.add(new Militia());
+    unitList.add(new Militia(cellPosition));
   }
 
   protected abstract Contents createCellContents();
@@ -47,16 +47,14 @@ public abstract class Cell implements CellInterface{
    * @param unit Unit either moves out or is pushed out of a cell it is removed from the Cell.
    */
   @Override
-  public void removeUnit(Unit unit) {
-
-  }
+  public void removeUnit(Unit unit) { unitList.remove(unit);  }
 
   /**
    * @return List of the units in the cell.
    */
   @Override
   public List<Unit> getUnits() {
-    return null;
+    return unitList;
   }
 
   /**

@@ -11,6 +11,9 @@ import javax.swing.*;
 
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPanel;
 
+import static edu.neu.ccs.cs5004.eschaton.config.Config.SCREEN_HEIGHT;
+import static edu.neu.ccs.cs5004.eschaton.config.Config.SCREEN_WIDTH;
+
 /**
  * This is a window builder class with the basic mouse and keyboard listeners because it allows all of the Panels below
  * it to inherit that stand a constructor to build an empty window.
@@ -20,7 +23,7 @@ import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPanel;
 
 public class Window extends JPanel  {
   public static String TITLE = "Eschaton";
-  public static Dimension WINDOW_SIZE = new Dimension(1005,605);
+  public static Dimension WINDOW_SIZE = new Dimension(SCREEN_WIDTH,SCREEN_HEIGHT);
 
   public Window(String t, int w, int h){
     TITLE = t;

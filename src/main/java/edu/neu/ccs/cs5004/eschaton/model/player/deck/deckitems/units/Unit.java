@@ -12,9 +12,11 @@ public abstract class Unit implements UnitInterface{
   protected Integer defensePower;
   protected Integer range;
   protected Integer movement;
+  protected CellPosition location;
 
   public Unit(String name, Integer hitPoints, Integer attackPower,
-              Integer defensePower, Integer range, Integer movement) {
+              Integer defensePower, Integer range, Integer movement,
+              CellPosition location) {
 
     this.name = name;
     this.hitPoints = hitPoints;
@@ -22,9 +24,12 @@ public abstract class Unit implements UnitInterface{
     this.defensePower = defensePower;
     this.range = range;
     this.movement = movement;
+    this.location = location;
   }
 
-  public Unit(){}
+  public Unit(CellPosition location){
+    this.location = location;
+  }
 
   public String getName() {
     return name;

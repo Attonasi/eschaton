@@ -24,6 +24,7 @@ public class MapPanel extends JPanel implements Panel{
   private Point origin;
   private UnitPanel unitPanel;
   private TilePanel tilePanel;
+  private Integer sizeOfMap;
 
   public MapPanel(Model model, UnitPanel unitPanel, TilePanel tilePanel) {
     this.unitPanel = unitPanel;
@@ -32,7 +33,7 @@ public class MapPanel extends JPanel implements Panel{
     this.model = model;
     this.map = model.getMap();
     this.origin = model.getConfig().getOrigin();
-
+    this.sizeOfMap = model.getConfig().getSizeOfMap();
     buildPanel();
     makeMapButtons();
   }
@@ -56,7 +57,7 @@ public class MapPanel extends JPanel implements Panel{
   public void buildPanel() {
     mapPanel.setLayout(null);
     mapPanel.setBackground(Color.DARK_GRAY);
-    mapPanel.setBounds(260, 5, 700, 605);
+    mapPanel.setBounds(260, 5, 550, 605);
     mapPanel.setVisible(true);
     Border blackline = BorderFactory.createLineBorder(Color.RED);
     mapPanel.setBorder(blackline);
@@ -72,7 +73,7 @@ public void makeMapButtons(){
       0, 0, 0, 0, unitPanel, tilePanel);
   mapPanel.add(map.getMapGrid()[0][0][0].getButton());
 
-  for (int dFromOrigin= 0; dFromOrigin< DEFAULT_SIZE_OF_MAP; dFromOrigin++) {
+  for (int dFromOrigin= 0; dFromOrigin < sizeOfMap; dFromOrigin++) {
     int[] blockXVals = {origin.x,
         origin.x + X_STEP * dFromOrigin,
         origin.x + X_STEP * dFromOrigin,
