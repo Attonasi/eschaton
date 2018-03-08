@@ -7,4 +7,11 @@ public class Undead implements Race{
 
   public Undead(){}
 
+  /**
+   * @return String name of race.
+   */
+  @Override
+  public String getNameString() {
+    return "Undead";
+  }
 }

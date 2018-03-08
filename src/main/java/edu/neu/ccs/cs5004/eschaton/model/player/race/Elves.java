@@ -7,4 +7,11 @@ public class Elves implements Race{
 
   public Elves(){}
 
+  /**
+   * @return String name of race.
+   */
+  @Override
+  public String getNameString() {
+    return "Elves";
+  }
 }

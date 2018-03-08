@@ -1,4 +1,4 @@
-package edu.neu.ccs.cs5004.eschaton.view.windowbuilders;
+package edu.neu.ccs.cs5004.eschaton.view.windowbuilders.panelbuttons;
 
 import java.awt.*;
 

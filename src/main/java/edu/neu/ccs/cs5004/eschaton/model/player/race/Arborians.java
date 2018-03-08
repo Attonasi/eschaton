@@ -7,4 +7,11 @@ public class Arborians implements Race{
 
   public Arborians(){}
 
+  /**
+   * @return String name of race.
+   */
+  @Override
+  public String getNameString() {
+    return "Arborians";
+  }
 }

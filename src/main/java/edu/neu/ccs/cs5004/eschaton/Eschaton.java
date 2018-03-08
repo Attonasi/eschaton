@@ -30,7 +30,7 @@ public class Eschaton {
 
   public static void main( String[] args ) throws IOException {
 
-    Config config = new Config(5);
+    Config config = new Config(6);
 
     Model model = new Model(config);
 

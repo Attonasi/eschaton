@@ -40,7 +40,7 @@ public class TilePanel extends JPanel implements Panel{
     int number = 0;
 
     tilePanel.setBackground(Color.BLUE);
-    tilePanel.setBounds(5, 5, 250, 300);
+    tilePanel.setBounds(5, 5, 345, 320);
     tilePanel.setVisible(true);
     tilePanel.setLayout(null);
     Border blackline = BorderFactory.createLineBorder(Color.RED);

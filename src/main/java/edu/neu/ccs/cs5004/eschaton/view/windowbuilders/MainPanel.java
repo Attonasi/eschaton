@@ -5,6 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 
+import static edu.neu.ccs.cs5004.eschaton.config.Config.SCREEN_HEIGHT;
+import static edu.neu.ccs.cs5004.eschaton.config.Config.SCREEN_WIDTH;
+
 public class MainPanel implements Panel {
 
   protected JPanel mainPanel;
@@ -29,50 +32,33 @@ public class MainPanel implements Panel {
    * Each panel will have it's own build panel method that adds buttons and components to that
    * JPanel object. This will be called by the constructor.
    */
-  @Override
   public void buildPanel() {
-    mainPanel.setBounds(0, 0, 1305, 705);
+    mainPanel.setBounds(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     mainPanel.setBackground(Color.BLACK);
-    mainPanel.setVisible(false);
+    mainPanel.setVisible(true);
   }
 
   @Override
-  public void actionPerformed(ActionEvent actionEvent) {
-
-  }
+  public void actionPerformed(ActionEvent actionEvent) {  }
 
   @Override
-  public void mouseClicked(MouseEvent mouseEvent) {
-
-  }
+  public void mouseClicked(MouseEvent mouseEvent) {  }
 
   @Override
-  public void mousePressed(MouseEvent mouseEvent) {
-
-  }
+  public void mousePressed(MouseEvent mouseEvent) {  }
 
   @Override
-  public void mouseReleased(MouseEvent mouseEvent) {
-
-  }
+  public void mouseReleased(MouseEvent mouseEvent) {  }
 
   @Override
-  public void mouseEntered(MouseEvent mouseEvent) {
-
-  }
+  public void mouseEntered(MouseEvent mouseEvent) {  }
 
   @Override
-  public void mouseExited(MouseEvent mouseEvent) {
-
-  }
+  public void mouseExited(MouseEvent mouseEvent) {  }
 
   @Override
-  public void mouseDragged(MouseEvent mouseEvent) {
-
-  }
+  public void mouseDragged(MouseEvent mouseEvent) {  }
 
   @Override
-  public void mouseMoved(MouseEvent mouseEvent) {
-
-  }
+  public void mouseMoved(MouseEvent mouseEvent) {  }
 }

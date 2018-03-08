@@ -7,4 +7,11 @@ public class Skeevix implements Race{
 
   public Skeevix(){}
 
+  /**
+   * @return String name of race.
+   */
+  @Override
+  public String getNameString() {
+    return "Skeevix";
+  }
 }

@@ -7,4 +7,11 @@ public class Avians implements Race{
 
   public Avians(){}
 
+  /**
+   * @return String name of race.
+   */
+  @Override
+  public String getNameString() {
+    return "Avians";
+  }
 }

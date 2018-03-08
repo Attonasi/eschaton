@@ -41,13 +41,12 @@ public class UnitPanel extends JPanel implements Panel {
    * Each panel will have it's own build panel method that adds buttons and components to that
    * JPanel object. This will be called by the constructor.
    */
-  @Override
   public void buildPanel() {
     int number = 0;
 
     unitPanel.setLayout(null);
     unitPanel.setBackground(Color.GREEN);
-    unitPanel.setBounds(5, 310, 250, 300);
+    unitPanel.setBounds(5, 340, 345, 315);
     unitPanel.setVisible(true);
     Border blackline = BorderFactory.createLineBorder(Color.RED);
     unitPanel.setBorder(blackline);

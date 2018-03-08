@@ -5,6 +5,7 @@ import java.util.List;
 import edu.neu.ccs.cs5004.eschaton.model.player.bank.Bank;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.Deck;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.DeckItemInterface;
+import edu.neu.ccs.cs5004.eschaton.model.player.race.Race;
 
 /**
  * Each player is going to have the following fields:
@@ -66,12 +67,12 @@ public interface PlayerInterface {
   /**
    * @return List of Races that inhabit the player's deck.
    */
-  List getRace();
+  Race getRace();
 
   /**
    * @return List of commanders in a Players Deck
    */
-  List getCommanders();
+  List getLeaders();
 
   /**
    * @return PlayerBonus gives the rest of the program access to a players bonus variables in order

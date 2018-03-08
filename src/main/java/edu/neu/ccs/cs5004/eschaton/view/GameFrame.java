@@ -3,6 +3,7 @@ package edu.neu.ccs.cs5004.eschaton.view;
 import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MainPanel;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPanel;
+import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.PlayerPanel;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.TilePanel;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.UnitPanel;
 
@@ -19,6 +20,7 @@ public class GameFrame extends JPanel {
   protected static TilePanel TILE_PANEL;
   protected static UnitPanel UNIT_PANEL;
   protected static MapPanel MAP_PANEL;
+  protected static PlayerPanel PLAYER_PANEL;
   protected static MainPanel MAIN_PANEL;
 
 
@@ -45,6 +47,9 @@ public class GameFrame extends JPanel {
 
     MAP_PANEL = new MapPanel(model, getUnitPanel(), getTilePanel());
     FRAME.getContentPane().add(MAP_PANEL.getPanel());
+
+    PLAYER_PANEL = new PlayerPanel(model.getPlayers(), UNIT_PANEL, 0);
+    FRAME.getContentPane().add(PLAYER_PANEL.getPanel());
 
     MAIN_PANEL = new MainPanel();
     FRAME.getContentPane().add(MAIN_PANEL.getPanel());

@@ -7,4 +7,11 @@ public class Zedorats implements Race{
 
   public Zedorats(){}
 
+  /**
+   * @return String name of race.
+   */
+  @Override
+  public String getNameString() {
+    return "Zedorats";
+  }
 }

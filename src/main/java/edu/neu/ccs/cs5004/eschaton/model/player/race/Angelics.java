@@ -7,4 +7,11 @@ public class Angelics implements Race{
 
   public Angelics(){}
 
+  /**
+   * @return String name of race.
+   */
+  @Override
+  public String getNameString() {
+    return "Angelics";
+  }
 }

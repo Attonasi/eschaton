@@ -7,4 +7,11 @@ public class Humans implements Race{
 
   public Humans(){}
 
+  /**
+   * @return String name of race.
+   */
+  @Override
+  public String getNameString() {
+    return "Humans";
+  }
 }

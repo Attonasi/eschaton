@@ -7,4 +7,11 @@ public class Dwarves implements Race{
 
   public Dwarves(){}
 
+  /**
+   * @return String name of race.
+   */
+  @Override
+  public String getNameString() {
+    return "Dwarves";
+  }
 }

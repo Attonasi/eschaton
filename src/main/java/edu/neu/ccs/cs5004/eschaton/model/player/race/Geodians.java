@@ -7,4 +7,11 @@ public class Geodians implements Race{
 
   public Geodians(){}
 
+  /**
+   * @return String name of race.
+   */
+  @Override
+  public String getNameString() {
+    return "Geodians";
+  }
 }

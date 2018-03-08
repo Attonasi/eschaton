@@ -55,4 +55,9 @@ public interface Race {
  * Can make a village in a forest for free.
  * Can use wood for any resource
  */
+
+  /**
+   * @return String name of race.
+   */
+  String getNameString();
 }

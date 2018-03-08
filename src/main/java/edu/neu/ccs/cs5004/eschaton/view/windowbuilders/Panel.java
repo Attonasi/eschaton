@@ -24,5 +24,5 @@ public interface Panel extends ActionListener, MouseListener, MouseMotionListene
    * JPanel object. This will be called by the constructor.
    *
    */
-  public void  buildPanel();
+//  public void  buildPanel();
 }

@@ -7,4 +7,7 @@ public class Simulacra implements Race{
 
   public Simulacra(){}
 
+  public String getNameString(){
+    return "Simulacra";
+  }
 }

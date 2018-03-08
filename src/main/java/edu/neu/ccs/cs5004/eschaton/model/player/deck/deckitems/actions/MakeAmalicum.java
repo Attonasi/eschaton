@@ -2,17 +2,18 @@ package edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.actions;
 
 import edu.neu.ccs.cs5004.eschaton.model.player.Player;
 
-public class makeAmalicum extends Action{
+public class MakeAmalicum extends Action{
 
-  private int[] cost;
+  private int[] cost = {1, 1, 1, 1, 1, 0};
+  private String name;
 
-  public makeAmalicum() {
-    // This action costs 1 of each resource
-    for (int unit: cost){
-      cost[unit]++;
-    }
+  public MakeAmalicum() {
+    this.name = "Make Amalicum";
   }
 
+  public String getName() {
+    return name;
+  }
   /**
    * When a Player plays an action each action card has unique results that occur. Every action can be played.
    * This just detemines what happens.

@@ -1,5 +1,8 @@
 package edu.neu.ccs.cs5004.eschaton.model.player.bank;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 import edu.neu.ccs.cs5004.eschaton.model.player.Player;
 
 public class Bank implements BankInterface {
@@ -91,5 +94,39 @@ public class Bank implements BankInterface {
     }
     return true;
   }
-  
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Bank bank1 = (Bank) o;
+    return food == bank1.food &&
+        wood == bank1.wood &&
+        stone == bank1.stone &&
+        iron == bank1.iron &&
+        gold == bank1.gold &&
+        amalicum == bank1.amalicum &&
+        Arrays.equals(bank, bank1.bank);
+  }
+
+  @Override
+  public int hashCode() {
+
+    int result = Objects.hash(food, wood, stone, iron, gold, amalicum);
+    result = 31 * result + Arrays.hashCode(bank);
+    return result;
+  }
+
+  @Override
+  public String toString() {
+    return "Bank{" +
+        "food=" + food +
+        ", wood=" + wood +
+        ", stone=" + stone +
+        ", iron=" + iron +
+        ", gold=" + gold +
+        ", amalicum=" + amalicum +
+        ", bank=" + Arrays.toString(bank) +
+        '}';
+  }
 }

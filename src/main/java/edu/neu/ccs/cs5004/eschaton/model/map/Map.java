@@ -1,7 +1,7 @@
 package edu.neu.ccs.cs5004.eschaton.model.map;
 
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.cellposition.CellPosition;
-import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPanelCell;
+import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.panelbuttons.MapPanelCell;
 
 public class Map implements MapInterface {
 

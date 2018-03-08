@@ -46,7 +46,7 @@ public class Player implements PlayerInterface {
   }
 
   /**
-   * @return int[] that holds the bank values of hte Players bank.
+   * @return int[] that holds the bank values of the Players bank.
    */
   public int[] getBankArray() {
     return bank.getBank();
@@ -65,15 +65,15 @@ public class Player implements PlayerInterface {
    * @return List of Races that inhabit the player's deck.
    */
   @Override
-  public List getRace() {
-    return null;
+  public Race getRace() {
+    return race;
   }
 
   /**
    * @return List of commanders in a Players Deck
    */
   @Override
-  public List getCommanders() {
+  public List getLeaders() {
     return null;
   }
 

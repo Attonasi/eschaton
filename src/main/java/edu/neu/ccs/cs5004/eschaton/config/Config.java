@@ -16,23 +16,15 @@ public class Config {
   public static final Integer DEFAULT_NUMBER_OF_PLAYERS = 6;
   public static final Integer DEFAULT_SIZE_OF_MAP = 9;
   public static final Boolean DEFAULT_FOG_VALUE = false;
-  public static final Integer SCREEN_HEIGHT = 610;
-  public static final Integer SCREEN_WIDTH = 1060;
+  public static final Integer SCREEN_HEIGHT = 660;
+  public static final Integer SCREEN_WIDTH = 1290;
   public static final Integer HEXAGON_SIZE = 8;
-  public static final Point ORIGIN = new Point(SCREEN_WIDTH/2,
+  public static final Point ORIGIN = new Point(SCREEN_WIDTH/2 - 105,
       SCREEN_HEIGHT/2);
   public static final Integer NUMBER_OF_BLOCKS = 6;
   public static final int X_STEP = HEXAGON_SIZE * 4;
   public static final int Y_STEP_ONE = HEXAGON_SIZE * 2;
   public static final int Y_STEP_TWO = HEXAGON_SIZE * 4;
-  public static final CellPosition[] sixPlayerStartPositions = {
-      new CellPosition(1, DEFAULT_SIZE_OF_MAP, 0 ),
-      new CellPosition(2, DEFAULT_SIZE_OF_MAP, 0 ),
-      new CellPosition(3, DEFAULT_SIZE_OF_MAP, 0 ),
-      new CellPosition(4, DEFAULT_SIZE_OF_MAP, 0 ),
-      new CellPosition(5, DEFAULT_SIZE_OF_MAP, 0 ),
-      new CellPosition(6, DEFAULT_SIZE_OF_MAP, 0 ),
-  };
 
   private Boolean fogOfWar;
   private Integer numberOfPlayers;
@@ -57,7 +49,7 @@ public class Config {
     this.sizeOfMap = DEFAULT_SIZE_OF_MAP;
     this.origin = ORIGIN;
     this.cellSize = HEXAGON_SIZE;
-    this.playerStartPositions = sixPlayerStartPositions;
+    this.playerStartPositions = getStartPositions(sizeOfMap);
   }
 
   public Config (Integer numberOfPlayers) {

@@ -9,7 +9,7 @@ import javax.swing.border.Border;
 
 import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.model.map.Map;
-import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
+import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.panelbuttons.MapPanelCell;
 
 import static edu.neu.ccs.cs5004.eschaton.config.Config.*;
 
@@ -53,11 +53,11 @@ public class MapPanel extends JPanel implements Panel{
    * Each panel will have it's own build panel method that adds buttons and components to that
    * JPanel object. This will be called by the constructor.
    */
-  @Override
+
   public void buildPanel() {
     mapPanel.setLayout(null);
     mapPanel.setBackground(Color.DARK_GRAY);
-    mapPanel.setBounds(260, 5, 550, 605);
+    mapPanel.setBounds(360, 5, 570, 650);
     mapPanel.setVisible(true);
     Border blackline = BorderFactory.createLineBorder(Color.RED);
     mapPanel.setBorder(blackline);
@@ -97,12 +97,10 @@ public void makeMapButtons(){
       for(int blockSize = 0;  blockSize < dFromOrigin; blockSize++){
 
         if(blockSpecialValue == blockSize){
-//          cellSpecial = 1 + (int)(Math.random() * 2);
           cellSpecial = getRandomNumber(2, 1, 1);
         }else {
           cellSpecial = 0;
         }
-//        System.out.println("dFromOrigin is " + dFromOrigin + " blockSize is " + blockSize + "  Block Special is " + blockSpecialValue + " cellSpecial is " + cellSpecial);
         MapPanelCell newCellCW = new MapPanelCell(new Point(
             blockXOrdinal + blockStepX[block] * (blockSize),
             blockYOrdinal + blockStepY[block] * (blockSize)),

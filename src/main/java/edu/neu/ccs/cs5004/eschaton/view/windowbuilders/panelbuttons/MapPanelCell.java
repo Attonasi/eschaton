@@ -1,4 +1,4 @@
-package edu.neu.ccs.cs5004.eschaton.view.windowbuilders;
+package edu.neu.ccs.cs5004.eschaton.view.windowbuilders.panelbuttons;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -13,6 +13,8 @@ import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Forest;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Hills;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Mountain;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Plains;
+import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.TilePanel;
+import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.UnitPanel;
 
 import static edu.neu.ccs.cs5004.eschaton.config.Config.getRandomNumber;
 import static edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPanel.X_OFFSET;
@@ -35,7 +37,7 @@ public class MapPanelCell implements MapPanelCellIInterface{
                       Integer circle, Integer block, Integer toClockwise, Integer special,
                       UnitPanel unitPanel, TilePanel tilePanel) {
 
-    this.button = new JButton("");
+    this.button = new JButton("x");
     this.point = point;
     this.circle = circle;
     this.block = block;
@@ -57,23 +59,23 @@ public class MapPanelCell implements MapPanelCellIInterface{
 
       @Override
       public void mousePressed(MouseEvent mouseEvent) {
-        tilePanel.getWoodField().setText(cell.getContents().getWood().toString());
-        tilePanel.getFoodField().setText(cell.getContents().getFood().toString());
-        tilePanel.getIronField().setText(cell.getContents().getIron().toString());
-        tilePanel.getStoneField().setText(cell.getContents().getStone().toString());
-        tilePanel.getGoldField().setText(cell.getContents().getGold().toString());
-        tilePanel.getCircleField().setText(circle.toString());
-        tilePanel.getBlockField().setText(block.toString());
-        tilePanel.getToClockwiseField().setText(toClockwise.toString());
-        unitPanel.getUnitNameField().setText(cell.getUnitList().get(0).getName());
-      }
-      @Override
-      public void mouseReleased(MouseEvent mouseEvent) {  }
-      @Override
-      public void mouseEntered(MouseEvent mouseEvent) { }
-      @Override
-      public void mouseExited(MouseEvent mouseEvent) { }
-    });
+      tilePanel.getWoodField().setText(cell.getContents().getWood().toString());
+      tilePanel.getFoodField().setText(cell.getContents().getFood().toString());
+      tilePanel.getIronField().setText(cell.getContents().getIron().toString());
+      tilePanel.getStoneField().setText(cell.getContents().getStone().toString());
+      tilePanel.getGoldField().setText(cell.getContents().getGold().toString());
+      tilePanel.getCircleField().setText(circle.toString());
+      tilePanel.getBlockField().setText(block.toString());
+      tilePanel.getToClockwiseField().setText(toClockwise.toString());
+      unitPanel.getUnitNameField().setText(cell.getUnitList().get(0).getName());
+    }
+    @Override
+    public void mouseReleased(MouseEvent mouseEvent) {  }
+    @Override
+    public void mouseEntered(MouseEvent mouseEvent) { }
+    @Override
+    public void mouseExited(MouseEvent mouseEvent) { }
+  });
 
   }
 

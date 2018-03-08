@@ -5,6 +5,7 @@ import java.util.List;
 
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.cellposition.CellPosition;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.DeckItemInterface;
+import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.actions.MakeAmalicum;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.units.Militia;
 
 import static edu.neu.ccs.cs5004.eschaton.config.Config.getRandomNumber;
@@ -17,6 +18,13 @@ public class Deck implements DeckInterface {
 
   public Deck(CellPosition startPostion) {
     deck.add(new Militia(startPostion));
+    deck.add(new Militia(startPostion));
+    deck.add(new MakeAmalicum());
+    deck.add(new Militia(startPostion));
+    deck.add(new MakeAmalicum());
+    draw();
+    draw();
+    draw();
   }
 
   /**
