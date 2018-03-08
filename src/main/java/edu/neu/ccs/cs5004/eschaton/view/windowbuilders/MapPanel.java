@@ -22,12 +22,12 @@ public class MapPanel extends JPanel implements Panel{
   private Model model;
   private Map map;
   private Point origin;
-  private UnitPanel unitPanel;
+  private DeckPanel deckPanel;
   private TilePanel tilePanel;
   private Integer sizeOfMap;
 
-  public MapPanel(Model model, UnitPanel unitPanel, TilePanel tilePanel) {
-    this.unitPanel = unitPanel;
+  public MapPanel(Model model, DeckPanel deckPanel, TilePanel tilePanel) {
+    this.deckPanel = deckPanel;
     this.tilePanel = tilePanel;
     this.mapPanel = new JPanel();
     this.model = model;
@@ -70,7 +70,7 @@ public void makeMapButtons(){
   int cellSpecial = 0;
 
   map.getMapGrid()[0][0][0] = new MapPanelCell(new Point(origin.x, origin.y),
-      0, 0, 0, 0, unitPanel, tilePanel);
+      0, 0, 0, 0, deckPanel, tilePanel);
   mapPanel.add(map.getMapGrid()[0][0][0].getButton());
 
   for (int dFromOrigin= 0; dFromOrigin < sizeOfMap; dFromOrigin++) {
@@ -104,7 +104,7 @@ public void makeMapButtons(){
         MapPanelCell newCellCW = new MapPanelCell(new Point(
             blockXOrdinal + blockStepX[block] * (blockSize),
             blockYOrdinal + blockStepY[block] * (blockSize)),
-            dFromOrigin, block + 1, blockSize + 1, cellSpecial, unitPanel, tilePanel);
+            dFromOrigin, block + 1, blockSize + 1, cellSpecial, deckPanel, tilePanel);
 
         map.getMapGrid()[dFromOrigin][block][blockSize+1] = newCellCW;
         mapPanel.add(newCellCW.getButton());

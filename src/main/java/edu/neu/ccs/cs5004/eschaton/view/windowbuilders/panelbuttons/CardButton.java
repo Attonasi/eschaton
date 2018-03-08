@@ -6,21 +6,21 @@ import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
-import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.UnitPanel;
+import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.DeckPanel;
 
 public class CardButton {
 
-  private UnitPanel unitPanel;
+  private DeckPanel deckPanel;
   private JButton button;
   private Point point;
 
 
-  public CardButton(UnitPanel unitPanel, Point point, String actionName) {
-    this.unitPanel = unitPanel;
+  public CardButton(DeckPanel deckPanel, Point point, String actionName) {
+    this.deckPanel = deckPanel;
     this.button = new JButton(actionName);
     this.point = point;
 
-    button.setBounds(point.x, point.y, 250, 30);
+    button.setBounds(point.x, point.y, 200, 30);
 
     button.addMouseListener(new MouseListener() {
       @Override
@@ -28,7 +28,7 @@ public class CardButton {
 
       @Override
       public void mousePressed(MouseEvent mouseEvent) {
-        unitPanel.getUnitNameField().setText(actionName);
+        deckPanel.getItemNameField().setText(actionName);
       }
       @Override
       public void mouseReleased(MouseEvent mouseEvent) {  }
@@ -44,4 +44,4 @@ public class CardButton {
     return button;
   }
 
-  }
+ }

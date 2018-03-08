@@ -39,6 +39,6 @@ public class Eschaton {
 
     Eschaton eschaton = new Eschaton(config, model, gameFrame);
 
-    gameFrame.launch(model);
+    gameFrame.launch();
   }
 }

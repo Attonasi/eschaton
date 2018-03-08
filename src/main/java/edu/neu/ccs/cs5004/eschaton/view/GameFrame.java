@@ -5,7 +5,7 @@ import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MainPanel;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPanel;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.PlayerPanel;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.TilePanel;
-import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.UnitPanel;
+import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.DeckPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +18,7 @@ public class GameFrame extends JPanel {
   protected static JFrame FRAME;
   protected static Window PANEL;
   protected static TilePanel TILE_PANEL;
-  protected static UnitPanel UNIT_PANEL;
+  protected static DeckPanel DECK_PANEL;
   protected static MapPanel MAP_PANEL;
   protected static PlayerPanel PLAYER_PANEL;
   protected static MainPanel MAIN_PANEL;
@@ -28,10 +28,10 @@ public class GameFrame extends JPanel {
     this.FRAME = new JFrame(name);
     this.PANEL = new Window(name, width, height);
     this.model = model;
-    createAndShowGUI(model);
+    createAndShowGUI();
   }
 
-  private void createAndShowGUI(Model model) throws IOException {
+  private void createAndShowGUI() throws IOException {
     FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     PANEL.setLayout(null);
     FRAME.getContentPane().add(PANEL);
@@ -42,33 +42,42 @@ public class GameFrame extends JPanel {
     TILE_PANEL = new TilePanel();
     FRAME.getContentPane().add(TILE_PANEL.getPanel());
 
-    UNIT_PANEL = new UnitPanel();
-    FRAME.getContentPane().add(UNIT_PANEL.getPanel());
+    DECK_PANEL = new DeckPanel();
+    FRAME.getContentPane().add(DECK_PANEL.getPanel());
 
-    MAP_PANEL = new MapPanel(model, getUnitPanel(), getTilePanel());
+    MAP_PANEL = new MapPanel(model, getDeckPanel(), getTilePanel());
     FRAME.getContentPane().add(MAP_PANEL.getPanel());
 
-    PLAYER_PANEL = new PlayerPanel(model.getPlayers(), UNIT_PANEL, 0);
+    PLAYER_PANEL = new PlayerPanel(model.getPlayers(), DECK_PANEL, 0, this);
     FRAME.getContentPane().add(PLAYER_PANEL.getPanel());
 
     MAIN_PANEL = new MainPanel();
     FRAME.getContentPane().add(MAIN_PANEL.getPanel());
   }
 
-  public void launch(Model model) throws IOException {
+  public void newPlayerPanel(int currentPlayer){
+    PLAYER_PANEL = new PlayerPanel(model.getPlayers(), DECK_PANEL, currentPlayer, this);
+    FRAME.getContentPane().add(PLAYER_PANEL.getPanel());
+  }
+
+  public void launch() throws IOException {
 
     javax.swing.SwingUtilities.invokeLater(
         new Runnable(){ public void run(){
           try {
-            createAndShowGUI(model);
+            createAndShowGUI();
           } catch (IOException e) {
             e.printStackTrace();
           }
-        } }
+        }}
     );
   }
   @Override
   protected void paintComponent(Graphics graphics) { }
+
+  public static JFrame getFRAME() {
+    return FRAME;
+  }
 
   public Model getModel() { return model;  }
 
@@ -76,5 +85,5 @@ public class GameFrame extends JPanel {
 
   public MapPanel getMapPanel() { return MAP_PANEL; }
 
-  public UnitPanel getUnitPanel() { return UNIT_PANEL; }
+  public DeckPanel getDeckPanel() { return DECK_PANEL; }
 }

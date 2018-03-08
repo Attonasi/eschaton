@@ -14,7 +14,7 @@ import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Hills;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Mountain;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Plains;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.TilePanel;
-import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.UnitPanel;
+import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.DeckPanel;
 
 import static edu.neu.ccs.cs5004.eschaton.config.Config.getRandomNumber;
 import static edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPanel.X_OFFSET;
@@ -29,20 +29,20 @@ public class MapPanelCell implements MapPanelCellIInterface{
   private Integer block;
   private Integer toClockwise;
   private Integer special;
-  private UnitPanel unitPanel;
+  private DeckPanel deckPanel;
   private TilePanel tilePanel;
 
 
   public MapPanelCell(Point point,
                       Integer circle, Integer block, Integer toClockwise, Integer special,
-                      UnitPanel unitPanel, TilePanel tilePanel) {
+                      DeckPanel deckPanel, TilePanel tilePanel) {
 
     this.button = new JButton("x");
     this.point = point;
     this.circle = circle;
     this.block = block;
     this.toClockwise = toClockwise;
-    this.unitPanel = unitPanel;
+    this.deckPanel = deckPanel;
     this.tilePanel = tilePanel;
 
     this.cell = makeNewCell(new CellPosition(block, circle, toClockwise),
@@ -67,7 +67,7 @@ public class MapPanelCell implements MapPanelCellIInterface{
       tilePanel.getCircleField().setText(circle.toString());
       tilePanel.getBlockField().setText(block.toString());
       tilePanel.getToClockwiseField().setText(toClockwise.toString());
-      unitPanel.getUnitNameField().setText(cell.getUnitList().get(0).getName());
+//      deckPanel.getUnitNameField().setText(cell.getUnitList().get(0).getName());
     }
     @Override
     public void mouseReleased(MouseEvent mouseEvent) {  }

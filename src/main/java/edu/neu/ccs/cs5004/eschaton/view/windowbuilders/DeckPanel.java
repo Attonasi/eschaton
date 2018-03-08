@@ -13,17 +13,30 @@ import javax.swing.border.Border;
 import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
 
-public class UnitPanel extends JPanel implements Panel {
+public class DeckPanel extends JPanel implements Panel {
 
-  protected JPanel unitPanel;
-  protected JTextField unitNameField;
+  protected JPanel deckPanel;
+  protected JTextField itemNameField;
 
 
 //  BufferedImage buttonIcon = ImageIO.read(new File("/image/ship2.png"));
 
-  public UnitPanel() throws IOException {
-    this.unitPanel = new JPanel();
-    buildPanel();
+  public DeckPanel() throws IOException {
+    this.deckPanel = new JPanel();
+    deckPanel.setLayout(null);
+    deckPanel.setBackground(Color.GREEN);
+    deckPanel.setBounds(5, 340, 345, 315);
+    deckPanel.setVisible(true);
+    Border blackline = BorderFactory.createLineBorder(Color.RED);
+    deckPanel.setBorder(blackline);
+
+    itemNameField = new JTextField();
+    itemNameField.setBounds(20,  20, 300, 30);
+    itemNameField.setVisible(true);
+    itemNameField.setFont(new Font("Arial", Font.PLAIN, 20));
+    itemNameField.setHorizontalAlignment(JTextField.CENTER);
+    itemNameField.setText("Select an item from your hand");
+    deckPanel.add(itemNameField);
   }
 
   /**
@@ -34,34 +47,15 @@ public class UnitPanel extends JPanel implements Panel {
    */
 
   public JPanel getPanel() {
-    return unitPanel;
+    return deckPanel;
   }
 
   /**
    * Each panel will have it's own build panel method that adds buttons and components to that
    * JPanel object. This will be called by the constructor.
    */
-  public void buildPanel() {
-    int number = 0;
 
-    unitPanel.setLayout(null);
-    unitPanel.setBackground(Color.GREEN);
-    unitPanel.setBounds(5, 340, 345, 315);
-    unitPanel.setVisible(true);
-    Border blackline = BorderFactory.createLineBorder(Color.RED);
-    unitPanel.setBorder(blackline);
-
-    unitNameField = new JTextField();
-    unitNameField.setBounds(20,  20, 200, 30);
-    unitNameField.setVisible(true);
-    unitNameField.setFont(new Font("Arial", Font.PLAIN, 20));
-    unitNameField.setHorizontalAlignment(JTextField.CENTER);
-    unitPanel.add(unitNameField);
-  }
-
-  public JTextField getUnitNameField() {
-    return unitNameField;
-  }
+  public JTextField getItemNameField() { return itemNameField; }
 
   @Override
   public void actionPerformed(ActionEvent actionEvent) {  }
