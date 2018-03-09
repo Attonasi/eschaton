@@ -46,8 +46,6 @@ public class PlayerPanel extends JPanel implements Panel{
 
   public void buildPanel(){
 
-    int down = 0;
-    int across = 0;
     int bigFont = 20;
     int smallFont = 12;
     Color panelColor = new Color(160, 60, 75);
@@ -82,64 +80,70 @@ public class PlayerPanel extends JPanel implements Panel{
     buildResourceField(foodField, 140, 20, bigFont, 30, 30,
         new Color(255,255,255),
         String.valueOf(players.get(currentPlayer).getBank().getFood()));
-    across++;
+
 
     JTextField woodField = new JTextField();
     buildResourceField(woodField, 140, 70, bigFont, 30, 30,
         new Color(255,255,255),
         String.valueOf(players.get(currentPlayer).getBank().getWood()));
-    across++;
+
 
     JTextField ironField = new JTextField();
     buildResourceField(ironField, 140, 120, bigFont, 30, 30,
         new Color(255,255,255),
         String.valueOf(players.get(currentPlayer).getBank().getIron()));
-    across++;
+
 
     JTextField stoneField = new JTextField();
     buildResourceField(stoneField, 140, 170, bigFont, 30, 30,
         new Color(255,255,255),
         String.valueOf(players.get(currentPlayer).getBank().getStone()));
-    across++;
+
 
     JTextField goldField = new JTextField();
     buildResourceField(goldField, 140, 220, bigFont, 30, 30,
         new Color(255,255,255),
         String.valueOf(players.get(currentPlayer).getBank().getGold()));
-    across++;
+
 
     JTextField  amalicumField = new JTextField();
     buildResourceField(amalicumField, 140, 270, bigFont, 30, 30,
         new Color(255,255,255),
         String.valueOf(players.get(currentPlayer).getBank().getAmalicum()));
-    across=0;
-
 
     JTextField deckLabel = new JTextField();
     buildTextField(deckLabel, 180, 20, 16, 110, 30, panelColor,
         "Cards in Deck: ");
-    across=2;
 
     JTextField  deckSize = new JTextField();
     buildResourceField(deckSize, 180, 120, bigFont, 30, 30, panelColor,
         String.valueOf(players.get(currentPlayer).getDeck().getDeck().size()));
-    across++;
+
 
     JTextField discardLabel = new JTextField();
     buildTextField(discardLabel, 180, 160, 16, 125, 30, panelColor,
         "Cards in Discard: ");
-    across++;
+
 
     JTextField  discardSize = new JTextField();
     buildResourceField(discardSize, 180, 280, bigFont, 30, 30, panelColor,
         String.valueOf(players.get(currentPlayer).getDeck().getDiscard().size()));
 
+    int x, width;
+    if (playerHand.size() < 10 ){
+      x = 50;
+      width = 200;
+    }else {
+      x = 20;
+      width = 120;
+    }
+    int down = 220;
 
     for(DeckItemInterface item : playerHand) {
-      CardButton button = new CardButton(deckPanel, new Point(20, down * 35 + 220),
-          item.getName());
+      CardButton button = new CardButton(deckPanel, new Point(x, down), width,
+          item.getName(), gameFrame, item);
       playerPanel.add(button.getButton());
-      down++;
+      down+=35;
     }
 
     for (int i = 0; i< players.size(); i++){

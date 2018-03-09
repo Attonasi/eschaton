@@ -9,6 +9,7 @@ import javax.swing.border.Border;
 
 import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.model.map.Map;
+import edu.neu.ccs.cs5004.eschaton.model.player.deck.Deck;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.panelbuttons.MapPanelCell;
 
 import static edu.neu.ccs.cs5004.eschaton.config.Config.*;
@@ -63,56 +64,55 @@ public class MapPanel extends JPanel implements Panel{
     mapPanel.setBorder(blackline);
   }
 
-public void makeMapButtons(){
-  int[] blockStepX = {X_STEP, 0, -X_STEP, -X_STEP, 0, X_STEP};
-  int[] blockStepY = {Y_STEP_ONE, Y_STEP_TWO, Y_STEP_ONE, -Y_STEP_ONE, -Y_STEP_TWO, -Y_STEP_ONE};
-  int blockSpecialValue = 0;
-  int cellSpecial = 0;
+  public void makeMapButtons(){
+    int[] blockStepX = {X_STEP, 0, -X_STEP, -X_STEP, 0, X_STEP};
+    int[] blockStepY = {Y_STEP_ONE, Y_STEP_TWO, Y_STEP_ONE, -Y_STEP_ONE, -Y_STEP_TWO, -Y_STEP_ONE};
+    int blockSpecialValue = 0;
+    int cellSpecial = 0;
 
-  map.getMapGrid()[0][0][0] = new MapPanelCell(new Point(origin.x, origin.y),
-      0, 0, 0, 0, deckPanel, tilePanel);
-  mapPanel.add(map.getMapGrid()[0][0][0].getButton());
+    map.getMapGrid()[0][0][0] = new MapPanelCell(new Point(origin.x, origin.y),
+        0, 0, 0, 0, deckPanel, tilePanel);
+    mapPanel.add(map.getMapGrid()[0][0][0].getButton());
 
-  for (int dFromOrigin= 0; dFromOrigin < sizeOfMap; dFromOrigin++) {
-    int[] blockXVals = {origin.x,
-        origin.x + X_STEP * dFromOrigin,
-        origin.x + X_STEP * dFromOrigin,
-        origin.x,
-        origin.x - X_STEP * dFromOrigin,
-        origin.x - X_STEP * dFromOrigin};
+    for (int dFromOrigin= 0; dFromOrigin < sizeOfMap; dFromOrigin++) {
+      int[] blockXVals = {origin.x,
+          origin.x + X_STEP * dFromOrigin,
+          origin.x + X_STEP * dFromOrigin,
+          origin.x,
+          origin.x - X_STEP * dFromOrigin,
+          origin.x - X_STEP * dFromOrigin};
 
-    int[] blockYVals = {origin.y - Y_STEP_TWO * dFromOrigin,
-        origin.y - Y_STEP_ONE * dFromOrigin,
-        origin.y + Y_STEP_ONE * dFromOrigin,
-        origin.y + Y_STEP_TWO * dFromOrigin,
-        origin.y + Y_STEP_ONE * dFromOrigin,
-        origin.y - Y_STEP_ONE * dFromOrigin};
+      int[] blockYVals = {origin.y - Y_STEP_TWO * dFromOrigin,
+          origin.y - Y_STEP_ONE * dFromOrigin,
+          origin.y + Y_STEP_ONE * dFromOrigin,
+          origin.y + Y_STEP_TWO * dFromOrigin,
+          origin.y + Y_STEP_ONE * dFromOrigin,
+          origin.y - Y_STEP_ONE * dFromOrigin};
 
-    blockSpecialValue = getRandomNumber(dFromOrigin, 1, 1) - 1;
+      blockSpecialValue = getRandomNumber(dFromOrigin, 1, 1) - 1;
 
-    for(int block = 0; block < NUMBER_OF_BLOCKS; block ++){
-      int blockXOrdinal = blockXVals[block];
-      int blockYOrdinal = blockYVals[block];
+      for(int block = 0; block < NUMBER_OF_BLOCKS; block ++){
+        int blockXOrdinal = blockXVals[block];
+        int blockYOrdinal = blockYVals[block];
 
-      for(int blockSize = 0;  blockSize < dFromOrigin; blockSize++){
+        for(int blockSize = 0;  blockSize < dFromOrigin; blockSize++){
 
-        if(blockSpecialValue == blockSize){
-          cellSpecial = getRandomNumber(2, 1, 1);
-        }else {
-          cellSpecial = 0;
+          if(blockSpecialValue == blockSize){
+            cellSpecial = getRandomNumber(2, 1, 1);
+          }else {
+            cellSpecial = 0;
+          }
+          MapPanelCell newCellCW = new MapPanelCell(new Point(
+              blockXOrdinal + blockStepX[block] * (blockSize),
+              blockYOrdinal + blockStepY[block] * (blockSize)),
+              dFromOrigin, block + 1, blockSize + 1, cellSpecial, deckPanel, tilePanel);
+
+          map.getMapGrid()[dFromOrigin][block][blockSize+1] = newCellCW;
+          mapPanel.add(newCellCW.getButton());
         }
-        MapPanelCell newCellCW = new MapPanelCell(new Point(
-            blockXOrdinal + blockStepX[block] * (blockSize),
-            blockYOrdinal + blockStepY[block] * (blockSize)),
-            dFromOrigin, block + 1, blockSize + 1, cellSpecial, deckPanel, tilePanel);
-
-        map.getMapGrid()[dFromOrigin][block][blockSize+1] = newCellCW;
-        mapPanel.add(newCellCW.getButton());
       }
     }
   }
-}
-
 
   @Override
   public void actionPerformed(ActionEvent actionEvent) {  }

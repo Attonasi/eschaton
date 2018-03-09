@@ -98,4 +98,19 @@ public interface UnitInterface extends DeckItemInterface{
    * gain the bonuses as if resting.
    */
   void fortify();
+
+  Integer getCurrentHitPoints();
+
+  Integer getTotalHitPoints();
+
+  Integer getAttackPower();
+
+  Integer getDefensePower();
+
+  Integer getRange();
+
+  Integer getMovement();
+
+  CellPosition getLocation();
+
 }

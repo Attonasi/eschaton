@@ -7,19 +7,20 @@ import edu.neu.ccs.cs5004.eschaton.model.map.cell.cellposition.CellPosition;
 public abstract class Unit implements UnitInterface{
 
   protected String name;
-  protected Integer hitPoints;
+  protected Integer totalHitPoints;
+  protected Integer currentHitPoints;
   protected Integer attackPower;
   protected Integer defensePower;
   protected Integer range;
   protected Integer movement;
   protected CellPosition location;
 
-  public Unit(String name, Integer hitPoints, Integer attackPower,
+  public Unit(String name, Integer totalHitPoints, Integer attackPower,
               Integer defensePower, Integer range, Integer movement,
               CellPosition location) {
 
     this.name = name;
-    this.hitPoints = hitPoints;
+    this.totalHitPoints = totalHitPoints;
     this.attackPower = attackPower;
     this.defensePower = defensePower;
     this.range = range;
@@ -30,6 +31,20 @@ public abstract class Unit implements UnitInterface{
   public Unit(CellPosition location){
     this.location = location;
   }
+
+  public Integer getCurrentHitPoints() { return currentHitPoints; }
+
+  public Integer getTotalHitPoints() { return totalHitPoints; }
+
+  public Integer getAttackPower() { return attackPower; }
+
+  public Integer getDefensePower() { return defensePower; }
+
+  public Integer getRange() { return range; }
+
+  public Integer getMovement() { return movement; }
+
+  public CellPosition getLocation() { return location; }
 
   public String getName() {
     return name;

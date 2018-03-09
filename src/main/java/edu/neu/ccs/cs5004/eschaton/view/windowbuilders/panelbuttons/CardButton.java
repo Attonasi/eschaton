@@ -6,21 +6,31 @@ import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
+import edu.neu.ccs.cs5004.eschaton.model.player.deck.Deck;
+import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.DeckItemInterface;
+import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.actions.ActionInterface;
+import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.units.UnitInterface;
+import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.DeckPanel;
 
 public class CardButton {
 
+  GameFrame gameFrame;
   private DeckPanel deckPanel;
   private JButton button;
   private Point point;
+  private DeckItemInterface card;
 
 
-  public CardButton(DeckPanel deckPanel, Point point, String actionName) {
+  public CardButton(DeckPanel deckPanel, Point point, int width, String actionName,
+                    GameFrame gameFrame, DeckItemInterface card) {
     this.deckPanel = deckPanel;
     this.button = new JButton(actionName);
     this.point = point;
+    this.gameFrame = gameFrame;
+    this.card = card;
 
-    button.setBounds(point.x, point.y, 200, 30);
+    button.setBounds(point.x, point.y, width, 30);
 
     button.addMouseListener(new MouseListener() {
       @Override
@@ -28,7 +38,7 @@ public class CardButton {
 
       @Override
       public void mousePressed(MouseEvent mouseEvent) {
-        deckPanel.getItemNameField().setText(actionName);
+        callDeckPanelMethod(card);
       }
       @Override
       public void mouseReleased(MouseEvent mouseEvent) {  }
@@ -38,7 +48,14 @@ public class CardButton {
       public void mouseExited(MouseEvent mouseEvent) { }
     });
   }
-
+  
+  private void callDeckPanelMethod(DeckItemInterface card){
+    if(card instanceof UnitInterface){
+      deckPanel.showUnitInfo((UnitInterface) card);
+    }else if (card instanceof ActionInterface){
+      deckPanel.showActionInfo((ActionInterface) card);
+    }
+  }
 
   public JButton getButton() {
     return button;

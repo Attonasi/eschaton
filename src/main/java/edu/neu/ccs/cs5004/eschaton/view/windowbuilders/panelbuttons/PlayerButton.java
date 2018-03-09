@@ -7,7 +7,6 @@ import java.awt.event.MouseListener;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
-import edu.neu.ccs.cs5004.eschaton.model.player.Player;
 import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.PlayerPanel;
 

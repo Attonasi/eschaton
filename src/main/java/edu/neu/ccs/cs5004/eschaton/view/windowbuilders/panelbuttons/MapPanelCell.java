@@ -59,16 +59,21 @@ public class MapPanelCell implements MapPanelCellIInterface{
 
       @Override
       public void mousePressed(MouseEvent mouseEvent) {
-      tilePanel.getWoodField().setText(cell.getContents().getWood().toString());
-      tilePanel.getFoodField().setText(cell.getContents().getFood().toString());
-      tilePanel.getIronField().setText(cell.getContents().getIron().toString());
-      tilePanel.getStoneField().setText(cell.getContents().getStone().toString());
-      tilePanel.getGoldField().setText(cell.getContents().getGold().toString());
-      tilePanel.getCircleField().setText(circle.toString());
-      tilePanel.getBlockField().setText(block.toString());
-      tilePanel.getToClockwiseField().setText(toClockwise.toString());
-//      deckPanel.getUnitNameField().setText(cell.getUnitList().get(0).getName());
-    }
+        tilePanel.getWoodField().setText(String.valueOf(cell.getContents().getWood()));
+        tilePanel.getFoodField().setText(String.valueOf(cell.getContents().getFood()));
+        tilePanel.getIronField().setText(String.valueOf(cell.getContents().getIron()));
+        tilePanel.getStoneField().setText(String.valueOf(cell.getContents().getStone()));
+        tilePanel.getGoldField().setText(String.valueOf(cell.getContents().getGold()));
+        tilePanel.getCircleField().setText(circle.toString());
+        tilePanel.getBlockField().setText(block.toString());
+        tilePanel.getToClockwiseField().setText(toClockwise.toString());
+        deckPanel.getCircleMiddle().setText(String.valueOf(circle));
+        deckPanel.getBlockMiddle().setText(String.valueOf(block));
+        deckPanel.getToClockwiseMiddle().setText(String.valueOf(toClockwise));
+        deckPanel.getCircleBottom().setText(String.valueOf(circle));
+        deckPanel.getBlockBottom().setText(String.valueOf(block));
+        deckPanel.getToClockwiseBottom().setText(String.valueOf(toClockwise));
+      }
     @Override
     public void mouseReleased(MouseEvent mouseEvent) {  }
     @Override
@@ -131,4 +136,8 @@ public class MapPanelCell implements MapPanelCellIInterface{
    */
   @Override
   public Cell getCell() { return cell; }
+
+  public void setDeckPanel(DeckPanel newPanel){
+
+  }
 }
