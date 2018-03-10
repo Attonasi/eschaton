@@ -61,7 +61,7 @@ public class DeckPanel extends JPanel implements Panel {
   private JButton harvestButton;
   private JButton playButton;
 
-  private JTextField description;
+  private JTextArea description;
   private JTextField quote;
 
   private Color panelColor;
@@ -172,8 +172,9 @@ public class DeckPanel extends JPanel implements Panel {
     this.attackButton = newButton(240, 210, 90, 30, 14,
         panelColor, "Attack");
 
-    this.description =          newTextField(30, 150, 300, 60, 16,
+    this.description =          newTextArea(30, 150, 300, 60, 16,
         panelColor, "A description of the effects of the action supplied by the action");
+    description.setLineWrap(true);
     this.quote =                newTextField(30, 230, 250, 60, 16,
         panelColor, "Big long quote off the deck item");
 
@@ -327,6 +328,21 @@ public class DeckPanel extends JPanel implements Panel {
 
     return field;
   }
+
+  private JTextArea newTextArea(int xPos, int yPos, int width, int height, int fontSize,
+                                  Color color, String fieldText){
+    JTextArea field = new JTextArea();
+    field.setBounds(xPos,  yPos, width, height);
+    field.setVisible(false);
+    field.setFont(new Font("Arial", Font.PLAIN, fontSize));
+//    field.setHorizontalAlignment(JTextArea.CENTER);
+    field.setBackground(color);
+    field.setText(fieldText);
+    deckPanel.add(field);
+
+    return field;
+  }
+
 
   private JButton newButton(int xPos, int yPos, int width, int height, int fontSize,
                             Color color, String buttonText){
