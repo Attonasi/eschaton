@@ -31,11 +31,11 @@ public class MapTest {
     testOrigin = config.getOrigin();
     badConfig = new Config(true, 3, 4, testOrigin, 10);
 
-    original = new Map();
+    original = new Map(config);
     copy = original;
-    same = new Map();
-    another = new Map();
-    different = new Map();
+    same = new Map(config);
+    another = new Map(config);
+    different = new Map(config);
     nullMap = null;
 
     differentOrigin = new Point(300, 300);

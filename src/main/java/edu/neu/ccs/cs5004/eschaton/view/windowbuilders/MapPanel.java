@@ -89,7 +89,7 @@ public class MapPanel extends JPanel implements Panel{
           origin.y + Y_STEP_ONE * dFromOrigin,
           origin.y - Y_STEP_ONE * dFromOrigin};
 
-      blockSpecialValue = getRandomNumber(dFromOrigin, 1, 1) - 1;
+      blockSpecialValue = getRandomNumber(dFromOrigin, 0, 1);
 
       for(int block = 0; block < NUMBER_OF_BLOCKS; block ++){
         int blockXOrdinal = blockXVals[block];

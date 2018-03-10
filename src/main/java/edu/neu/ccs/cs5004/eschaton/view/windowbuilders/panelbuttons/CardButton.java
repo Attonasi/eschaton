@@ -10,6 +10,8 @@ import edu.neu.ccs.cs5004.eschaton.model.player.deck.Deck;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.DeckItemInterface;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.actions.ActionInterface;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.units.UnitInterface;
+import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.village.Village;
+import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.village.VillageInterface;
 import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.DeckPanel;
 
@@ -48,12 +50,14 @@ public class CardButton {
       public void mouseExited(MouseEvent mouseEvent) { }
     });
   }
-  
+
   private void callDeckPanelMethod(DeckItemInterface card){
     if(card instanceof UnitInterface){
       deckPanel.showUnitInfo((UnitInterface) card);
     }else if (card instanceof ActionInterface){
       deckPanel.showActionInfo((ActionInterface) card);
+    }else if (card instanceof VillageInterface){
+      deckPanel.showVillageInfo((VillageInterface) card);
     }
   }
 

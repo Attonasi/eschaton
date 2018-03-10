@@ -1,5 +1,6 @@
 package edu.neu.ccs.cs5004.eschaton.model.player;
 
+import edu.neu.ccs.cs5004.eschaton.model.map.Map;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.cellposition.CellPosition;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.DeckItemInterface;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.units.Militia;
@@ -23,9 +24,9 @@ public class Player implements PlayerInterface {
   private PlayerBonus playerBonus;
   public CellPosition startPosition;
 
-  public Player(CellPosition startPosition) {
+  public Player(CellPosition startPosition, Map map) {
     this.score = 0;
-    this.deck = new Deck(startPosition);
+    this.deck = new Deck(startPosition, map, this);
     this.bank = new Bank();
     this.race = new Simulacra();
     this.leaders.add(new Mongo());

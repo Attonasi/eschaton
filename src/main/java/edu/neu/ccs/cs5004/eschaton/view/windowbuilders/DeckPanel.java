@@ -4,15 +4,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.IOException;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 
-import edu.neu.ccs.cs5004.eschaton.model.Model;
-import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.actionleader.LeaderActionInterface;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.actions.ActionInterface;
-import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.units.Unit;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.units.UnitInterface;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.village.Village;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.village.VillageInterface;
@@ -60,7 +56,7 @@ public class DeckPanel extends JPanel implements Panel {
   private JButton fortifyButton;
   private JButton moveButton;
   private JButton attackButton;
-  private JButton foundButton;
+  private JButton foundVillageButton;
   private JButton buildButton;
   private JButton harvestButton;
   private JButton playButton;
@@ -176,9 +172,9 @@ public class DeckPanel extends JPanel implements Panel {
     this.attackButton = newButton(240, 210, 90, 30, 14,
         panelColor, "Attack");
 
-    this.description =          newTextField(150, 30, 250, 60, 16,
+    this.description =          newTextField(30, 150, 300, 60, 16,
         panelColor, "A description of the effects of the action supplied by the action");
-    this.quote =                newTextField(200, 30, 250, 60, 16,
+    this.quote =                newTextField(30, 230, 250, 60, 16,
         panelColor, "Big long quote off the deck item");
 
   }
@@ -286,8 +282,27 @@ public class DeckPanel extends JPanel implements Panel {
     itemName.setText(action.getName());
     itemName.setVisible(true);
 
+    description.setText(action.getDescription());
+    description.setVisible(true);
   }
 
+  public void showVillageInfo(VillageInterface village){
+    hideAll();
+    itemName.setText(village.getName());
+    itemName.setVisible(true);
+
+    circleTop.setText(String.valueOf(village.getPosition().getCircle()));
+    blockTop.setText(String.valueOf(village.getPosition().getBlock()));
+    toClockwiseTop.setText(String.valueOf(village.getPosition().getClockwise()));
+
+    circleLabelTop.setVisible(true);
+    circleTop.setVisible(true);
+    blockLabelTop.setVisible(true);
+    blockTop.setVisible(true);
+    toClockwiseLabelTop.setVisible(true);
+    toClockwiseTop.setVisible(true);
+
+  }
 
 
   private void setUpPanel(){

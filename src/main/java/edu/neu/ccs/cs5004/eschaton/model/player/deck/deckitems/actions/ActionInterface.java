@@ -21,4 +21,6 @@ public interface ActionInterface extends DeckItemInterface {
    * @param player Player that played the action and needs to spend money to do so.
    */
   void payCost(Player player, int[] cost);
+
+  String getDescription();
 }

@@ -1,12 +1,18 @@
 package edu.neu.ccs.cs5004.eschaton.model.player.deck;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.neu.ccs.cs5004.eschaton.model.map.Map;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.cellposition.CellPosition;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Plains;
+import edu.neu.ccs.cs5004.eschaton.model.player.Player;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.DeckItemInterface;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.actions.MakeAmalicum;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.units.Militia;
+import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.village.Village;
 
 import static edu.neu.ccs.cs5004.eschaton.config.Config.getRandomNumber;
 
@@ -16,12 +22,17 @@ public class Deck implements DeckInterface {
   private List<DeckItemInterface> discard = new ArrayList<DeckItemInterface>();
   private List<DeckItemInterface> hand = new ArrayList<DeckItemInterface>();
 
-  public Deck(CellPosition startPostion) {
+  public Deck(CellPosition startPostion, Map map, Player player) {
     deck.add(new Militia(startPostion));
     deck.add(new Militia(startPostion));
     deck.add(new MakeAmalicum());
+    deck.add(new Village(player, startPostion, new Plains(startPostion, new Point(10, 10),
+        2)));
     deck.add(new Militia(startPostion));
     deck.add(new MakeAmalicum());
+    Cell cell = map.getCellAtPosition(startPostion);
+
+    draw();
     draw();
     draw();
     draw();

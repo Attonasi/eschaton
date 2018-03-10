@@ -14,6 +14,10 @@ public class MakeAmalicum extends Action{
   public String getName() {
     return name;
   }
+
+  public String getDescription(){
+    return "Use one of each resource to make one unit of Amalicum";
+  }
   /**
    * When a Player plays an action each action card has unique results that occur. Every action can be played.
    * This just detemines what happens.

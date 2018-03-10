@@ -48,6 +48,8 @@ public class MapPanelCell implements MapPanelCellIInterface{
     this.cell = makeNewCell(new CellPosition(block, circle, toClockwise),
         point, special);
 
+
+
     button.setBounds(point.x-X_OFFSET, point.y-Y_OFFSET, 30, 30);
     button.setBackground(cell.getCellColor());
     button.setContentAreaFilled(true);

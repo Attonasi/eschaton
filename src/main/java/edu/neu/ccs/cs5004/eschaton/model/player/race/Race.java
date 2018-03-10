@@ -32,7 +32,7 @@ public interface Race {
  *
  * Undead
  * Units rise every turn
- * Fallen enemies come back as Militia or Village
+ * Fallen enemies come back as Militia or AbstractVillage
  *
  * Zedorats (zealots)
  * +1 attack dice
