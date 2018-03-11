@@ -15,6 +15,10 @@ public abstract class Action implements ActionInterface{
     return name;
   }
 
+  public int[] getCost(){
+    return cost;
+  }
+
   /**
    * Every Action has a cost. This will be a helper method called byt the playAction method to adjust the player's
    * bank totals.

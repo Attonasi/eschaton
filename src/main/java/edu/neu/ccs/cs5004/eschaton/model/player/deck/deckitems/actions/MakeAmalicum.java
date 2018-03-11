@@ -15,6 +15,11 @@ public class MakeAmalicum extends Action{
     return name;
   }
 
+  @Override
+  public int[] getCost() {
+    return cost;
+  }
+
   public String getDescription(){
     return "Use one of each resource to make one unit of Amalicum";
   }

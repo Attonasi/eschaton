@@ -14,6 +14,8 @@ public interface ActionInterface extends DeckItemInterface {
    */
   void playAction(Player player);
 
+  int[] getCost();
+
   /**
    * Every Action has a cost. This will be a helper method called byt the playAction method to adjust the player's
    * bank totals.

@@ -47,11 +47,12 @@ public class DeckPanel extends JPanel implements Panel {
   private JTextField movement;
   private JTextField hitPoints;
 
-  private JTextField harvestFood;
-  private JTextField harvestWood;
-  private JTextField harvestIron;
-  private JTextField harvestStone;
-  private JTextField harvestGold;
+  private JTextField food;
+  private JTextField wood;
+  private JTextField iron;
+  private JTextField stone;
+  private JTextField gold;
+  private JTextField amalicum;
 
   private JButton fortifyButton;
   private JButton moveButton;
@@ -125,15 +126,17 @@ public class DeckPanel extends JPanel implements Panel {
     this.hitPoints =           newTextField(220, 110, 100, 30, 18,
         panelColor, "HPs: ");
 
-    this.harvestFood =          newTextField(20, 110, 40, 30, 16,
+    this.food =          newTextField(20, 110, 40, 30, 16,
         panelColor, "F: ");
-    this.harvestWood =          newTextField(65, 110, 40, 30, 16,
+    this.wood =          newTextField(65, 110, 40, 30, 16,
         panelColor, "W: ");
-    this.harvestIron =          newTextField(110, 110, 40, 30, 16,
+    this.iron =          newTextField(110, 110, 40, 30, 16,
         panelColor, "I: ");
-    this.harvestStone =         newTextField(155, 110, 40, 30, 16,
+    this.stone =         newTextField(155, 110, 40, 30, 16,
         panelColor, "S: ");
-    this.harvestGold =          newTextField(200, 110, 40, 30, 16,
+    this.gold =          newTextField(200, 110, 40, 30, 16,
+        panelColor, "G: ");
+    this.amalicum =      newTextField(245, 110, 40, 30, 16,
         panelColor, "G: ");
 
     this.harvestButton =        newButton(240, 160, 90, 30, 14,
@@ -211,11 +214,12 @@ public class DeckPanel extends JPanel implements Panel {
     movement.setVisible(false);
     hitPoints.setVisible(false);
 
-    harvestFood.setVisible(false);
-    harvestWood.setVisible(false);
-    harvestIron.setVisible(false);
-    harvestStone.setVisible(false);
-    harvestGold.setVisible(false);
+    food.setVisible(false);
+    wood.setVisible(false);
+    iron.setVisible(false);
+    stone.setVisible(false);
+    gold.setVisible(false);
+    amalicum.setVisible(false);
 
     fortifyButton.setVisible(false);
     moveButton.setVisible(false);
@@ -285,6 +289,20 @@ public class DeckPanel extends JPanel implements Panel {
 
     description.setText(action.getDescription());
     description.setVisible(true);
+
+    food.setText(String.valueOf(action.getCost()[0]));
+    wood.setText(String.valueOf(action.getCost()[1]));
+    iron.setText(String.valueOf(action.getCost()[2]));
+    stone.setText(String.valueOf(action.getCost()[3]));
+    gold.setText(String.valueOf(action.getCost()[4]));
+    amalicum.setText(String.valueOf(action.getCost()[5]));
+
+    food.setVisible(true);
+    wood.setVisible(true);
+    iron.setVisible(true);
+    stone.setVisible(true);
+    gold.setVisible(true);
+    amalicum.setVisible(true);
   }
 
   public void showVillageInfo(VillageInterface village){
@@ -448,23 +466,23 @@ public class DeckPanel extends JPanel implements Panel {
   }
 
   public JTextField getHarvestFood() {
-    return harvestFood;
+    return food;
   }
 
   public JTextField getHarvestWood() {
-    return harvestWood;
+    return wood;
   }
 
   public JTextField getHarvestIron() {
-    return harvestIron;
+    return iron;
   }
 
   public JTextField getHarvestStone() {
-    return harvestStone;
+    return stone;
   }
 
   public JTextField getHarvestGold() {
-    return harvestGold;
+    return gold;
   }
 
   /**
