@@ -21,7 +21,6 @@ import static edu.neu.ccs.cs5004.eschaton.config.Config.getRandomNumber;
 
 public class Map implements MapInterface {
 
-  private MapPanelCell[][][] mapGrid = new MapPanelCell[20][20][20];
   private Cell[][][] cellGrid = new Cell[20][20][20];
   private Config config;
   private Point origin;
@@ -34,11 +33,10 @@ public class Map implements MapInterface {
    */
   public Map(Config config) {
 
-    this.mapGrid = new MapPanelCell[20][20][20];
     this.cellGrid= new Cell[20][20][20];
     this.config = config;
     this.origin = config.getOrigin();
-    this.cellGrid = generateMap();
+    generateMap();
     System.out.println(cellGrid);
   }
 
@@ -49,14 +47,13 @@ public class Map implements MapInterface {
    * The Cell types and contents are also generated at this time,
    * @return Cell[][][] hexagonal grid of Cells.
    */
-  private Cell[][][] generateMap(){
+  private void generateMap(){
     int[] blockStepX = {X_STEP, 0, -X_STEP, -X_STEP, 0, X_STEP};
     int[] blockStepY = {Y_STEP_ONE, Y_STEP_TWO, Y_STEP_ONE, -Y_STEP_ONE, -Y_STEP_TWO, -Y_STEP_ONE};
     int blockSpecialValue = 0;
+    int cellSpecial = 0;
 
-    Cell[][][] newMapGrid = new Cell[20][20][20];
-
-    newMapGrid[0][0][0] = new EschatonCell(new CellPosition(0, 0, 0),
+    cellGrid[0][0][0] = new EschatonCell(new CellPosition(0, 0, 0),
         new Point(origin.x, origin.y), blockSpecialValue);
 
     for (int distanceFromOrigin = 1; distanceFromOrigin < config.getSizeOfMap();
@@ -79,38 +76,43 @@ public class Map implements MapInterface {
       blockSpecialValue = getRandomNumber(distanceFromOrigin, 0, 1);
 
 
-      for (int block = 1; block < NUMBER_OF_BLOCKS; block ++){
+      for (int block = 0; block < NUMBER_OF_BLOCKS; block ++){
 
         int blockXOrdinal = blockXVals[block];
         int blockYOrdinal = blockYVals[block];
 
         for (int blockSize = 0; blockSize < distanceFromOrigin; blockSize++){
 
+          if(blockSpecialValue == blockSize){
+            cellSpecial = getRandomNumber(2, 1, 1);
+          }else {
+            cellSpecial = 0;
+          }
+
+          CellPosition newCellPosition = new CellPosition(distanceFromOrigin,
+              block+1, blockSize+1);
+
           Point newPoint = new Point(blockXOrdinal + blockStepX[block] * (blockSize + 1),
               blockYOrdinal + blockStepY[block] * (blockSize + 1));
 
           cellGrid [distanceFromOrigin][block][blockSize] = makeNewCell(
-              new CellPosition(block, distanceFromOrigin, blockSize),
-              newPoint, blockSpecialValue);
+              newCellPosition, newPoint, cellSpecial);
+
+          System.out.println(cellGrid [distanceFromOrigin][block][blockSize]);
+          System.out.println("position " +newCellPosition);
         }
       }
     }
-    return newMapGrid;
   }
 
   private Cell makeNewCell(CellPosition cellPosition, Point point, Integer special) {
     int randomCell = getRandomNumber(8, 1, 1);
-    if (cellPosition.getCircle() < 1){
-      return new EschatonCell(cellPosition, point, special);
-    }else if (randomCell == 1){
-      return new Mountain(cellPosition, point, special);
-    }else if (randomCell < 3 ){
-      return new Hills(cellPosition, point, special);
-    }else if (randomCell < 5){
-      return new Forest(cellPosition, point, special);
-    }else{
-      return new Plains(cellPosition, point,special);
-    }
+    return  (cellPosition.getCircle() < 1) ?
+        new EschatonCell(cellPosition, point, special) : (randomCell == 1) ?
+        new Mountain(cellPosition, point, special) : (randomCell < 3 ) ?
+        new Hills(cellPosition, point, special) :  (randomCell < 5) ?
+        new Forest(cellPosition, point, special) :
+        new Plains(cellPosition, point,special);
   }
 
   /**
@@ -122,12 +124,9 @@ public class Map implements MapInterface {
    */
   @Override
   public Cell getCellAtPosition(CellPosition position) {
-    return cellGrid[position.getBlock()][position.getCircle()][position.getClockwise()];
+    return cellGrid[position.getCircle()][position.getBlock()][position.getClockwise()];
   }
 
-  public MapPanelCell[][][] getMapGrid() {
-    return mapGrid;
-  }
   public Cell[][][] getCellGrid() {
     return cellGrid;
   }

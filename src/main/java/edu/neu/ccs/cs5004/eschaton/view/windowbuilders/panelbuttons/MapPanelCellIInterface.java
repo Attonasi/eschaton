@@ -6,6 +6,7 @@ import javax.swing.*;
 
 
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.cellposition.CellPosition;
 
 /**
  * The MapPanelCell Is a class that contains several abstract objects including the actual Cell,
@@ -23,17 +24,8 @@ public interface MapPanelCellIInterface {
   /**
    * @return int how far from origin the circle of hexagons this cell is in is.
    */
-  int getCircle();
+  CellPosition getCellPosition();
 
-  /**
-   * @return int starting from 12 o'clock the blocks are labeled 1 - 6.
-   */
-  int getBlock();
-
-  /**
-   * @return int moving from the ordinal of the block clockwise until you reach the next block
-   */
-  int getToClockwise();
 
   /**
    * @return JButton the object that has the listeners attached to it.

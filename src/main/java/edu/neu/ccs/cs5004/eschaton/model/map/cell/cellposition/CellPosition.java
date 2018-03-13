@@ -8,18 +8,18 @@ public class CellPosition implements PositionInterface {
   private Integer circle;
   private Integer clockwise;
 
-  public CellPosition(Integer block, Integer circle, Integer clockwise) {
-    this.block = block;
+  public CellPosition(Integer circle, Integer block, Integer clockwise) {
     this.circle = circle;
+    this.block = block;
     this.clockwise = clockwise;
-  }
-
-  public Integer getBlock() {
-    return block;
   }
 
   public Integer getCircle() {
     return circle;
+  }
+
+  public Integer getBlock() {
+    return block;
   }
 
   public Integer getClockwise() {

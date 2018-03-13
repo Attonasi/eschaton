@@ -25,30 +25,22 @@ public class MapPanelCell implements MapPanelCellIInterface{
   private Cell cell;
   private JButton button;
   private Point point;
-  private Integer circle;
-  private Integer block;
-  private Integer toClockwise;
+  private CellPosition position;
   private Integer special;
   private DeckPanel deckPanel;
   private TilePanel tilePanel;
 
 
-  public MapPanelCell(Point point,
-                      Integer circle, Integer block, Integer toClockwise, Integer special,
+  public MapPanelCell(Point point, CellPosition position, Cell cell,
                       DeckPanel deckPanel, TilePanel tilePanel) {
 
     this.button = new JButton("x");
     this.point = point;
-    this.circle = circle;
-    this.block = block;
-    this.toClockwise = toClockwise;
+    this.position = position;
     this.deckPanel = deckPanel;
     this.tilePanel = tilePanel;
 
-    this.cell = makeNewCell(new CellPosition(block, circle, toClockwise),
-        point, special);
-
-
+    this.cell = cell;
 
     button.setBounds(point.x-X_OFFSET, point.y-Y_OFFSET, 30, 30);
     button.setBackground(cell.getCellColor());
@@ -66,12 +58,12 @@ public class MapPanelCell implements MapPanelCellIInterface{
         tilePanel.getIronField().setText(String.valueOf(cell.getContents().getIron()));
         tilePanel.getStoneField().setText(String.valueOf(cell.getContents().getStone()));
         tilePanel.getGoldField().setText(String.valueOf(cell.getContents().getGold()));
-        tilePanel.getCircleField().setText(circle.toString());
-        tilePanel.getBlockField().setText(block.toString());
-        tilePanel.getToClockwiseField().setText(toClockwise.toString());
-        deckPanel.getCircleMiddle().setText(String.valueOf(circle));
-        deckPanel.getBlockMiddle().setText(String.valueOf(block));
-        deckPanel.getToClockwiseMiddle().setText(String.valueOf(toClockwise));
+        tilePanel.getCircleField().setText(position.getCircle().toString());
+        tilePanel.getBlockField().setText(position.getBlock().toString());
+        tilePanel.getToClockwiseField().setText(position.getClockwise().toString());
+        deckPanel.getCircleMiddle().setText(String.valueOf(position.getCircle()));
+        deckPanel.getBlockMiddle().setText(String.valueOf(position.getBlock()));
+        deckPanel.getToClockwiseMiddle().setText(String.valueOf(position.getClockwise()));
 //        deckPanel.getCircleBottom().setText(String.valueOf(circle));
 //        deckPanel.getBlockBottom().setText(String.valueOf(block));
 //        deckPanel.getToClockwiseBottom().setText(String.valueOf(toClockwise));
@@ -86,20 +78,20 @@ public class MapPanelCell implements MapPanelCellIInterface{
 
   }
 
-  private Cell makeNewCell(CellPosition cellPosition, Point point, Integer special) {
-    int randomCell = getRandomNumber(8, 1, 1);
-    if (cellPosition.getCircle() < 1){
-      return new EschatonCell(cellPosition, point, special);
-    }else if (randomCell == 1){
-      return new Mountain(cellPosition, point, special);
-    }else if (randomCell < 3 ){
-      return new Hills(cellPosition, point, special);
-    }else if (randomCell < 5){
-      return new Forest(cellPosition, point, special);
-    }else{
-      return new Plains(cellPosition, point,special);
-    }
-  }
+//  private Cell makeNewCell(CellPosition cellPosition, Point point, Integer special) {
+//    int randomCell = getRandomNumber(8, 1, 1);
+//    if (cellPosition.getCircle() < 1){
+//      return new EschatonCell(cellPosition, point, special);
+//    }else if (randomCell == 1){
+//      return new Mountain(cellPosition, point, special);
+//    }else if (randomCell < 3 ){
+//      return new Hills(cellPosition, point, special);
+//    }else if (randomCell < 5){
+//      return new Forest(cellPosition, point, special);
+//    }else{
+//      return new Plains(cellPosition, point,special);
+//    }
+//  }
 
   /**
    * @return The entire point if that is more convenient.
@@ -111,19 +103,7 @@ public class MapPanelCell implements MapPanelCellIInterface{
    * @return int how far from origin the circle of hexagons this cell is in is.
    */
   @Override
-  public int getCircle() { return circle; }
-
-  /**
-   * @return int starting from 12 o'clock the blocks are labeled 1 - 6.
-   */
-  @Override
-  public int getBlock() { return block; }
-
-  /**
-   * @return int moving from the ordinal of the block clockwise until you reach the next block
-   */
-  @Override
-  public int getToClockwise() { return toClockwise; }
+  public CellPosition getCellPosition() { return position; }
 
   /**
    * @return JButton the object that has the listeners attached to it.
