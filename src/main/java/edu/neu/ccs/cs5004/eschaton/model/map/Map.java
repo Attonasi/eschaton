@@ -55,7 +55,7 @@ public class Map implements MapInterface {
     cellGrid[0][0][0] = new EschatonCell(new CellPosition(0, 0, 0),
         new Point(origin.x, origin.y), blockSpecialValue);
 
-    for (int distanceFromOrigin = 1; distanceFromOrigin < config.getSizeOfMap();
+    for (int distanceFromOrigin = 0; distanceFromOrigin < config.getSizeOfMap();
          distanceFromOrigin++){
 
       int[] blockXVals = {origin.x,
@@ -72,7 +72,7 @@ public class Map implements MapInterface {
                           origin.y + Y_STEP_ONE * distanceFromOrigin,
                           origin.y - Y_STEP_ONE * distanceFromOrigin};
 
-      blockSpecialValue = getRandomNumber(distanceFromOrigin, 0, 1);
+      blockSpecialValue = getRandomNumber(distanceFromOrigin, 0, 0);
 
 
       for (int block = 0; block < NUMBER_OF_BLOCKS; block ++){

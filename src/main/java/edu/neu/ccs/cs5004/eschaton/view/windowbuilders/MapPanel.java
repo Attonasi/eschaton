@@ -67,7 +67,7 @@ public class MapPanel extends JPanel implements Panel{
   }
 
   public void makeMapButtons() {
-    for (int dfo = 1; dfo < this.sizeOfMap; dfo++) {
+    for (int dfo = 0; dfo < this.sizeOfMap; dfo++) {
       for(int block = 0; block < NUMBER_OF_BLOCKS; block++){
         for(int clockwise = 0; clockwise<dfo; clockwise++){
           CellPosition tempPosition = new CellPosition(dfo,block+1,clockwise+1);
