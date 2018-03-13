@@ -55,10 +55,10 @@ public class Config {
   public Config (Integer numberOfPlayers) {
     this.fogOfWar = DEFAULT_FOG_VALUE;
     this.numberOfPlayers = numberOfPlayers;
-    this.sizeOfMap = numberOfPlayers + 3;
+    this.sizeOfMap = numberOfPlayers + 2;
     this.origin = ORIGIN;
     this.cellSize = HEXAGON_SIZE;
-    this.playerStartPositions = getStartPositions(sizeOfMap);
+    this.playerStartPositions = getStartPositions(sizeOfMap-1);
   }
 
   public static Integer getRandomNumber(Integer max, Integer min, Integer base){
@@ -67,23 +67,23 @@ public class Config {
 
   private CellPosition[] getStartPositions(int sizeOfMap){
 
-    if(sizeOfMap == 4) {
+    if(sizeOfMap == 3) {
       CellPosition[] start = {new CellPosition(1, sizeOfMap, 0),
                               new CellPosition(4, sizeOfMap, 0)};
       return start;
-    } else if(sizeOfMap == 5) {
+    } else if(sizeOfMap == 4) {
       CellPosition[] start = {new CellPosition(1, sizeOfMap, 0),
                               new CellPosition(3, sizeOfMap, 0),
                               new CellPosition(5, sizeOfMap, 0)};
       return start;
-    } else if(sizeOfMap == 6) {
+    } else if(sizeOfMap == 5) {
       CellPosition[] start = {new CellPosition(2, sizeOfMap, 0),
                               new CellPosition(3, sizeOfMap, 0),
                               new CellPosition(4, sizeOfMap, 0),
                               new CellPosition(5, sizeOfMap, 0)};
 
       return start;
-    } else if(sizeOfMap == 7) {
+    } else if(sizeOfMap == 6) {
       CellPosition[] start = {new CellPosition(1, sizeOfMap, 0),
                               new CellPosition(2, sizeOfMap, 0),
                               new CellPosition(3, sizeOfMap, 0),

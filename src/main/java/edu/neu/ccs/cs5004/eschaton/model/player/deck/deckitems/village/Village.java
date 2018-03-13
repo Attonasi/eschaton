@@ -6,11 +6,17 @@ import edu.neu.ccs.cs5004.eschaton.model.player.Player;
 
 public class Village extends AbstractVillage {
 
-  protected Integer defense;
-  protected Integer population;
+  private Integer defense;
+  private Integer population;
+//  private int[] harvestValues = {0,0,0,0,0};
 
   public Village(Player player, CellPosition position, Cell cell) {
     super(player, position, cell);
+//    this.harvestValues[0] = cell.getContents().getFood();
+//    this.harvestValues[1] = cell.getContents().getWood();
+//    this.harvestValues[2] = cell.getContents().getIron();
+//    this.harvestValues[3] = cell.getContents().getStone();
+//    this.harvestValues[4] = cell.getContents().getGold();
     this.defense = 1;
     this.population = 1;
   }
@@ -19,4 +25,17 @@ public class Village extends AbstractVillage {
   public CellPosition getPosition() {
     return super.getPosition();
   }
+
+  @Override
+  public Integer getDefense() {
+    return defense;
+  }
+
+  public Integer getPopulation() {
+    return population;
+  }
+
+//  public int[] getHarvestValues() {
+//    return harvestValues;
+//  }
 }

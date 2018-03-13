@@ -35,12 +35,12 @@ public class DeckPanel extends JPanel implements Panel {
   private JTextField toClockwiseLabelMiddle;
   private JTextField toClockwiseMiddle;
 
-  private JTextField circleLabelBottom;
-  private JTextField circleBottom;
-  private JTextField blockLabelBottom;
-  private JTextField blockBottom;
-  private JTextField toClockwiseLabelBottom;
-  private JTextField toClockwiseBottom;
+//  private JTextField circleLabelBottom;
+//  private JTextField circleBottom;
+//  private JTextField blockLabelBottom;
+//  private JTextField blockBottom;
+//  private JTextField toClockwiseLabelBottom;
+//  private JTextField toClockwiseBottom;
 
   private JTextField attackPower;
   private JTextField defensePower;
@@ -101,29 +101,34 @@ public class DeckPanel extends JPanel implements Panel {
     this.itemName = newTextField(20, 20, 300, 30, 20,
         panelColor,  "Unit");
 
-    this.circleLabelTop =     newTextField(20, 60, 30, 30, 16,
+    this.circleLabelTop =     newTextField(50, 60, 30, 30, 16,
         panelColor, "C: ");
-    this.circleTop =          newTextField(50, 60, 30, 30, 16,
+    this.circleTop =          newTextField(80, 60, 30, 30, 16,
         panelColor, " X ");
-    this.blockLabelTop =      newTextField(90, 60, 30, 30, 16,
+    this.blockLabelTop =      newTextField(140, 60, 30, 30, 16,
         panelColor, "B: ");
-    this.blockTop =           newTextField(120, 60, 30, 30, 16,
+    this.blockTop =           newTextField(170, 60, 30, 30, 16,
         panelColor, " X ");
-    this.toClockwiseLabelTop =newTextField(170, 60, 35, 30, 16,
+    this.toClockwiseLabelTop =newTextField(220, 60, 35, 30, 16,
         panelColor, "tC: ");
-    this.toClockwiseTop =     newTextField(200, 60, 30, 30, 16,
+    this.toClockwiseTop =     newTextField(250, 60, 30, 30, 16,
         panelColor, " X ");
 
-    this.fortifyButton =        newButton(240, 60, 90, 30, 14,
+    this.fortifyButton =        newButton(30, 110, 120, 30, 13,
         panelColor, "Fortify");
+    this.foundVillageButton =   newButton(180, 110, 120, 30, 13,
+        panelColor, "Found Village");
+    this.harvestButton =        newButton(100, 160, 150, 30, 14,
+        panelColor, "Harvest");
 
-    this.attackPower =          newTextField(20, 110, 60, 30, 18,
+
+    this.attackPower =          newTextField(20, 160, 60, 30, 18,
         panelColor, "AP: ");
-    this.defensePower =         newTextField(80, 110, 60, 30, 18,
+    this.defensePower =         newTextField(80, 160, 60, 30, 18,
         panelColor, "DP: ");
-    this.movement =             newTextField(140, 110, 60, 30, 18,
+    this.movement =             newTextField(140, 160, 60, 30, 18,
         panelColor, "MV: ");
-    this.hitPoints =           newTextField(220, 110, 100, 30, 18,
+    this.hitPoints =           newTextField(220, 160, 100, 30, 18,
         panelColor, "HPs: ");
 
     this.food =          newTextField(20, 110, 40, 30, 16,
@@ -139,40 +144,37 @@ public class DeckPanel extends JPanel implements Panel {
     this.amalicum =      newTextField(245, 110, 40, 30, 16,
         panelColor, "G: ");
 
-    this.harvestButton =        newButton(240, 160, 90, 30, 14,
-        panelColor, "Harvest");
-
-    this.circleLabelMiddle =    newTextField(20, 160, 30, 30, 16,
+    this.circleLabelMiddle =    newTextField(50, 210, 30, 30, 16,
         panelColor, "C: ");
-    this.circleMiddle =         newTextField(50, 160, 30, 30, 16,
+    this.circleMiddle =         newTextField(80, 210, 30, 30, 16,
         panelColor, " X ");
-    this.blockLabelMiddle =     newTextField(90, 160, 30, 30, 16,
+    this.blockLabelMiddle =     newTextField(130, 210, 30, 30, 16,
         panelColor, "B: ");
-    this.blockMiddle =          newTextField(120, 160, 30, 30, 16,
+    this.blockMiddle =          newTextField(160, 210, 30, 30, 16,
         panelColor, " X ");
-    this.toClockwiseLabelMiddle=newTextField(170, 160, 35, 30, 16,
+    this.toClockwiseLabelMiddle=newTextField(210, 210, 35, 30, 16,
         panelColor, "tC: ");
-    this.toClockwiseMiddle =    newTextField(200, 160, 30, 30, 16,
+    this.toClockwiseMiddle =    newTextField(240, 210, 30, 30, 16,
         panelColor, " X ");
 
 
-    this.moveButton =        newButton(240, 160, 90, 30, 14,
+    this.moveButton =        newButton(180, 250, 120, 30, 14,
         panelColor, "Move");
 
-    this.circleLabelBottom =    newTextField(20, 210, 30, 30, 16,
-        panelColor, "C: ");
-    this.circleBottom =         newTextField(50, 210, 30, 30, 16,
-        panelColor, " X ");
-    this.blockLabelBottom =     newTextField(90, 210, 30, 30, 16,
-        panelColor, "B: ");
-    this.blockBottom =          newTextField(120, 210, 30, 30, 16,
-        panelColor, " X ");
-    this.toClockwiseLabelBottom=newTextField(170, 210, 35, 30, 16,
-        panelColor, "tC: ");
-    this.toClockwiseBottom =    newTextField(200, 210, 30, 30, 16,
-        panelColor, " X ");
+//    this.circleLabelBottom =    newTextField(20, 210, 30, 30, 16,
+//        panelColor, "C: ");
+//    this.circleBottom =         newTextField(50, 210, 30, 30, 16,
+//        panelColor, " X ");
+//    this.blockLabelBottom =     newTextField(90, 210, 30, 30, 16,
+//        panelColor, "B: ");
+//    this.blockBottom =          newTextField(120, 210, 30, 30, 16,
+//        panelColor, " X ");
+//    this.toClockwiseLabelBottom=newTextField(170, 210, 35, 30, 16,
+//        panelColor, "tC: ");
+//    this.toClockwiseBottom =    newTextField(200, 210, 30, 30, 16,
+//        panelColor, " X ");
 
-    this.attackButton = newButton(240, 210, 90, 30, 14,
+    this.attackButton = newButton(30, 250, 120, 30, 14,
         panelColor, "Attack");
 
     this.description =          newTextArea(30, 150, 300, 60, 16,
@@ -202,12 +204,12 @@ public class DeckPanel extends JPanel implements Panel {
     toClockwiseLabelMiddle.setVisible(false);
     toClockwiseMiddle.setVisible(false);
 
-    circleLabelBottom.setVisible(false);
-    circleBottom.setVisible(false);
-    blockLabelBottom.setVisible(false);
-    blockBottom.setVisible(false);
-    toClockwiseLabelBottom.setVisible(false);
-    toClockwiseBottom.setVisible(false);
+//    circleLabelBottom.setVisible(false);
+//    circleBottom.setVisible(false);
+//    blockLabelBottom.setVisible(false);
+//    blockBottom.setVisible(false);
+//    toClockwiseLabelBottom.setVisible(false);
+//    toClockwiseBottom.setVisible(false);
 
     attackPower.setVisible(false);
     defensePower.setVisible(false);
@@ -224,9 +226,9 @@ public class DeckPanel extends JPanel implements Panel {
     fortifyButton.setVisible(false);
     moveButton.setVisible(false);
     attackButton.setVisible(false);
-//    foundButton.setVisible(false);
+    foundVillageButton.setVisible(false);
 //    buildButton.setVisible(false);
-//    harvestButton.setVisible(false);
+    harvestButton.setVisible(false);
 //    playButton.setVisible(false);
 //
     description.setVisible(false);
@@ -257,6 +259,7 @@ public class DeckPanel extends JPanel implements Panel {
     toClockwiseTop.setVisible(true);
 
     fortifyButton.setVisible(true);
+    foundVillageButton.setVisible(true);
 
     circleLabelMiddle.setVisible(true);
     circleMiddle.setVisible(true);
@@ -267,12 +270,12 @@ public class DeckPanel extends JPanel implements Panel {
 
     moveButton.setVisible(true);
 
-    circleLabelBottom.setVisible(true);
-    circleBottom.setVisible(true);
-    blockLabelBottom.setVisible(true);
-    blockBottom.setVisible(true);
-    toClockwiseLabelBottom.setVisible(true);
-    toClockwiseBottom.setVisible(true);
+//    circleLabelBottom.setVisible(true);
+//    circleBottom.setVisible(true);
+//    blockLabelBottom.setVisible(true);
+//    blockBottom.setVisible(true);
+//    toClockwiseLabelBottom.setVisible(true);
+//    toClockwiseBottom.setVisible(true);
 
     attackButton.setVisible(true);
 
@@ -314,6 +317,12 @@ public class DeckPanel extends JPanel implements Panel {
     blockTop.setText(String.valueOf(village.getPosition().getBlock()));
     toClockwiseTop.setText(String.valueOf(village.getPosition().getClockwise()));
 
+    food.setText(String.valueOf(village.getHarvestBounty()[0]));
+    wood.setText(String.valueOf(village.getHarvestBounty()[1]));
+    iron.setText(String.valueOf(village.getHarvestBounty()[2]));
+    stone.setText(String.valueOf(village.getHarvestBounty()[3]));
+    gold.setText(String.valueOf(village.getHarvestBounty()[4]));
+
     circleLabelTop.setVisible(true);
     circleTop.setVisible(true);
     blockLabelTop.setVisible(true);
@@ -321,6 +330,13 @@ public class DeckPanel extends JPanel implements Panel {
     toClockwiseLabelTop.setVisible(true);
     toClockwiseTop.setVisible(true);
 
+    food.setVisible(true);
+    wood.setVisible(true);
+    iron.setVisible(true);
+    stone.setVisible(true);
+    gold.setVisible(true);
+
+    harvestButton.setVisible(true);
   }
 
 
@@ -353,7 +369,6 @@ public class DeckPanel extends JPanel implements Panel {
     field.setBounds(xPos,  yPos, width, height);
     field.setVisible(false);
     field.setFont(new Font("Arial", Font.PLAIN, fontSize));
-//    field.setHorizontalAlignment(JTextArea.CENTER);
     field.setBackground(color);
     field.setText(fieldText);
     deckPanel.add(field);
@@ -437,17 +452,17 @@ public class DeckPanel extends JPanel implements Panel {
     return toClockwiseMiddle;
   }
 
-  public JTextField getCircleBottom() {
-    return circleBottom;
-  }
-
-  public JTextField getBlockBottom() {
-    return blockBottom;
-  }
-
-  public JTextField getToClockwiseBottom() {
-    return toClockwiseBottom;
-  }
+//  public JTextField getCircleBottom() {
+//    return circleBottom;
+//  }
+//
+//  public JTextField getBlockBottom() {
+//    return blockBottom;
+//  }
+//
+//  public JTextField getToClockwiseBottom() {
+//    return toClockwiseBottom;
+//  }
 
   public JTextField getAttackPower() {
     return attackPower;
