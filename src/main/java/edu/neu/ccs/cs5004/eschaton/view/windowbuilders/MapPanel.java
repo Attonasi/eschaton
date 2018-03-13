@@ -71,9 +71,7 @@ public class MapPanel extends JPanel implements Panel{
       for(int block = 0; block < NUMBER_OF_BLOCKS; block++){
         for(int clockwise = 0; clockwise<dfo; clockwise++){
           CellPosition tempPosition = new CellPosition(dfo,block+1,clockwise+1);
-          System.out.println("Am I null " +tempPosition);
           Cell tempCell = map.getCellAtPosition(tempPosition);
-          System.out.println("Cell null "+ map.getCellAtPosition(tempPosition));
           makeMapButton(tempPosition, tempCell.getPoint(), tempCell);
         }
       }
@@ -88,56 +86,6 @@ public class MapPanel extends JPanel implements Panel{
     mapPanel.add(newCellCW.getButton());
   }
 
-//  public void makeMapButtons(){
-//    int[] blockStepX = {X_STEP, 0, -X_STEP, -X_STEP, 0, X_STEP};
-//    int[] blockStepY = {Y_STEP_ONE, Y_STEP_TWO, Y_STEP_ONE, -Y_STEP_ONE, -Y_STEP_TWO, -Y_STEP_ONE};
-//    int blockSpecialValue = 0;
-//    int cellSpecial = 0;
-//
-//    map.getMapGrid()[0][0][0] = new MapPanelCell(new Point(origin.x, origin.y),
-//        0, 0, 0, 0, deckPanel, tilePanel);
-//    mapPanel.add(map.getMapGrid()[0][0][0].getButton());
-//
-//    for (int dFromOrigin= 0; dFromOrigin < sizeOfMap; dFromOrigin++) {
-//      int[] blockXVals = {origin.x,
-//          origin.x + X_STEP * dFromOrigin,
-//          origin.x + X_STEP * dFromOrigin,
-//          origin.x,
-//          origin.x - X_STEP * dFromOrigin,
-//          origin.x - X_STEP * dFromOrigin};
-//
-//      int[] blockYVals = {origin.y - Y_STEP_TWO * dFromOrigin,
-//          origin.y - Y_STEP_ONE * dFromOrigin,
-//          origin.y + Y_STEP_ONE * dFromOrigin,
-//          origin.y + Y_STEP_TWO * dFromOrigin,
-//          origin.y + Y_STEP_ONE * dFromOrigin,
-//          origin.y - Y_STEP_ONE * dFromOrigin};
-//
-//      blockSpecialValue = getRandomNumber(dFromOrigin, 0, 1);
-//
-//      for(int block = 0; block < NUMBER_OF_BLOCKS; block ++){
-//        int blockXOrdinal = blockXVals[block];
-//        int blockYOrdinal = blockYVals[block];
-//
-//        for(int blockSize = 0;  blockSize < dFromOrigin; blockSize++){
-//
-//          if(blockSpecialValue == blockSize){
-//            cellSpecial = getRandomNumber(2, 1, 1);
-//          }else {
-//            cellSpecial = 0;
-//          }
-//          MapPanelCell newCellCW = new MapPanelCell(new Point(
-//              blockXOrdinal + blockStepX[block] * (blockSize),
-//              blockYOrdinal + blockStepY[block] * (blockSize)),
-//              dFromOrigin, block + 1, blockSize + 1,
-//              cellSpecial, deckPanel, tilePanel);
-//
-//          map.getMapGrid()[dFromOrigin][block][blockSize+1] = newCellCW;
-//          mapPanel.add(newCellCW.getButton());
-//        }
-//      }
-//    }
-//  }
 
   @Override
   public void actionPerformed(ActionEvent actionEvent) {  }

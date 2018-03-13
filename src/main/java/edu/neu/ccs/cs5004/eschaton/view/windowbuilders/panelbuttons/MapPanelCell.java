@@ -64,9 +64,6 @@ public class MapPanelCell implements MapPanelCellIInterface{
         deckPanel.getCircleMiddle().setText(String.valueOf(position.getCircle()));
         deckPanel.getBlockMiddle().setText(String.valueOf(position.getBlock()));
         deckPanel.getToClockwiseMiddle().setText(String.valueOf(position.getClockwise()));
-//        deckPanel.getCircleBottom().setText(String.valueOf(circle));
-//        deckPanel.getBlockBottom().setText(String.valueOf(block));
-//        deckPanel.getToClockwiseBottom().setText(String.valueOf(toClockwise));
       }
     @Override
     public void mouseReleased(MouseEvent mouseEvent) {  }

@@ -37,7 +37,6 @@ public class Map implements MapInterface {
     this.config = config;
     this.origin = config.getOrigin();
     generateMap();
-    System.out.println(cellGrid);
   }
 
   /**
@@ -95,11 +94,8 @@ public class Map implements MapInterface {
           Point newPoint = new Point(blockXOrdinal + blockStepX[block] * (blockSize + 1),
               blockYOrdinal + blockStepY[block] * (blockSize + 1));
 
-          cellGrid [distanceFromOrigin][block][blockSize] = makeNewCell(
+          cellGrid [distanceFromOrigin][block+1][blockSize+1] = makeNewCell(
               newCellPosition, newPoint, cellSpecial);
-
-          System.out.println(cellGrid [distanceFromOrigin][block][blockSize]);
-          System.out.println("position " +newCellPosition);
         }
       }
     }
