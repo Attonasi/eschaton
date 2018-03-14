@@ -20,7 +20,7 @@ public class Model implements ModelInterface {
     this.map = new Map(config);
     this.players = new ArrayList<Player>();
     for(int i = 0; i < config.getNumberOfPlayers(); i++){
-      Player newPlayer = new Player(config.getPlayerStartPositions()[i], map);
+      Player newPlayer = new Player(map.getStartPoints()[i], map);
       players.add(newPlayer);
     }
   }

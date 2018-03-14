@@ -31,7 +31,7 @@ public class Config {
   private Integer sizeOfMap;
   private Point origin;
   private Integer cellSize;
-  private CellPosition[] playerStartPositions;
+  private Integer[] playerStartPositions;
 
 
   public Config(Boolean fogOfWar, Integer numberOfPlayers, Integer sizeOfMap, Point origin,
@@ -65,38 +65,23 @@ public class Config {
     return base + (int)(Math.random()*((max-min)+base));
   }
 
-  private CellPosition[] getStartPositions(int sizeOfMap){
+  private Integer[] getStartPositions(int sizeOfMap){
 
     if(sizeOfMap == 3) {
-      CellPosition[] start = {new CellPosition(1, sizeOfMap, sizeOfMap),
-                              new CellPosition(4, sizeOfMap, sizeOfMap)};
+      Integer[] start = {1, 4};
       return start;
     } else if(sizeOfMap == 4) {
-      CellPosition[] start = {new CellPosition(1, sizeOfMap, sizeOfMap),
-                              new CellPosition(3, sizeOfMap, sizeOfMap),
-                              new CellPosition(5, sizeOfMap, sizeOfMap)};
+      Integer[] start = {1, 3, 5};
       return start;
     } else if(sizeOfMap == 5) {
-      CellPosition[] start = {new CellPosition(2, sizeOfMap, sizeOfMap),
-                              new CellPosition(3, sizeOfMap, sizeOfMap),
-                              new CellPosition(4, sizeOfMap, sizeOfMap),
-                              new CellPosition(5, sizeOfMap, sizeOfMap)};
+      Integer[] start = {2, 3, 5, 6};
 
       return start;
     } else if(sizeOfMap == 6) {
-      CellPosition[] start = {new CellPosition(1, sizeOfMap, sizeOfMap),
-                              new CellPosition(2, sizeOfMap, sizeOfMap),
-                              new CellPosition(3, sizeOfMap, sizeOfMap),
-                              new CellPosition(5, sizeOfMap, sizeOfMap),
-                              new CellPosition(6, sizeOfMap, sizeOfMap)};
+      Integer[] start = {1,2,3,5,6};
       return start;
     } else {
-      CellPosition[] start = {new CellPosition(1, sizeOfMap, sizeOfMap),
-                              new CellPosition(2, sizeOfMap, sizeOfMap),
-                              new CellPosition(3, sizeOfMap, sizeOfMap),
-                              new CellPosition(4, sizeOfMap, sizeOfMap),
-                              new CellPosition(5, sizeOfMap, sizeOfMap),
-                              new CellPosition(6, sizeOfMap, sizeOfMap)};
+      Integer[] start = {1,2,3,4,5,6};
       return start;
     }
   }
@@ -129,7 +114,7 @@ public class Config {
     return origin;
   }
 
-  public CellPosition[] getPlayerStartPositions() {
+  public Integer[] getPlayerStartPositions() {
     return playerStartPositions;
   }
 

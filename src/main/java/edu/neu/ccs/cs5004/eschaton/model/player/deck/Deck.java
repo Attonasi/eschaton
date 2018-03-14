@@ -25,13 +25,16 @@ public class Deck implements DeckInterface {
   private Player player;
   private CellPosition startPosition;
   private Cell startCell;
+  private Cell startCell2;
 
   public Deck(CellPosition startPosition, Map map, Player player) {
     this.startPosition = startPosition;
     this.map = map;
     this.player = player;
     this.startCell = map.getCellAtPosition(startPosition);
+    this.startCell2 = map.getCellAtPoint(new Point(500, 310));
     System.out.println(startCell + " is startCell");
+    System.out.println(startCell2 + " is startCell2");
     deck.add(new Militia(startPosition));
     deck.add(new Militia(startPosition));
     deck.add(new MakeAmalicum());
