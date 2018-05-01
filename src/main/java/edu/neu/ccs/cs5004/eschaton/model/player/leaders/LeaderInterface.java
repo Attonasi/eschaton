@@ -10,4 +10,6 @@ package edu.neu.ccs.cs5004.eschaton.model.player.leaders;
  */
 
 public interface LeaderInterface {
+
+  String getLeader();
 }

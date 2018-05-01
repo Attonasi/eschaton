@@ -10,10 +10,8 @@ import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Forest;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Hills;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Mountain;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.celltypes.Plains;
-import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.panelbuttons.MapPanelCell;
 
 import static edu.neu.ccs.cs5004.eschaton.config.Config.NUMBER_OF_BLOCKS;
-import static edu.neu.ccs.cs5004.eschaton.config.Config.ORIGIN;
 import static edu.neu.ccs.cs5004.eschaton.config.Config.X_STEP;
 import static edu.neu.ccs.cs5004.eschaton.config.Config.Y_STEP_ONE;
 import static edu.neu.ccs.cs5004.eschaton.config.Config.Y_STEP_TWO;
@@ -72,8 +70,7 @@ public class Map implements MapInterface {
                           origin.y + Y_STEP_ONE * distanceFromOrigin,
                           origin.y - Y_STEP_ONE * distanceFromOrigin};
 
-      blockSpecialValue = getRandomNumber(distanceFromOrigin, 0, 1);
-
+      blockSpecialValue = getRandomNumber(distanceFromOrigin, 0, 0);
 
       for (int block = 0; block < NUMBER_OF_BLOCKS; block ++){
 
@@ -81,21 +78,15 @@ public class Map implements MapInterface {
         int blockYOrdinal = blockYVals[block];
 
         for (int blockSize = 0; blockSize < distanceFromOrigin; blockSize++){
-
           if(blockSpecialValue == blockSize){
             cellSpecial = getRandomNumber(2, 1, 1);
           }else {
             cellSpecial = 0;
           }
-
-          CellPosition newCellPosition = new CellPosition(distanceFromOrigin,
-              block+1, blockSize+1);
-
-          Point newPoint = new Point(blockXOrdinal + blockStepX[block] * (blockSize + 1),
-              blockYOrdinal + blockStepY[block] * (blockSize + 1));
-
           cellGrid [distanceFromOrigin][block+1][blockSize+1] = makeNewCell(
-              newCellPosition, newPoint, cellSpecial);
+              new CellPosition(distanceFromOrigin,block+1, blockSize+1),
+              new Point(blockXOrdinal + blockStepX[block] * (blockSize + 1),
+                  blockYOrdinal + blockStepY[block] * (blockSize + 1)), cellSpecial);
         }
       }
     }
@@ -126,7 +117,4 @@ public class Map implements MapInterface {
   public Cell[][][] getCellGrid() {
     return cellGrid;
   }
-
-
-
 }

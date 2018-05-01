@@ -21,7 +21,7 @@ public abstract class Cell implements CellInterface{
   protected Point point;
   protected Contents contents;
   protected Integer special;
-  protected ArrayList<Unit> unitList = new ArrayList<Unit>();
+  protected List<Unit> unitList = new ArrayList<Unit>();
 
 
   public Cell(CellPosition cellPosition, Point point, Integer special) {
@@ -131,7 +131,7 @@ public abstract class Cell implements CellInterface{
     return special;
   }
 
-  public ArrayList<Unit> getUnitList() {
+  public List<Unit> getUnitList() {
     return unitList;
   }
 }

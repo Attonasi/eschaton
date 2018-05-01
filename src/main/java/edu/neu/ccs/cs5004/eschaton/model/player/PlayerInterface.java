@@ -5,6 +5,7 @@ import java.util.List;
 import edu.neu.ccs.cs5004.eschaton.model.player.bank.Bank;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.Deck;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.DeckItemInterface;
+import edu.neu.ccs.cs5004.eschaton.model.player.leaders.LeaderInterface;
 import edu.neu.ccs.cs5004.eschaton.model.player.race.Race;
 
 /**
@@ -72,7 +73,7 @@ public interface PlayerInterface {
   /**
    * @return List of commanders in a Players Deck
    */
-  List getLeaders();
+  LeaderInterface getLeader();
 
   /**
    * @return PlayerBonus gives the rest of the program access to a players bonus variables in order

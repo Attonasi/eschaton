@@ -68,35 +68,35 @@ public class Config {
   private CellPosition[] getStartPositions(int sizeOfMap){
 
     if(sizeOfMap == 3) {
-      CellPosition[] start = {new CellPosition(1, sizeOfMap, 0),
-                              new CellPosition(4, sizeOfMap, 0)};
+      CellPosition[] start = {new CellPosition( sizeOfMap, 1,sizeOfMap),
+                              new CellPosition( sizeOfMap, 4,sizeOfMap)};
       return start;
     } else if(sizeOfMap == 4) {
-      CellPosition[] start = {new CellPosition(1, sizeOfMap, 0),
-                              new CellPosition(3, sizeOfMap, 0),
-                              new CellPosition(5, sizeOfMap, 0)};
+      CellPosition[] start = {new CellPosition(sizeOfMap, 1,sizeOfMap),
+                              new CellPosition(sizeOfMap, 3,sizeOfMap),
+                              new CellPosition(sizeOfMap, 5,sizeOfMap)};
       return start;
     } else if(sizeOfMap == 5) {
-      CellPosition[] start = {new CellPosition(2, sizeOfMap, 0),
-                              new CellPosition(3, sizeOfMap, 0),
-                              new CellPosition(4, sizeOfMap, 0),
-                              new CellPosition(5, sizeOfMap, 0)};
+      CellPosition[] start = {new CellPosition(sizeOfMap, 2,sizeOfMap),
+                              new CellPosition(sizeOfMap, 3,sizeOfMap),
+                              new CellPosition(sizeOfMap, 5,sizeOfMap),
+                              new CellPosition(sizeOfMap, 6,sizeOfMap)};
 
       return start;
     } else if(sizeOfMap == 6) {
-      CellPosition[] start = {new CellPosition(1, sizeOfMap, 0),
-                              new CellPosition(2, sizeOfMap, 0),
-                              new CellPosition(3, sizeOfMap, 0),
-                              new CellPosition(5, sizeOfMap, 0),
-                              new CellPosition(6, sizeOfMap, 0)};
+      CellPosition[] start = {new CellPosition(sizeOfMap, 1,sizeOfMap),
+                              new CellPosition(sizeOfMap, 2,sizeOfMap),
+                              new CellPosition(sizeOfMap, 3,sizeOfMap),
+                              new CellPosition(sizeOfMap, 5,sizeOfMap),
+                              new CellPosition(sizeOfMap, 6,sizeOfMap)};
       return start;
     } else {
-      CellPosition[] start = {new CellPosition(1, sizeOfMap, 0),
-                              new CellPosition(2, sizeOfMap, 0),
-                              new CellPosition(3, sizeOfMap, 0),
-                              new CellPosition(4, sizeOfMap, 0),
-                              new CellPosition(5, sizeOfMap, 0),
-                              new CellPosition(6, sizeOfMap, 0)};
+      CellPosition[] start = {new CellPosition(sizeOfMap, 1,sizeOfMap),
+                              new CellPosition(sizeOfMap, 2,sizeOfMap),
+                              new CellPosition(sizeOfMap, 3,sizeOfMap),
+                              new CellPosition(sizeOfMap, 4,sizeOfMap),
+                              new CellPosition(sizeOfMap, 5,sizeOfMap),
+                              new CellPosition(sizeOfMap, 6,sizeOfMap)};
       return start;
     }
   }

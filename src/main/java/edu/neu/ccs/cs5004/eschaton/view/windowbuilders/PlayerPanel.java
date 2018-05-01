@@ -3,11 +3,13 @@ package edu.neu.ccs.cs5004.eschaton.view.windowbuilders;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 
+import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.model.player.Player;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.DeckItemInterface;
 import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
@@ -16,119 +18,129 @@ import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.panelbuttons.PlayerButton
 
 public class PlayerPanel extends JPanel implements Panel{
 
+  private Model model;
+
+  private int bigFont = 20;
+  private int smallFont = 12;
+  private Color panelColor = new Color(160, 60, 75);
+
   private JPanel playerPanel;
   private DeckPanel deckPanel;
-  private List<Player> players;
-  private List<DeckItemInterface> playerHand;
-  private int currentPlayer;
   private GameFrame gameFrame;
 
-  public PlayerPanel(List<Player> list, DeckPanel deckPanel, int currentPlayer, GameFrame gameFrame){
+  private JTextField nameField;
+  private JTextField raceField;
+  private JTextField leadersField;
+  private JTextField bankField;
+
+  private JTextField foodField;
+  private JTextField woodField;
+  private JTextField ironField;
+  private JTextField stoneField;
+  private JTextField goldField;
+  private JTextField amalicumField;
+
+  private JTextField deckLabel;
+  private JTextField deckSize;
+  private JTextField discardLabel;
+  private JTextField discardSize;
+
+  private List<CardButton> cardButtons = new ArrayList<>();
+
+  public PlayerPanel(GameFrame gameFrame, Model model){
+
+    this.model = model;
+
     playerPanel = new JPanel();
-    this.players = list;
-    this.currentPlayer = currentPlayer;
-    this.playerHand = list.get(currentPlayer).getDeck().getHand();
-    this.deckPanel = deckPanel;
     this.gameFrame = gameFrame;
+    this.deckPanel = gameFrame.getDeckPanel();
+
     buildPanel();
-  }
 
-  /**
-   * This is a getter for all of the panels used to build the map window. Each one will have a
-   * parent JPanel and this will get it.
-   *
-   * @return JPanel
-   */
+    this.nameField = new JTextField();
+    buildTextField(nameField, 20, 20, bigFont, 100, 30, panelColor,"Player");
 
-  public JPanel getPanel() {
-    return playerPanel;
-  }
+    this.raceField = new JTextField();
+    buildTextField(raceField, 50, 20, bigFont, 100, 30, panelColor,"Race");
 
-  public void buildPanel(){
+    this.leadersField = new JTextField();
+    buildTextField(leadersField, 80, 20, bigFont, 100, 30, panelColor,"Leader");
 
-    int bigFont = 20;
-    int smallFont = 12;
-    Color panelColor = new Color(160, 60, 75);
-
-    playerPanel.setBackground(panelColor);
-    playerPanel.setBounds(940, 5, 350, 650);
-    playerPanel.setVisible(true);
-    playerPanel.setLayout(null);
-    Border blackline = BorderFactory.createLineBorder(Color.RED);
-    playerPanel.setBorder(blackline);
-
-    JTextField nameField = new JTextField();
-    buildTextField(nameField, 20, 20, bigFont, 100, 30, panelColor,
-        "Player " + String.valueOf(currentPlayer + 1));
-
-
-    JTextField raceField = new JTextField();
-    buildTextField(raceField, 50, 20, bigFont, 100, 30, panelColor,
-        players.get(currentPlayer).getRace().getNameString());
-
-
-    JTextField leadersField = new JTextField();
-    buildTextField(leadersField, 80, 20, bigFont, 100, 30, panelColor, "");
-
-
-    JTextField bankField = new JTextField();
+    this.bankField = new JTextField();
     buildTextField(bankField, 110, 10, smallFont, 300, 30, panelColor,
         "  Food       Wood         Iron       Stone       Gold   Amalicum");
 
-
-    JTextField foodField = new JTextField();
+    this.foodField = new JTextField();
     buildResourceField(foodField, 140, 20, bigFont, 30, 30,
-        new Color(255,255,255),
-        String.valueOf(players.get(currentPlayer).getBank().getFood()));
+        new Color(255,255,255),"0");
 
-
-    JTextField woodField = new JTextField();
+    this.woodField = new JTextField();
     buildResourceField(woodField, 140, 70, bigFont, 30, 30,
-        new Color(255,255,255),
-        String.valueOf(players.get(currentPlayer).getBank().getWood()));
+        new Color(255,255,255),"0");
 
-
-    JTextField ironField = new JTextField();
+    this.ironField = new JTextField();
     buildResourceField(ironField, 140, 120, bigFont, 30, 30,
-        new Color(255,255,255),
-        String.valueOf(players.get(currentPlayer).getBank().getIron()));
+        new Color(255,255,255),"0");
 
-
-    JTextField stoneField = new JTextField();
+    this.stoneField = new JTextField();
     buildResourceField(stoneField, 140, 170, bigFont, 30, 30,
-        new Color(255,255,255),
-        String.valueOf(players.get(currentPlayer).getBank().getStone()));
+        new Color(255,255,255),"0");
 
-
-    JTextField goldField = new JTextField();
+    this.goldField = new JTextField();
     buildResourceField(goldField, 140, 220, bigFont, 30, 30,
-        new Color(255,255,255),
-        String.valueOf(players.get(currentPlayer).getBank().getGold()));
+        new Color(255,255,255),"0");
 
-
-    JTextField  amalicumField = new JTextField();
+    this.amalicumField = new JTextField();
     buildResourceField(amalicumField, 140, 270, bigFont, 30, 30,
-        new Color(255,255,255),
-        String.valueOf(players.get(currentPlayer).getBank().getAmalicum()));
+        new Color(255,255,255),"0");
 
-    JTextField deckLabel = new JTextField();
-    buildTextField(deckLabel, 180, 20, 16, 110, 30, panelColor,
-        "Cards in Deck: ");
+    this.deckLabel = new JTextField();
+    buildTextField(deckLabel, 180, 20, 16, 110, 30, panelColor,"Cards in Deck: ");
 
-    JTextField  deckSize = new JTextField();
-    buildResourceField(deckSize, 180, 120, bigFont, 30, 30, panelColor,
-        String.valueOf(players.get(currentPlayer).getDeck().getDeck().size()));
+    this.deckSize = new JTextField();
+    buildResourceField(deckSize, 180, 120, bigFont, 30, 30, panelColor,"0");
 
+    this.discardLabel = new JTextField();
+    buildTextField(discardLabel, 180, 160, 16, 125, 30, panelColor,"Cards in Discard: ");
 
-    JTextField discardLabel = new JTextField();
-    buildTextField(discardLabel, 180, 160, 16, 125, 30, panelColor,
-        "Cards in Discard: ");
+    this.discardSize = new JTextField();
+    buildResourceField(discardSize, 180, 280, bigFont, 30, 30, panelColor,"0");
 
+    buildHand(model.getPlayers().get(0).getDeck().getHand());
+    makePlayerButtons(model.getPlayers());
+  }
 
-    JTextField  discardSize = new JTextField();
-    buildResourceField(discardSize, 180, 280, bigFont, 30, 30, panelColor,
-        String.valueOf(players.get(currentPlayer).getDeck().getDiscard().size()));
+  public void buildPanel() {
+    playerPanel.setLayout(null);
+    playerPanel.setBackground(panelColor);
+    playerPanel.setBounds(930, 5, 350, 650);
+    playerPanel.setVisible(true);
+    playerPanel.setBorder(BorderFactory.createLineBorder(Color.RED));
+  }
+  public void changePlayer(Player player){
+    nameField.setText("Player " + String.valueOf(player.getPlayerNumber()));
+    raceField.setText(player.getRace().getNameString());
+    leadersField.setText(player.getLeader().getLeader());
 
+    foodField.setText(String.valueOf(player.getBank().getFood()));
+    woodField.setText(String.valueOf(player.getBank().getWood()));
+    ironField.setText(String.valueOf(player.getBank().getIron()));
+    stoneField.setText(String.valueOf(player.getBank().getStone()));
+    goldField.setText(String.valueOf(player.getBank().getGold()));
+    amalicumField.setText(String.valueOf(player.getBank().getAmalicum()));
+
+    deckSize.setText(String.valueOf(player.getDeck().getDeck().size()));
+    discardSize.setText(String.valueOf(player.getDeck().getDiscard().size()));
+
+    buildHand(player.getDeck().getHand());
+  }
+
+  public void buildHand(List<DeckItemInterface> playerHand){
+
+    for(CardButton b: cardButtons){
+      playerPanel.remove(b.getButton());
+    }
+    cardButtons.clear();
     int x, width;
     if (playerHand.size() < 10 ){
       x = 50;
@@ -143,18 +155,31 @@ public class PlayerPanel extends JPanel implements Panel{
       CardButton button = new CardButton(deckPanel, new Point(x, down), width,
           item.getName(), gameFrame, item);
       playerPanel.add(button.getButton());
+      cardButtons.add(button);
       down+=35;
-    }
-
-    for (int i = 0; i< players.size(); i++){
-      PlayerButton pText = new PlayerButton(gameFrame, this,
-          new Point(i * 50 + 30, 600), " P "+ String.valueOf(i+1), i, panelColor);
-
-      playerPanel.add(pText.getButton());
     }
   }
 
-  private void buildResourceField(JTextField field, int down, int across, int font, int width,
+  public void makePlayerButtons(List<Player> list){
+    Point point = new Point(20, 600);
+    for(Player p: list){
+      playerPanel.add(new PlayerButton(this, point, p, panelColor).getButton());
+      point.x += 50;
+    }
+  }
+
+  /**
+   * This is a getter for all of the panels used to build the map window. Each one will have a
+   * parent JPanel and this will get it.
+   *
+   * @return JPanel
+   */
+
+  public JPanel getPanel() {
+    return playerPanel;
+  }
+
+   private void buildResourceField(JTextField field, int down, int across, int font, int width,
                                   int height, Color panelColor, String string){
     field.setBounds(across , down,  width, height);
     field.setVisible(true);
@@ -196,13 +221,5 @@ public class PlayerPanel extends JPanel implements Panel{
   @Override
   public void mouseMoved(MouseEvent mouseEvent) {  }
 
-  @Override
-  public String toString() {
-    return "PlayerPanel{" +
-        "playerPanel=" + playerPanel +
-        ", deckPanel=" + deckPanel +
-        ", players=" + players +
-        ", currentPlayer=" + currentPlayer +
-        '}';
-  }
+
 }

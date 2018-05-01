@@ -1,12 +1,8 @@
 package edu.neu.ccs.cs5004.eschaton.view.windowbuilders.panelbuttons;
 
-import java.awt.*;
-
 import javax.swing.*;
 
-
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
-import edu.neu.ccs.cs5004.eschaton.model.map.cell.cellposition.CellPosition;
 
 /**
  * The MapPanelCell Is a class that contains several abstract objects including the actual Cell,
@@ -15,17 +11,6 @@ import edu.neu.ccs.cs5004.eschaton.model.map.cell.cellposition.CellPosition;
  */
 
 public interface MapPanelCellIInterface {
-
-  /**
-   * @return The entire position if that is more convenient.
-   */
-  Point getPoint();
-
-  /**
-   * @return int how far from origin the circle of hexagons this cell is in is.
-   */
-  CellPosition getCellPosition();
-
 
   /**
    * @return JButton the object that has the listeners attached to it.

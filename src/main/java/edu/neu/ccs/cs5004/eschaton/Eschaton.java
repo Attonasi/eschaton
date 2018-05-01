@@ -34,7 +34,7 @@ public class Eschaton {
 
     Model model = new Model(config);
 
-    GameFrame gameFrame = new GameFrame(model, config.GAME_NAME, SCREEN_WIDTH, SCREEN_HEIGHT);
+    GameFrame gameFrame = new GameFrame(model);
 
 
     Eschaton eschaton = new Eschaton(config, model, gameFrame);

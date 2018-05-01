@@ -31,7 +31,7 @@ public class PlayerBonus {
   private Boolean cantAttackUsBonus;
   private Boolean noSackLootBonus;
 
-  public PlayerBonus(Race race, List<LeaderInterface> leaders) {
+  public PlayerBonus(Race race, LeaderInterface leader) {
     this.foodHarvestBonus = foodHarvestBonus;
     this.buildingsCostHalfBonus = buildingsCostHalfBonus;
     this.stoneHarvestBonus = stoneHarvestBonus;

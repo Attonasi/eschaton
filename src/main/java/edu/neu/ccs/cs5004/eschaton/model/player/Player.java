@@ -1,18 +1,17 @@
 package edu.neu.ccs.cs5004.eschaton.model.player;
 
-import edu.neu.ccs.cs5004.eschaton.model.map.Map;
-import edu.neu.ccs.cs5004.eschaton.model.map.cell.cellposition.CellPosition;
-import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.DeckItemInterface;
-import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.units.Militia;
-import edu.neu.ccs.cs5004.eschaton.model.player.leaders.LeaderInterface;
-import edu.neu.ccs.cs5004.eschaton.model.player.leaders.Mongo;
-import edu.neu.ccs.cs5004.eschaton.model.player.bank.Bank;
-import edu.neu.ccs.cs5004.eschaton.model.player.deck.Deck;
-import edu.neu.ccs.cs5004.eschaton.model.player.race.Race;
-import edu.neu.ccs.cs5004.eschaton.model.player.race.Simulacra;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import edu.neu.ccs.cs5004.eschaton.model.map.Map;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.cellposition.CellPosition;
+import edu.neu.ccs.cs5004.eschaton.model.player.bank.Bank;
+import edu.neu.ccs.cs5004.eschaton.model.player.deck.Deck;
+import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.DeckItemInterface;
+import edu.neu.ccs.cs5004.eschaton.model.player.leaders.LeaderInterface;
+import edu.neu.ccs.cs5004.eschaton.model.player.leaders.Mongo;
+import edu.neu.ccs.cs5004.eschaton.model.player.race.Race;
+import edu.neu.ccs.cs5004.eschaton.model.player.race.Simulacra;
 
 public class Player implements PlayerInterface {
 
@@ -20,18 +19,22 @@ public class Player implements PlayerInterface {
   private Deck deck;
   private Bank bank;
   private Race race;
-  private List<LeaderInterface> leaders = new ArrayList<LeaderInterface>();
+  private LeaderInterface leader;
   private PlayerBonus playerBonus;
-  public CellPosition startPosition;
+  private Integer playerNumber;
+//  public CellPosition startPosition;
 
-  public Player(CellPosition startPosition, Map map) {
+
+  public Player(CellPosition startPosition, Map map, int i) {
     this.score = 0;
+    this.playerNumber = i+1;
     this.deck = new Deck(startPosition, map, this);
     this.bank = new Bank();
     this.race = new Simulacra();
-    this.leaders.add(new Mongo());
-    this.playerBonus = new PlayerBonus(race, leaders);
+    this.leader = new Mongo();
+    this.playerBonus = new PlayerBonus(race, leader);
   }
+
 
   /**
    * @return Integer score of the player that represents the total number of victory points
@@ -74,9 +77,11 @@ public class Player implements PlayerInterface {
    * @return List of commanders in a Players Deck
    */
   @Override
-  public List getLeaders() {
-    return null;
+  public LeaderInterface getLeader() {
+    return leader;
   }
+
+  public Integer getPlayerNumber() { return playerNumber; }
 
   /**
    * @return PlayerBonus gives the rest of the program access to a players bonus variables in order

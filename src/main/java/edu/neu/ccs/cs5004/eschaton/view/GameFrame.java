@@ -1,40 +1,33 @@
 package edu.neu.ccs.cs5004.eschaton.view;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import java.awt.*;
+import java.io.IOException;
+
+import javax.swing.*;
 
 import edu.neu.ccs.cs5004.eschaton.model.Model;
-import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.DeckItemInterface;
-import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.actionleader.LeaderActionInterface;
-import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.actions.ActionInterface;
-import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.units.Unit;
-import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.units.UnitInterface;
-import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.village.VillageInterface;
+import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.DeckPanel;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MainPanel;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.MapPanel;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.PlayerPanel;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.TilePanel;
-import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.DeckPanel;
-
-import javax.swing.*;
-import java.awt.*;
-import java.io.IOException;
 
 
 public class GameFrame extends JPanel {
 
-  protected Model model;
-  protected static JFrame FRAME;
-  protected static Window PANEL;
-  protected static TilePanel TILE_PANEL;
-  protected static DeckPanel DECK_PANEL;
-  protected static MapPanel MAP_PANEL;
-  protected static PlayerPanel PLAYER_PANEL;
-  protected static MainPanel MAIN_PANEL;
+  private static JFrame FRAME;
+  private static Window PANEL;
+  private static TilePanel TILE_PANEL;
+  private static DeckPanel DECK_PANEL;
+  private static MapPanel MAP_PANEL;
+  private static PlayerPanel PLAYER_PANEL;
+  private static MainPanel MAIN_PANEL;
+  private Model model;
 
 
-  public GameFrame(Model model, String name, int width, int height) throws IOException {
-    this.FRAME = new JFrame(name);
-    this.PANEL = new Window(name, width, height);
+  public GameFrame(Model model) throws IOException {
+    this.FRAME = new JFrame(model.getConfig().GAME_NAME);
+    this.PANEL = new Window(model.getConfig().GAME_NAME, model.getConfig().SCREEN_WIDTH, model.getConfig().SCREEN_HEIGHT);
     this.model = model;
     createAndShowGUI();
   }
@@ -53,19 +46,14 @@ public class GameFrame extends JPanel {
     DECK_PANEL = new DeckPanel();
     FRAME.getContentPane().add(DECK_PANEL.getPanel());
 
-    MAP_PANEL = new MapPanel(model, getDeckPanel(), getTilePanel());
+    MAP_PANEL = new MapPanel(getDeckPanel(), getTilePanel(), model);
     FRAME.getContentPane().add(MAP_PANEL.getPanel());
 
-    PLAYER_PANEL = new PlayerPanel(model.getPlayers(), DECK_PANEL, 0, this);
+    PLAYER_PANEL = new PlayerPanel( this, model);
     FRAME.getContentPane().add(PLAYER_PANEL.getPanel());
 
     MAIN_PANEL = new MainPanel();
     FRAME.getContentPane().add(MAIN_PANEL.getPanel());
-  }
-
-  public void newPlayerPanel(int currentPlayer){
-    PLAYER_PANEL = new PlayerPanel(model.getPlayers(), DECK_PANEL, currentPlayer, this);
-    FRAME.getContentPane().add(PLAYER_PANEL.getPanel());
   }
 
   public void launch() throws IOException {
@@ -94,4 +82,6 @@ public class GameFrame extends JPanel {
   public MapPanel getMapPanel() { return MAP_PANEL; }
 
   public DeckPanel getDeckPanel() { return DECK_PANEL; }
+
+  public PlayerPanel getPlayerPanel() { return PLAYER_PANEL; }
 }

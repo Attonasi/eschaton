@@ -7,22 +7,21 @@ import java.awt.event.MouseListener;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
-import edu.neu.ccs.cs5004.eschaton.view.GameFrame;
+import edu.neu.ccs.cs5004.eschaton.model.player.Player;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.PlayerPanel;
 
 public class PlayerButton {
 
-  private PlayerPanel playerPanel;
   private JButton button;
   private Point point;
-  private int playerNumber;
+  private Player player;
+  private PlayerPanel panel;
 
-  public PlayerButton(GameFrame gameFrame, PlayerPanel playerPanel, Point point, String name,
-                      int playerNumber, Color panelColor) {
-    this.playerPanel = playerPanel;
-    this.button = new JButton(name);
+  public PlayerButton(PlayerPanel panel, Point point, Player player, Color panelColor) {
+    this.button = new JButton("P"+String.valueOf(player.getPlayerNumber()));
     this.point = point;
-    this.playerNumber = playerNumber;
+    this.player = player;
+    this.panel = panel;
 
     button.setBounds(point.x, point.y, 45, 45);
     button.setBorder(new LineBorder(Color.BLACK, 2));
@@ -34,7 +33,7 @@ public class PlayerButton {
 
       @Override
       public void mousePressed(MouseEvent mouseEvent) {
-        gameFrame.newPlayerPanel(playerNumber);
+        panel.changePlayer(player);
       }
       @Override
       public void mouseReleased(MouseEvent mouseEvent) {  }
@@ -45,7 +44,7 @@ public class PlayerButton {
     });
   }
 
-  public JButton getButton() {
+  public JButton getButton(){
     return button;
   }
 }

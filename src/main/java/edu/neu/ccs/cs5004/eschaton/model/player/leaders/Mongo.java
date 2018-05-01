@@ -7,4 +7,8 @@ public class Mongo implements LeaderInterface{
    * doesn't get added to your deck.
    */
   public Mongo(){}
+
+  public String getLeader(){
+    return "Mongo";
+  }
 }

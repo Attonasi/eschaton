@@ -11,10 +11,7 @@ import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.model.map.Map;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
 import edu.neu.ccs.cs5004.eschaton.model.map.cell.cellposition.CellPosition;
-import edu.neu.ccs.cs5004.eschaton.model.player.deck.Deck;
 import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.panelbuttons.MapPanelCell;
-
-import static edu.neu.ccs.cs5004.eschaton.config.Config.*;
 
 public class MapPanel extends JPanel implements Panel{
 
@@ -29,12 +26,11 @@ public class MapPanel extends JPanel implements Panel{
   private TilePanel tilePanel;
   private Integer sizeOfMap;
 
-  public MapPanel(Model model, DeckPanel deckPanel, TilePanel tilePanel) {
+  public MapPanel(DeckPanel deckPanel, TilePanel tilePanel, Model model) {
     this.deckPanel = deckPanel;
     this.tilePanel = tilePanel;
     this.mapPanel = new JPanel();
     this.model = model;
-    this.map = model.getMap();
     this.origin = model.getConfig().getOrigin();
     this.sizeOfMap = model.getConfig().getSizeOfMap();
     buildPanel();
@@ -60,30 +56,28 @@ public class MapPanel extends JPanel implements Panel{
   public void buildPanel() {
     mapPanel.setLayout(null);
     mapPanel.setBackground(Color.DARK_GRAY);
-    mapPanel.setBounds(360, 5, 570, 650);
+    mapPanel.setBounds(360, 5, 560, 650);
     mapPanel.setVisible(true);
-    Border blackline = BorderFactory.createLineBorder(Color.RED);
-    mapPanel.setBorder(blackline);
+    mapPanel.setBorder(BorderFactory.createLineBorder(Color.RED));
   }
 
   public void makeMapButtons() {
+    makeMapButton(model.getMap().getCellAtPosition(new CellPosition(0,0,
+        0)));
     for (int dfo = 1; dfo < this.sizeOfMap; dfo++) {
-      for(int block = 0; block < NUMBER_OF_BLOCKS; block++){
+      for(int block = 0; block < model.getConfig().NUMBER_OF_BLOCKS; block++){
         for(int clockwise = 0; clockwise<dfo; clockwise++){
-          CellPosition tempPosition = new CellPosition(dfo,block+1,clockwise+1);
-          Cell tempCell = map.getCellAtPosition(tempPosition);
-          makeMapButton(tempPosition, tempCell.getPoint(), tempCell);
+
+          makeMapButton(model.getMap().getCellAtPosition(new CellPosition(dfo,block+1,
+              clockwise+1)));
         }
       }
     }
   }
 
-  public void makeMapButton(CellPosition position, Point point, Cell cell){
+  public void makeMapButton(Cell cell){
 
-    MapPanelCell newCellCW = new MapPanelCell(point,
-              position, cell, deckPanel, tilePanel);
-
-    mapPanel.add(newCellCW.getButton());
+    mapPanel.add(new MapPanelCell(cell, deckPanel, tilePanel).getButton());
   }
 
 
