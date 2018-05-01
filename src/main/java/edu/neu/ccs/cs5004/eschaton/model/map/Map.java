@@ -19,9 +19,12 @@ import static edu.neu.ccs.cs5004.eschaton.config.Config.getRandomNumber;
 
 public class Map implements MapInterface {
 
+  private Cell[][] mapCells = new Cell[100][100];
   private Cell[][][] cellGrid = new Cell[20][20][20];
   private Config config;
   private Point origin;
+//  private Integer[] startIndexes = new Integer[config.getNumberOfPlayers()];
+//  private Point[] startPoints = new Point[config.getNumberOfPlayers()];
 
   /**
    * The map constructor takes the configuration as a parameter and builds out the game
@@ -30,7 +33,7 @@ public class Map implements MapInterface {
    * There will be a variety of map options that are set in the configuration eventually.
    */
   public Map(Config config) {
-
+    this.mapCells = new Cell[100][100];
     this.cellGrid= new Cell[20][20][20];
     this.config = config;
     this.origin = config.getOrigin();
@@ -50,10 +53,13 @@ public class Map implements MapInterface {
     int blockSpecialValue = 0;
     int cellSpecial = 0;
 
+    mapCells[origin.x/10][origin.y/10] = new EschatonCell(new CellPosition(0, 0, 0),
+        new Point(origin.x, origin.y), blockSpecialValue);
+
     cellGrid[0][0][0] = new EschatonCell(new CellPosition(0, 0, 0),
         new Point(origin.x, origin.y), blockSpecialValue);
 
-    for (int distanceFromOrigin = 1; distanceFromOrigin < config.getSizeOfMap();
+    for (int distanceFromOrigin = 0; distanceFromOrigin < config.getSizeOfMap();
          distanceFromOrigin++){
 
       int[] blockXVals = {origin.x,
@@ -114,7 +120,15 @@ public class Map implements MapInterface {
     return cellGrid[position.getCircle()][position.getBlock()][position.getClockwise()];
   }
 
+  public Cell getCellAtPoint(Point point) {
+    return mapCells[point.x/10][point.y/10];
+  }
+
   public Cell[][][] getCellGrid() {
     return cellGrid;
   }
+
+//  public Point[] getStartPoints() {
+//    return startPoints;
+//  }
 }

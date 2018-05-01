@@ -8,15 +8,9 @@ public class Village extends AbstractVillage {
 
   private Integer defense;
   private Integer population;
-//  private int[] harvestValues = {0,0,0,0,0};
 
   public Village(Player player, CellPosition position, Cell cell) {
     super(player, position, cell);
-//    this.harvestValues[0] = cell.getContents().getFood();
-//    this.harvestValues[1] = cell.getContents().getWood();
-//    this.harvestValues[2] = cell.getContents().getIron();
-//    this.harvestValues[3] = cell.getContents().getStone();
-//    this.harvestValues[4] = cell.getContents().getGold();
     this.defense = 1;
     this.population = 1;
   }

@@ -21,16 +21,27 @@ public class Deck implements DeckInterface {
   private List<DeckItemInterface> deck = new ArrayList<DeckItemInterface>();
   private List<DeckItemInterface> discard = new ArrayList<DeckItemInterface>();
   private List<DeckItemInterface> hand = new ArrayList<DeckItemInterface>();
+  private Map map;
+  private Player player;
+  private CellPosition startPosition;
+  private Cell startCell;
+  private Cell startCell2;
 
-  public Deck(CellPosition startPostion, Map map, Player player) {
-    deck.add(new Militia(startPostion));
-    deck.add(new Militia(startPostion));
+  public Deck(CellPosition startPosition, Map map, Player player) {
+    this.startPosition = startPosition;
+    this.map = map;
+    this.player = player;
+    this.startCell = map.getCellAtPosition(startPosition);
+    this.startCell2 = map.getCellAtPoint(new Point(500, 310));
+
+    deck.add(new Militia(startPosition));
+    deck.add(new Militia(startPosition));
     deck.add(new MakeAmalicum());
-    deck.add(new Village(player, startPostion, new Plains(startPostion, new Point(10, 10),
+    deck.add(new Village(player, startPosition, new Plains(startPosition, new Point(10, 10),
         2)));
-    deck.add(new Militia(startPostion));
+    deck.add(new Militia(startPosition));
     deck.add(new MakeAmalicum());
-    Cell cell = map.getCellAtPosition(startPostion);
+
 
     draw();
     draw();

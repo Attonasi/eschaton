@@ -97,6 +97,7 @@ public class Config {
                               new CellPosition(sizeOfMap, 4,sizeOfMap),
                               new CellPosition(sizeOfMap, 5,sizeOfMap),
                               new CellPosition(sizeOfMap, 6,sizeOfMap)};
+
       return start;
     }
   }

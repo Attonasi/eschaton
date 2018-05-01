@@ -15,8 +15,11 @@ public abstract class AbstractVillage implements VillageInterface{
   public AbstractVillage(Player player, CellPosition position, Cell cell) {
     this.player = player;
     this.position = position;
-    int[] newHarvest = {cell.getContents().getFood(), cell.getContents().getWood(),
-        cell.getContents().getIron(), cell.getContents().getStone(), cell.getContents().getGold()};
+    int[] newHarvest = {cell.getContents().getFood(),
+                        cell.getContents().getWood(),
+                        cell.getContents().getIron(),
+                        cell.getContents().getStone(),
+                        cell.getContents().getGold()};
     this.harvestBounty = newHarvest;
   }
 
