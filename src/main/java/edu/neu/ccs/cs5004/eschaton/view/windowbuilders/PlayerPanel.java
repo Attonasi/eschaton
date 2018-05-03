@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 
 import edu.neu.ccs.cs5004.eschaton.model.Model;
 import edu.neu.ccs.cs5004.eschaton.model.player.Player;
@@ -18,10 +17,13 @@ import edu.neu.ccs.cs5004.eschaton.view.windowbuilders.panelbuttons.PlayerButton
 
 public class PlayerPanel extends JPanel implements Panel{
 
+  private int counter = 0;
   private Model model;
+  private Player currentPlayer;
 
   private int bigFont = 20;
   private int smallFont = 12;
+  private int buttonfont = 12;
   private Color panelColor = new Color(160, 60, 75);
 
   private JPanel playerPanel;
@@ -50,6 +52,7 @@ public class PlayerPanel extends JPanel implements Panel{
   public PlayerPanel(GameFrame gameFrame, Model model){
 
     this.model = model;
+    this.currentPlayer = model.getPlayers().get(0);
 
     playerPanel = new JPanel();
     this.gameFrame = gameFrame;
@@ -106,7 +109,8 @@ public class PlayerPanel extends JPanel implements Panel{
     this.discardSize = new JTextField();
     buildResourceField(discardSize, 180, 280, bigFont, 30, 30, panelColor,"0");
 
-    buildHand(model.getPlayers().get(0).getDeck().getHand());
+    System.out.println("playerPanel counter " + counter++);
+    buildHand(currentPlayer.getDeck().getHand());
     makePlayerButtons(model.getPlayers());
   }
 
@@ -118,6 +122,10 @@ public class PlayerPanel extends JPanel implements Panel{
     playerPanel.setBorder(BorderFactory.createLineBorder(Color.RED));
   }
   public void changePlayer(Player player){
+
+    this.currentPlayer = player;
+    deckPanel.hideAll();
+
     nameField.setText("Player " + String.valueOf(player.getPlayerNumber()));
     raceField.setText(player.getRace().getNameString());
     leadersField.setText(player.getLeader().getLeader());
@@ -132,12 +140,16 @@ public class PlayerPanel extends JPanel implements Panel{
     deckSize.setText(String.valueOf(player.getDeck().getDeck().size()));
     discardSize.setText(String.valueOf(player.getDeck().getDiscard().size()));
 
-    buildHand(player.getDeck().getHand());
+    buildHand(this.currentPlayer.getDeck().getHand());
+    this.validate();
+    this.repaint();
   }
 
   public void buildHand(List<DeckItemInterface> playerHand){
 
     for(CardButton b: cardButtons){
+
+      b.getButton().setVisible(false);
       playerPanel.remove(b.getButton());
     }
     cardButtons.clear();
@@ -146,17 +158,21 @@ public class PlayerPanel extends JPanel implements Panel{
       x = 50;
       width = 200;
     }else {
-      x = 20;
-      width = 120;
+      x = 10;
+      width = 140;
     }
     int down = 220;
-
+    int count = 1;
     for(DeckItemInterface item : playerHand) {
       CardButton button = new CardButton(deckPanel, new Point(x, down), width,
-          item.getName(), gameFrame, item);
+          item.getName(), gameFrame, item, currentPlayer);
+
       playerPanel.add(button.getButton());
       cardButtons.add(button);
-      down+=35;
+
+      if(count % 11 == 0) { x += 145; }
+      down+=30;
+      count++;
     }
   }
 

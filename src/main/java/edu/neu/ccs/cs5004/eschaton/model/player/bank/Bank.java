@@ -7,89 +7,88 @@ import edu.neu.ccs.cs5004.eschaton.model.player.Player;
 
 public class Bank implements BankInterface {
 
-  private int food = 10;
-  private int wood = 0;
-  private int stone = 0;
-  private int iron = 0;
-  private int gold = 5;
-  private int amalicum = 0;
-  private int[] bank = {0,0,0,0,0,0};
-
+  private Integer food = 10;
+  private Integer wood = 0;
+  private Integer stone = 0;
+  private Integer iron = 0;
+  private Integer gold = 5;
+  private Integer amalicum = 0;
+  private Integer[] bank = {food, wood, stone, iron, gold, amalicum};
 
   public Bank(Integer food, Integer wood, Integer stone,
               Integer iron, Integer gold, Integer amalicum) {
 
-    this.bank[0] = food;
-    this.bank[1] = wood;
-    this.bank[2] = stone;
-    this.bank[3] = iron;
-    this.bank[4] = gold;
-    this.bank[5] = amalicum;
+    this.food = food;
+    this.wood = wood;
+    this.stone = stone;
+    this.iron = iron;
+    this.gold = gold;
+    this.amalicum = amalicum;
   }
 
   public Bank(){
-    this.bank[0] = food;
-    this.bank[1] = wood;
-    this.bank[2] = stone;
-    this.bank[3] = iron;
-    this.bank[4] = gold;
-    this.bank[5] = amalicum;
+    this.food = food;
+    this.wood = wood;
+    this.stone = stone;
+    this.iron = iron;
+    this.gold = gold;
+    this.amalicum = amalicum;
   }
 
-  public int getFood() {
-    return bank[0];
+  public Integer[] getBankArray(){ return bank; }
+
+  public Integer getFood() {
+    return food;
   }
 
-  public void setFood(int food) {
-    this.bank[0] += food;
+  public void setFood(Integer food) {
+    this.food = food;
   }
 
-  public int getWood() { return bank[1];  }
+  public Integer getWood() { return wood;  }
 
-  public void setWood(int wood) {
-    this.bank[1] += wood;
+  public void setWood(Integer wood) {
+    this.wood = wood;
   }
 
-  public int getStone() {
-    return bank[2];
+  public Integer getStone() {
+    return stone;
   }
 
-  public void setStone(int stone) {
-    this.bank[2] += stone;
+  public void setStone(Integer stone) {
+    this.stone = stone;
   }
 
-  public int getIron() {
-    return bank[3];
+  public Integer getIron() {
+    return iron;
   }
 
-  public void setIron(int iron) {
-    this.bank[3] += iron;
+  public void setIron(Integer iron) {
+    this.iron = iron;
   }
 
-  public int getGold() { return bank[4]; }
+  public Integer getGold() { return gold; }
 
-  public void setGold(int gold) {
-    this.bank[4] += gold;
+  public void setGold(Integer gold) {
+    this.gold = gold;
   }
 
-  public int getAmalicum() {
-    return bank[5];
+  public Integer getAmalicum() {
+    return amalicum;
   }
 
-  public void setAmalicum(int amalicum) {
-    this.bank[5] += amalicum;
+  public void setAmalicum(Integer amalicum) {
+    this.amalicum = amalicum;
   }
-
-  public int[] getBank(){ return this.bank; }
 
   /**
-   * @param cost int[] how much amalicum the item requires for each type of resource.
+   * @param cost Integer[] how much amalicum the item requires for each type of resource.
    * @return Boolean based on the cost of an item the player wants to purchase returns a true if they
    * can afford it and false otherwise.
    */
   @Override
-  public Boolean isValidPurchase(Player player, int[] cost) {
-    for(int amount : cost){
+  public Boolean isValidPurchase(Player player, Integer[] cost) {
+    for(Integer amount : cost){
       if (player.getBankArray()[amount] > cost[amount]){ return false; }
     }
     return true;
@@ -99,23 +98,17 @@ public class Bank implements BankInterface {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    Bank bank1 = (Bank) o;
-    return food == bank1.food &&
-        wood == bank1.wood &&
-        stone == bank1.stone &&
-        iron == bank1.iron &&
-        gold == bank1.gold &&
-        amalicum == bank1.amalicum &&
-        Arrays.equals(bank, bank1.bank);
+    Bank bank = (Bank) o;
+    return food == bank.food &&
+        wood == bank.wood &&
+        stone == bank.stone &&
+        iron == bank.iron &&
+        gold == bank.gold &&
+        amalicum == bank.amalicum;
   }
 
   @Override
-  public int hashCode() {
-
-    int result = Objects.hash(food, wood, stone, iron, gold, amalicum);
-    result = 31 * result + Arrays.hashCode(bank);
-    return result;
-  }
+  public int hashCode() { return Objects.hash(food, wood, stone, iron, gold, amalicum); }
 
   @Override
   public String toString() {
@@ -126,7 +119,6 @@ public class Bank implements BankInterface {
         ", iron=" + iron +
         ", gold=" + gold +
         ", amalicum=" + amalicum +
-        ", bank=" + Arrays.toString(bank) +
         '}';
   }
 }

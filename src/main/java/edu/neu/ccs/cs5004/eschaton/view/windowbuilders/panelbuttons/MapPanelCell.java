@@ -46,9 +46,17 @@ public class MapPanelCell implements MapPanelCellIInterface{
         tilePanel.getIronField().setText(String.valueOf(cell.getContents().getIron()));
         tilePanel.getStoneField().setText(String.valueOf(cell.getContents().getStone()));
         tilePanel.getGoldField().setText(String.valueOf(cell.getContents().getGold()));
+
         tilePanel.getCircleField().setText(cell.getCellPosition().getCircle().toString());
         tilePanel.getBlockField().setText(cell.getCellPosition().getBlock().toString());
         tilePanel.getToClockwiseField().setText(cell.getCellPosition().getClockwise().toString());
+
+        tilePanel.getUnit1().setText(cell.getUnitNameAtIndex(0));
+        tilePanel.getUnit2().setText(cell.getUnitNameAtIndex(1));
+        tilePanel.getUnit3().setText(cell.getUnitNameAtIndex(2));
+        tilePanel.getUnit4().setText(cell.getUnitNameAtIndex(3));
+        tilePanel.getUnit5().setText(cell.getUnitNameAtIndex(4));
+
         deckPanel.getCircleMiddle().setText(String.valueOf(cell.getCellPosition().getCircle()));
         deckPanel.getBlockMiddle().setText(String.valueOf(cell.getCellPosition().getBlock()));
         deckPanel.getToClockwiseMiddle().setText(String.valueOf(cell.getCellPosition().getClockwise()));

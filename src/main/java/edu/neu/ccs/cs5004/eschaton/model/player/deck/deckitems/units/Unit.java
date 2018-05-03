@@ -13,23 +13,10 @@ public abstract class Unit implements UnitInterface{
   protected Integer defensePower;
   protected Integer range;
   protected Integer movement;
-  protected CellPosition location;
+  protected Cell cell;
 
-  public Unit(String name, Integer totalHitPoints, Integer attackPower,
-              Integer defensePower, Integer range, Integer movement,
-              CellPosition location) {
-
-    this.name = name;
-    this.totalHitPoints = totalHitPoints;
-    this.attackPower = attackPower;
-    this.defensePower = defensePower;
-    this.range = range;
-    this.movement = movement;
-    this.location = location;
-  }
-
-  public Unit(CellPosition location){
-    this.location = location;
+  public Unit(Cell cell){
+    this.cell = cell;
   }
 
   public Integer getCurrentHitPoints() { return currentHitPoints; }
@@ -44,7 +31,7 @@ public abstract class Unit implements UnitInterface{
 
   public Integer getMovement() { return movement; }
 
-  public CellPosition getLocation() { return location; }
+  public CellPosition getLocation() { return cell.getCellPosition(); }
 
   public String getName() {
     return name;

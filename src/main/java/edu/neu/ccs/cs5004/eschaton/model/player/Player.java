@@ -52,8 +52,8 @@ public class Player implements PlayerInterface {
   /**
    * @return int[] that holds the bank values of the Players bank.
    */
-  public int[] getBankArray() {
-    return bank.getBank();
+  public Integer[] getBankArray() {
+    return bank.getBankArray();
   }
 
   /**

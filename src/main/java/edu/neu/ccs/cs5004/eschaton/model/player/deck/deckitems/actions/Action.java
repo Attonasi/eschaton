@@ -4,10 +4,10 @@ import edu.neu.ccs.cs5004.eschaton.model.player.Player;
 
 public abstract class Action implements ActionInterface{
 
-  protected int[] cost = {0, 0, 0, 0, 0, 0};
+  protected Integer[] cost = {0, 0, 0, 0, 0, 0};
   protected String name;
 
-  public Action(int[] cost) { this.cost = cost; }
+  public Action(Integer[] cost) { this.cost = cost; }
 
   public Action(){ }
 
@@ -15,7 +15,7 @@ public abstract class Action implements ActionInterface{
     return name;
   }
 
-  public int[] getCost(){
+  public Integer[] getCost(){
     return cost;
   }
 
@@ -25,7 +25,7 @@ public abstract class Action implements ActionInterface{
    *
    * @param player Player that played the action and needs to spend money to do so.
    */
-  public void payCost(Player player, int[] cost) {
+  public void payCost(Player player, Integer[] cost) {
     for(int amount : cost){
       player.getBankArray()[amount] -= cost[amount];
     }

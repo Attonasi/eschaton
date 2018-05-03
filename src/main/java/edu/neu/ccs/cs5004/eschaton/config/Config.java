@@ -1,5 +1,7 @@
 package edu.neu.ccs.cs5004.eschaton.config;
 
+import com.google.gson.Gson;
+
 import java.awt.*;
 import java.util.Arrays;
 import java.util.Objects;
@@ -25,6 +27,8 @@ public class Config {
   public static final int X_STEP = HEXAGON_SIZE * 4;
   public static final int Y_STEP_ONE = HEXAGON_SIZE * 2;
   public static final int Y_STEP_TWO = HEXAGON_SIZE * 4;
+
+  public Gson gson = new Gson();
 
   private Boolean fogOfWar;
   private Integer numberOfPlayers;

@@ -9,17 +9,17 @@ import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.actions.MakeAmali
 public abstract class AbstractVillage implements VillageInterface{
 
   protected Player player;
-  protected CellPosition position;
-  protected int[] harvestBounty;
+  protected Integer[] harvestBounty;
+  protected Cell cell;
 
-  public AbstractVillage(Player player, CellPosition position, Cell cell) {
+  public AbstractVillage(Player player, Cell cell) {
     this.player = player;
-    this.position = position;
-    int[] newHarvest = {cell.getContents().getFood(),
-                        cell.getContents().getWood(),
-                        cell.getContents().getIron(),
-                        cell.getContents().getStone(),
-                        cell.getContents().getGold()};
+    this.cell = cell;
+    Integer[] newHarvest = {cell.getContents().getFood(),
+                            cell.getContents().getWood(),
+                            cell.getContents().getIron(),
+                            cell.getContents().getStone(),
+                            cell.getContents().getGold()};
     this.harvestBounty = newHarvest;
   }
 
@@ -35,15 +35,15 @@ public abstract class AbstractVillage implements VillageInterface{
    * @return CellPosition of the village.
    */
   @Override
-  public CellPosition getPosition() {
-    return position;
+  public Cell getCell() {
+    return cell;
   }
 
   /**
    * @return int[] containing the resources a player gains when they harvest this cell.
    */
   @Override
-  public int[] getHarvestBounty() {
+  public Integer[] getHarvestBounty() {
     return harvestBounty;
   }
 
@@ -77,7 +77,7 @@ public abstract class AbstractVillage implements VillageInterface{
    */
   public void harvest(){
     for(int resource: harvestBounty){
-      player.getBank().getBank()[resource] += harvestBounty[resource];
+      player.getBank().getBankArray()[resource] += harvestBounty[resource];
     }
   }
 }

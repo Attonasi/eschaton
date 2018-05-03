@@ -1,8 +1,7 @@
 package edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.village;
 
-import edu.neu.ccs.cs5004.eschaton.model.map.cell.cellposition.CellPosition;
+import edu.neu.ccs.cs5004.eschaton.model.map.cell.Cell;
 import edu.neu.ccs.cs5004.eschaton.model.player.Player;
-import edu.neu.ccs.cs5004.eschaton.model.player.deck.DeckInterface;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.DeckItemInterface;
 
 /**
@@ -25,12 +24,12 @@ public interface VillageInterface extends DeckItemInterface {
   /**
    * @return CellPosition of the village.
    */
-  CellPosition  getPosition();
+  Cell getCell();
 
   /**
    * @return int[] containing the resources a player gains when they harvest this cell.
    */
-  int[] getHarvestBounty();
+  Integer[] getHarvestBounty();
 
   /**
    * @return Integer defense value of the village when attacked.

@@ -43,7 +43,7 @@ public class GameFrame extends JPanel {
     TILE_PANEL = new TilePanel();
     FRAME.getContentPane().add(TILE_PANEL.getPanel());
 
-    DECK_PANEL = new DeckPanel();
+    DECK_PANEL = new DeckPanel(model);
     FRAME.getContentPane().add(DECK_PANEL.getPanel());
 
     MAP_PANEL = new MapPanel(getDeckPanel(), getTilePanel(), model);

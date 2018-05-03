@@ -10,5 +10,5 @@ public interface BankInterface {
    * @return Boolean based on the cost of an item the player wants to purchase returns a true if they
    * can afford it and false otherwise.
    */
-  Boolean isValidPurchase(Player player, int[] cost);
+  Boolean isValidPurchase(Player player, Integer[] cost);
 }

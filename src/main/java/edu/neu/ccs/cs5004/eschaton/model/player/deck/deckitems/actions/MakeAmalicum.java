@@ -4,7 +4,7 @@ import edu.neu.ccs.cs5004.eschaton.model.player.Player;
 
 public class MakeAmalicum extends Action{
 
-  private int[] cost = {1, 1, 1, 1, 1, 0};
+  private Integer[] cost = {1, 1, 1, 1, 1, 0};
   private String name;
 
   public MakeAmalicum() {
@@ -16,7 +16,7 @@ public class MakeAmalicum extends Action{
   }
 
   @Override
-  public int[] getCost() {
+  public Integer[] getCost() {
     return cost;
   }
 

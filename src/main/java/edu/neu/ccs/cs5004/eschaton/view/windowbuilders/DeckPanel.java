@@ -8,6 +8,9 @@ import java.awt.event.MouseListener;
 import javax.swing.*;
 import javax.swing.border.Border;
 
+import edu.neu.ccs.cs5004.eschaton.model.Model;
+import edu.neu.ccs.cs5004.eschaton.model.map.Map;
+import edu.neu.ccs.cs5004.eschaton.model.player.Player;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.actions.ActionInterface;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.units.UnitInterface;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.village.Village;
@@ -15,6 +18,8 @@ import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.village.VillageIn
 
 public class DeckPanel extends JPanel implements Panel {
 
+  private Model model;
+  private Player currentPlayer;
   private JPanel deckPanel;
   private MapPanel mapPanel;
   private JTextField introField;
@@ -84,7 +89,10 @@ public class DeckPanel extends JPanel implements Panel {
    *  player clicks on a card in their hand the proper information is loaded and displayed in the
    *  panel.
    */
-  public DeckPanel() {
+  public DeckPanel(Model model) {
+
+    this.model = model;
+
     this.deckPanel = new JPanel();
     this.panelColor = new Color(119,150,77);
 
@@ -95,6 +103,8 @@ public class DeckPanel extends JPanel implements Panel {
     introField.setVisible(true);
     introField.setFont(new Font("Arial", Font.PLAIN, 20));
     introField.setHorizontalAlignment(JTextField.CENTER);
+    introField.setBackground(panelColor);
+    introField.setBorder(null);
     introField.setText("Select an item from your hand");
     deckPanel.add(introField);
 
@@ -118,8 +128,15 @@ public class DeckPanel extends JPanel implements Panel {
         panelColor, "Fortify");
     this.foundVillageButton =   newButton(180, 110, 120, 30, 13,
         panelColor, "Found Village");
-    this.harvestButton =        newButton(100, 160, 150, 30, 14,
+    this.moveButton =           newButton(180, 250, 120, 30, 14,
+        panelColor, "Move");
+    this.attackButton = newButton(30, 250, 120, 30, 14,
+        panelColor, "Attack");
+
+    this.harvestButton =        newButton(250, 110, 85, 30, 14,
         panelColor, "Harvest");
+
+    setButtonActions();
 
 
     this.attackPower =          newTextField(20, 160, 60, 30, 18,
@@ -157,10 +174,6 @@ public class DeckPanel extends JPanel implements Panel {
     this.toClockwiseMiddle =    newTextField(240, 210, 30, 30, 16,
         panelColor, " X ");
 
-
-    this.moveButton =        newButton(180, 250, 120, 30, 14,
-        panelColor, "Move");
-
 //    this.circleLabelBottom =    newTextField(20, 210, 30, 30, 16,
 //        panelColor, "C: ");
 //    this.circleBottom =         newTextField(50, 210, 30, 30, 16,
@@ -174,19 +187,17 @@ public class DeckPanel extends JPanel implements Panel {
 //    this.toClockwiseBottom =    newTextField(200, 210, 30, 30, 16,
 //        panelColor, " X ");
 
-    this.attackButton = newButton(30, 250, 120, 30, 14,
-        panelColor, "Attack");
-
     this.description =          newTextArea(30, 150, 300, 60, 16,
         panelColor, "A description of the effects of the action supplied by the action");
     description.setLineWrap(true);
     this.quote =                newTextField(30, 230, 250, 60, 16,
         panelColor, "Big long quote off the deck item");
-
   }
 
-  private void hideAll(){
-    introField.setVisible(false);
+  public void setCurrentPlayer(Player player){ this.currentPlayer = player; }
+
+  protected void hideAll(){
+    introField.setVisible(true);
 
     itemName.setVisible(false);
 
@@ -313,9 +324,9 @@ public class DeckPanel extends JPanel implements Panel {
     itemName.setText(village.getName());
     itemName.setVisible(true);
 
-    circleTop.setText(String.valueOf(village.getPosition().getCircle()));
-    blockTop.setText(String.valueOf(village.getPosition().getBlock()));
-    toClockwiseTop.setText(String.valueOf(village.getPosition().getClockwise()));
+    circleTop.setText(String.valueOf(village.getCell().getCellPosition().getCircle()));
+    blockTop.setText(String.valueOf(village.getCell().getCellPosition().getBlock()));
+    toClockwiseTop.setText(String.valueOf(village.getCell().getCellPosition().getClockwise()));
 
     food.setText(String.valueOf(village.getHarvestBounty()[0]));
     wood.setText(String.valueOf(village.getHarvestBounty()[1]));
@@ -345,8 +356,7 @@ public class DeckPanel extends JPanel implements Panel {
     deckPanel.setBackground(panelColor);
     deckPanel.setBounds(5, 340, 345, 315);
     deckPanel.setVisible(true);
-    Border blackline = BorderFactory.createLineBorder(Color.RED);
-    deckPanel.setBorder(blackline);
+    deckPanel.setBorder(BorderFactory.createLineBorder(Color.RED));
   }
 
   private JTextField newTextField(int xPos, int yPos, int width, int height, int fontSize,
@@ -357,6 +367,7 @@ public class DeckPanel extends JPanel implements Panel {
     field.setFont(new Font("Arial", Font.PLAIN, fontSize));
     field.setHorizontalAlignment(JTextField.CENTER);
     field.setBackground(color);
+    field.setBorder(null);
     field.setText(fieldText);
     deckPanel.add(field);
 
@@ -384,29 +395,13 @@ public class DeckPanel extends JPanel implements Panel {
     button.setVisible(false);
     button.setFont(new Font("Arial", Font.PLAIN, fontSize));
     button.setHorizontalAlignment(JTextField.CENTER);
+    button.setBackground(color);
 
     deckPanel.add(button);
-
-    button.addMouseListener(new MouseListener() {
-      @Override
-      public void mouseClicked(MouseEvent mouseEvent) { }
-
-      @Override
-      public void mousePressed(MouseEvent mouseEvent) {
-        System.out.println("Pressed button");
-      }
-
-      @Override
-      public void mouseReleased(MouseEvent mouseEvent) {  }
-
-      @Override
-      public void mouseEntered(MouseEvent mouseEvent) {  }
-
-      @Override
-      public void mouseExited(MouseEvent mouseEvent) {  }
-    });
-
     return button;
+  }
+
+  public void testFunction(){
   }
 
   /**
@@ -506,6 +501,82 @@ public class DeckPanel extends JPanel implements Panel {
    */
 
   public JTextField getItemNameField() { return introField; }
+
+  private void setButtonActions() {
+
+    attackButton.addMouseListener(new MouseListener() {
+      @Override
+      public void mouseClicked(MouseEvent mouseEvent) { }
+      @Override
+      public void mousePressed(MouseEvent mouseEvent) {
+        System.out.println(currentPlayer.getPlayerNumber() + " Attack!");
+      }
+      @Override
+      public void mouseReleased(MouseEvent mouseEvent) {  }
+      @Override
+      public void mouseEntered(MouseEvent mouseEvent) {  }
+      @Override
+      public void mouseExited(MouseEvent mouseEvent) {  }
+    });
+
+    moveButton.addMouseListener(new MouseListener() {
+      @Override
+      public void mouseClicked(MouseEvent mouseEvent) { }
+      @Override
+      public void mousePressed(MouseEvent mouseEvent) {
+        System.out.println(currentPlayer.getPlayerNumber() + " MOVE!");
+      }
+      @Override
+      public void mouseReleased(MouseEvent mouseEvent) {  }
+      @Override
+      public void mouseEntered(MouseEvent mouseEvent) {  }
+      @Override
+      public void mouseExited(MouseEvent mouseEvent) {  }
+    });
+
+    fortifyButton.addMouseListener(new MouseListener() {
+      @Override
+      public void mouseClicked(MouseEvent mouseEvent) { }
+      @Override
+      public void mousePressed(MouseEvent mouseEvent) {
+        System.out.println(currentPlayer.getPlayerNumber() + " Fortify!"); }
+      @Override
+      public void mouseReleased(MouseEvent mouseEvent) {  }
+      @Override
+      public void mouseEntered(MouseEvent mouseEvent) {  }
+      @Override
+      public void mouseExited(MouseEvent mouseEvent) {  }
+    });
+
+    foundVillageButton.addMouseListener(new MouseListener() {
+      @Override
+      public void mouseClicked(MouseEvent mouseEvent) { }
+      @Override
+      public void mousePressed(MouseEvent mouseEvent) {
+        System.out.println(currentPlayer.getPlayerNumber() +" Found!");
+      }
+      @Override
+      public void mouseReleased(MouseEvent mouseEvent) {  }
+      @Override
+      public void mouseEntered(MouseEvent mouseEvent) {  }
+      @Override
+      public void mouseExited(MouseEvent mouseEvent) {  }
+    });
+
+    harvestButton.addMouseListener(new MouseListener() {
+      @Override
+      public void mouseClicked(MouseEvent mouseEvent) { }
+      @Override
+      public void mousePressed(MouseEvent mouseEvent) {
+        System.out.println(currentPlayer.getPlayerNumber() + " Harvest!"); }
+      @Override
+      public void mouseReleased(MouseEvent mouseEvent) {  }
+      @Override
+      public void mouseEntered(MouseEvent mouseEvent) {  }
+      @Override
+      public void mouseExited(MouseEvent mouseEvent) {  }
+    });
+  }
 
   @Override
   public void actionPerformed(ActionEvent actionEvent) {  }

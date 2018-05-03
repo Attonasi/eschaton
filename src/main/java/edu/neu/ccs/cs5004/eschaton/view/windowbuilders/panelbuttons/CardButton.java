@@ -6,6 +6,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
+import edu.neu.ccs.cs5004.eschaton.model.player.Player;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.Deck;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.DeckItemInterface;
 import edu.neu.ccs.cs5004.eschaton.model.player.deck.deckitems.actions.ActionInterface;
@@ -22,17 +23,19 @@ public class CardButton {
   private JButton button;
   private Point point;
   private DeckItemInterface card;
+  private Player player;
 
 
   public CardButton(DeckPanel deckPanel, Point point, int width, String actionName,
-                    GameFrame gameFrame, DeckItemInterface card) {
+                    GameFrame gameFrame, DeckItemInterface card, Player player) {
     this.deckPanel = deckPanel;
     this.button = new JButton(actionName);
     this.point = point;
     this.gameFrame = gameFrame;
     this.card = card;
+    this.player = player;
 
-    button.setBounds(point.x, point.y, width, 30);
+    button.setBounds(point.x, point.y, width, 25);
 
     button.addMouseListener(new MouseListener() {
       @Override
@@ -54,10 +57,13 @@ public class CardButton {
   private void callDeckPanelMethod(DeckItemInterface card){
     if(card instanceof UnitInterface){
       deckPanel.showUnitInfo((UnitInterface) card);
+      deckPanel.setCurrentPlayer(player);
     }else if (card instanceof ActionInterface){
       deckPanel.showActionInfo((ActionInterface) card);
+      deckPanel.setCurrentPlayer(player);
     }else if (card instanceof VillageInterface){
       deckPanel.showVillageInfo((VillageInterface) card);
+      deckPanel.setCurrentPlayer(player);
     }
   }
 

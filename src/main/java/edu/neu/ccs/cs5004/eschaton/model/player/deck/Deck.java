@@ -34,12 +34,11 @@ public class Deck implements DeckInterface {
     this.startCell = map.getCellAtPosition(startPosition);
     this.startCell2 = map.getCellAtPoint(new Point(500, 310));
 
-    deck.add(new Militia(startPosition));
-    deck.add(new Militia(startPosition));
+    deck.add(new Militia(startCell));
+    deck.add(new Militia(startCell));
     deck.add(new MakeAmalicum());
-    deck.add(new Village(player, startPosition, new Plains(startPosition, new Point(10, 10),
-        2)));
-    deck.add(new Militia(startPosition));
+    deck.add(new Village(player,startCell));
+    deck.add(new Militia(startCell));
     deck.add(new MakeAmalicum());
 
 

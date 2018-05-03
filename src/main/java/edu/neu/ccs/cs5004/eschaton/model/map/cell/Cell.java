@@ -29,8 +29,6 @@ public abstract class Cell implements CellInterface{
     this.point = point;
     this.special = special;
     this.contents = createCellContents();
-    this.unitList = unitList;
-    unitList.add(new Militia(cellPosition));
   }
 
   protected abstract Contents createCellContents();
@@ -55,6 +53,14 @@ public abstract class Cell implements CellInterface{
   @Override
   public List<Unit> getUnits() {
     return unitList;
+  }
+
+  public String getUnitNameAtIndex(Integer index) {
+    if (unitList.size() > index) {
+      return unitList.get(index).getName();
+    } else {
+      return "";
+    }
   }
 
   /**

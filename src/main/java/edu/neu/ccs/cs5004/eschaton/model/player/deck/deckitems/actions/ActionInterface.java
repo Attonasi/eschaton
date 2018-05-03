@@ -14,7 +14,7 @@ public interface ActionInterface extends DeckItemInterface {
    */
   void playAction(Player player);
 
-  int[] getCost();
+  Integer[] getCost();
 
   /**
    * Every Action has a cost. This will be a helper method called byt the playAction method to adjust the player's
@@ -22,7 +22,7 @@ public interface ActionInterface extends DeckItemInterface {
    *
    * @param player Player that played the action and needs to spend money to do so.
    */
-  void payCost(Player player, int[] cost);
+  void payCost(Player player, Integer[] cost);
 
   String getDescription();
 }

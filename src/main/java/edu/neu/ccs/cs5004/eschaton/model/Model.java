@@ -20,6 +20,7 @@ public class Model implements ModelInterface {
     for(int i = 0; i < config.getNumberOfPlayers(); i++){
       players.add(new Player(config.getPlayerStartPositions()[i], map, i));
     }
+    players.get(1).getDeck().draw();
   }
 
   public Map getMap() {

@@ -37,7 +37,7 @@ public class Eschaton {
     GameFrame gameFrame = new GameFrame(model);
 
 
-    Eschaton eschaton = new Eschaton(config, model, gameFrame);
+//    Eschaton eschaton = new Eschaton(config, model, gameFrame);
 
     gameFrame.launch();
   }
